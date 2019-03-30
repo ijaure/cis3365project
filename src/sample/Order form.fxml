@@ -15,7 +15,7 @@
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="PRODUCT" textFill="#f8f3f8">
+            <Label text="ORDER" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -25,15 +25,15 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="54.0" prefHeight="480.0" prefWidth="419.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="54.0" prefHeight="600.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="467.0" prefWidth="410.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="845.0" prefWidth="410.0">
                <children>
-                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="332.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="23.0" prefHeight="483.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
-                        <Label text="Product Information">
+                        <Label text="Order Information">
                            <VBox.margin>
-                              <Insets left="88.0" top="20.0" />
+                              <Insets left="95.0" top="20.0" />
                            </VBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="18.0" />
@@ -44,7 +44,7 @@
                         </Label>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Product Name">
+                              <Label opacity="0.61" text="Order Date">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
@@ -55,12 +55,12 @@
                                     <Insets bottom="-5.0" left="65.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="Product Type">
+                              <Label opacity="0.61" text="Product">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="92.0" />
+                                    <Insets left="112.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -70,15 +70,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Product Name">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
+                              <DatePicker prefHeight="25.0" prefWidth="149.0">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </TextField>
-                              <ChoiceBox prefWidth="149.0">
+                              </DatePicker>
+                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -90,7 +87,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Product Size">
+                              <Label opacity="0.61" text="Quantity">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
@@ -98,12 +95,55 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="Vendor">
+                              <Label opacity="0.61" text="Order Line Status">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="103.0" />
+                                    <Insets left="125.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField promptText="Quantity">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Delivery Date">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Delivery Time">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="98.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -113,12 +153,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Product Size">
+                              <DatePicker prefHeight="25.0" prefWidth="149.0">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </TextField>
-                              <TextField promptText="Vendor">
+                              </DatePicker>
+                              <TextField promptText="Delivery Time">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -127,7 +167,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Price">
+                              <Label opacity="0.61" text="Order Complete Date">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
@@ -138,12 +178,12 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="Price Last Updated">
+                              <Label opacity="0.61" text="Order Status">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="145.0" />
+                                    <Insets left="52.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -153,48 +193,38 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Price">
-                                 <VBox.margin>
-                                    <Insets left="15.0" />
-                                 </VBox.margin>
-                              </TextField>
                               <DatePicker prefHeight="25.0" prefWidth="149.0">
                                  <HBox.margin>
-                                    <Insets left="25.0" />
+                                    <Insets left="15.0" />
                                  </HBox.margin>
                               </DatePicker>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="15.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <Label opacity="0.61" text="Product Status">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
+                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
                                  <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <ChoiceBox prefWidth="149.0">
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
+                                    <Insets left="25.0" />
                                  </HBox.margin>
                               </ChoiceBox>
                            </children>
                         </HBox>
+                        <Label opacity="0.61" text="Order Notes">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextArea prefHeight="104.0" prefWidth="329.0" promptText="Order Notes">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="17.0" />
+                                 </HBox.margin>
+                              </TextArea>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="136.0" layoutY="354.0" prefHeight="0.0" prefWidth="138.0">
+                  <VBox layoutX="137.0" layoutY="733.0" prefHeight="55.0" prefWidth="138.0">
                      <padding>
                         <Insets top="30.0" />
                      </padding>
@@ -212,6 +242,39 @@
                         </Button>
                      </children>
                   </VBox>
+                  <VBox layoutX="27.0" layoutY="583.0" prefHeight="150.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                     <children>
+                        <Label text="Payment Information">
+                           <font>
+                              <Font name="Microsoft JhengHei UI Light" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="95.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label opacity="0.61" text="Order Total">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="25.0" prefWidth="149.0">
+                           <children>
+                              <TextField prefHeight="25.0" prefWidth="323.0" promptText="Order Total ex. 300.00" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox />
+                     </children>
+                  </VBox>
+                  <Separator layoutX="38.0" layoutY="539.0" prefHeight="14.0" prefWidth="338.0" />
                </children>
             </AnchorPane>
          </content>

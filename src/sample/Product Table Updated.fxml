@@ -19,11 +19,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="426.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="427.0" prefWidth="564.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #916D91;">
+      <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="ORDER TABLE" textFill="#f8f3f8">
+            <Label text="PRODUCT TABLE" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -33,18 +33,18 @@
             </Label>
          </children>
       </HBox>
-    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="800.0">
+    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="607.0">
          <children>
-            <HBox layoutY="318.0" prefHeight="48.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
+            <HBox layoutY="318.0" prefHeight="48.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #916D91;" text="New Order" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #916D91;" text="New Product" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="240.0" top="6.0" />
+                              <Insets left="150.0" top="6.0" />
                            </HBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -74,11 +74,11 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Order Status Table" />
-                              <MenuItem mnemonicParsing="false" text="View Order Line Table" />
-                              <MenuItem mnemonicParsing="false" text="View Order Line Status Table" />
                               <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
-                              <MenuItem mnemonicParsing="false" text="View Notes Table" />
+                              <MenuItem mnemonicParsing="false" text="View Product Type Table" />
+                              <MenuItem mnemonicParsing="false" text="View Product Status Table" />
+                            <MenuItem mnemonicParsing="false" text="Add Vendor" />
+                              <MenuItem mnemonicParsing="false" text="Add Order" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -100,18 +100,18 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="752.0" prefWidth="800.0">
+            <ScrollPane hbarPolicy="ALWAYS" prefHeight="319.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0">
                <content>
-                  <TableView prefHeight="318.0" prefWidth="842.0">
+                  <TableView prefHeight="317.0" prefWidth="708.0">
                     <columns>
                       <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="95.0" text="Order Date" />
-                        <TableColumn text="Client" />
-                        <TableColumn text="Status" />
-                        <TableColumn prefWidth="110.0" text="Delivery Date" />
-                        <TableColumn prefWidth="110.0" text="Delivery Time" />
-                        <TableColumn prefWidth="120.0" text="Complete Date" />
-                        <TableColumn prefWidth="70.0" text="Notes" />
+                        <TableColumn prefWidth="115.0" text="Product Name" />
+                        <TableColumn text="Vendor" />
+                        <TableColumn prefWidth="60.0" text="Size" />
+                        <TableColumn prefWidth="70.0" text="Type" />
+                        <TableColumn prefWidth="70.0" text="Status" />
+                        <TableColumn prefWidth="70.0" text="Price" />
+                        <TableColumn prefWidth="135.0" text="Price Last Updated" />
                     </columns>
                   </TableView>
                </content>

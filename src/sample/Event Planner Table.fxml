@@ -19,11 +19,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="426.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="416.0" prefWidth="577.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #916D91;">
+      <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="ORDER TABLE" textFill="#f8f3f8">
+            <Label text="EVENT PLANNER TABLE" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -33,22 +33,33 @@
             </Label>
          </children>
       </HBox>
-    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="800.0">
+    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="365.0" prefWidth="607.0">
          <children>
-            <HBox layoutY="318.0" prefHeight="48.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
+            <HBox layoutY="318.0" prefHeight="47.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #916D91;" text="New Order" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #916D91;" text="Event Table" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="240.0" top="6.0" />
+                              <Insets left="135.0" top="6.0" />
                            </HBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #916D91;" text="Planner Table" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
                         </Button>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Update" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
@@ -72,27 +83,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
-                          <items>
-                              <MenuItem mnemonicParsing="false" text="View Order Status Table" />
-                              <MenuItem mnemonicParsing="false" text="View Order Line Table" />
-                              <MenuItem mnemonicParsing="false" text="View Order Line Status Table" />
-                              <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
-                              <MenuItem mnemonicParsing="false" text="View Notes Table" />
-                          </items>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <rotationAxis>
-                              <Point3D />
-                           </rotationAxis>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </MenuButton>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />
@@ -100,18 +90,13 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="752.0" prefWidth="800.0">
+            <ScrollPane hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0">
                <content>
-                  <TableView prefHeight="318.0" prefWidth="842.0">
+                  <TableView prefHeight="317.0" prefWidth="641.0">
                     <columns>
                       <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="95.0" text="Order Date" />
-                        <TableColumn text="Client" />
-                        <TableColumn text="Status" />
-                        <TableColumn prefWidth="110.0" text="Delivery Date" />
-                        <TableColumn prefWidth="110.0" text="Delivery Time" />
-                        <TableColumn prefWidth="120.0" text="Complete Date" />
-                        <TableColumn prefWidth="70.0" text="Notes" />
+                        <TableColumn prefWidth="90.0" text="Event ID" />
+                        <TableColumn prefWidth="90.0" text="Planner ID" />
                     </columns>
                   </TableView>
                </content>
