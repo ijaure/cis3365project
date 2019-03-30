@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="55.0" prefWidth="419.0" style="-fx-background-color: #916D91;">
+         <children>
+            <Label text="EMPLOYEE" textFill="#f8f3f8">
+               <font>
+                  <Font name="Microsoft YaHei UI Light" size="29.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="25.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="55.0" prefHeight="600.0" prefWidth="419.0">
+         <content>
+            <AnchorPane prefHeight="1669.0" prefWidth="410.0">
+               <children>
+                  <VBox layoutX="24.0" layoutY="25.0" prefHeight="515.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                     <children>
+                        <Label text="Employee Information">
+                           <VBox.margin>
+                              <Insets left="85.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Microsoft JhengHei UI Light" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="First Name">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Last Name">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="112.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField promptText="First Name">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField promptText="Last Name">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Gender">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Date of Birth">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="75.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Marital Status">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <ChoiceBox prefHeight="25.0" prefWidth="90.0">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <DatePicker prefHeight="25.0" prefWidth="100.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                              <ChoiceBox prefHeight="25.0" prefWidth="82.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="7.0" prefWidth="355.0">
+                           <children>
+                              <Label opacity="0.61" text="Employee Type">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Social Security #">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="88.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="15.0" prefWidth="355.0">
+                           <children>
+                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Social Security Number">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Status">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="3.0" prefWidth="355.0">
+                           <children>
+                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <CheckBox alignment="CENTER" mnemonicParsing="false" text="Tax Paperwork on File">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                        <Label opacity="0.61" text="Street">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="278.0" promptText="ex. 1234 Orange St.">
+                           <VBox.margin>
+                              <Insets left="15.0" right="17.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="City">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="State">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="152.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Zip Code">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="37.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField promptText="City Name">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <ChoiceBox prefHeight="25.0" prefWidth="45.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <TextField prefHeight="25.0" prefWidth="81.0" promptText="Zip Code">
+                                 <HBox.margin>
+                                    <Insets left="22.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Citizenship">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox />
+                        <HBox>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="25.0" layoutY="951.0" prefHeight="524.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                     <children>
+                        <Label text="Job Information">
+                           <font>
+                              <Font name="Microsoft JhengHei UI Light" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label opacity="0.61" text="Position">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="278.0" promptText="Position">
+                           <VBox.margin>
+                              <Insets left="15.0" right="17.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Job Description">
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Date Started">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="85.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Job Description">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <DatePicker prefHeight="25.0" prefWidth="149.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Starting Salary">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Current Salary">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="91.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="ex. $25000">
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="37.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="ex. $25000">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Label opacity="0.61" text="TABC Certification Date">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="28.0" prefWidth="355.0">
+                           <children>
+                              <DatePicker prefHeight="25.0" prefWidth="149.0">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <CheckBox alignment="CENTER" mnemonicParsing="false" text="Job Application on File">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="20.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                        <Label opacity="0.61" text="Termination Details">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextArea prefHeight="125.0" prefWidth="326.0" promptText="Termination Details">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextArea>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="24.0" layoutY="600.0" prefHeight="227.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                     <children>
+                        <Label text="Contact Information">
+                           <font>
+                              <Font name="Microsoft JhengHei UI Light" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="90.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Phone Number">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Email">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="87.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Phone Number">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField promptText="Email Address">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Emergency Contact Name">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="First Name">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="37.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Last Name">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Emergency Contact Phone">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Emergency Contact Email">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Phone Number">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Email">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="28.0" prefWidth="355.0" />
+                        <HBox />
+                        <HBox>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox layoutX="135.0" layoutY="1475.0">
+                     <children>
+                        <VBox layoutX="138.0" layoutY="1540.0" prefHeight="55.0" prefWidth="138.0">
+                           <padding>
+                              <Insets bottom="30.0" top="30.0" />
+                           </padding>
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI Light" size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator layoutX="32.0" layoutY="562.0" prefHeight="14.0" prefWidth="338.0" />
+                  <Separator layoutX="32.0" layoutY="910.0" prefHeight="14.0" prefWidth="338.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
