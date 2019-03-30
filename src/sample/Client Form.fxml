@@ -259,12 +259,12 @@
                            </VBox.margin>
                         </Label>
                         <HBox>
-                           <children>
-                              <TextField prefHeight="25.0" prefWidth="323.0" promptText="Payment Requirements" />
-                           </children>
                            <VBox.margin>
                               <Insets left="15.0" />
                            </VBox.margin>
+                           <children>
+                              <ChoiceBox prefWidth="149.0" />
+                           </children>
                         </HBox>
                      </children>
                   </VBox>
