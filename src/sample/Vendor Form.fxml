@@ -30,7 +30,7 @@
             <AnchorPane prefHeight="1213.0" prefWidth="383.0">
                <children>
                   <Separator layoutX="34.0" layoutY="698.0" prefHeight="14.0" prefWidth="338.0" />
-                  <Separator layoutX="34.0" layoutY="336.0" prefHeight="14.0" prefWidth="338.0" style="-fx-border-style: dash;" />
+                  <Separator layoutX="34.0" layoutY="336.0" prefHeight="14.0" prefWidth="338.0" />
                   <VBox layoutX="25.0" layoutY="743.0" prefHeight="351.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Payment Information">

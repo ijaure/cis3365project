@@ -39,7 +39,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #916D91;" text="New Vendor" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openVendorForm" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #916D91;" text="New Vendor" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -99,25 +99,9 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0">
+            <ScrollPane prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="319.0" prefWidth="1450.0">
-                    <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="135.0" text="Contact First Name" />
-                        <TableColumn prefWidth="135.0" text="Contact Last Name" />
-                        <TableColumn prefWidth="70.0" text="Status" />
-                        <TableColumn prefWidth="85.0" text="Join Date" />
-                        <TableColumn prefWidth="120.0" text="Company Phone" />
-                        <TableColumn prefWidth="110.0" text="Mobile Phone" />
-                        <TableColumn prefWidth="70.0" text="Email" />
-                        <TableColumn text="Address" />
-                        <TableColumn prefWidth="70.0" text="State" />
-                        <TableColumn prefWidth="95.0" text="Credit Limit" />
-                        <TableColumn prefWidth="110.0" text="Acct. Number" />
-                        <TableColumn prefWidth="115.0" text="Payment Terms" />
-                    </columns>
-                  </TableView>
+                  <TableView fx:id="vendorTable" maxHeight="1000.0" prefHeight="319.0" prefWidth="2400.0" />
                </content>
             </ScrollPane>
          </children>

@@ -13,7 +13,7 @@ public class HomePageController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Employee Table Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Employee Management");
+            stage.setTitle("Employee Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -27,7 +27,21 @@ public class HomePageController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ClientTable Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Client Management");
+            stage.setTitle("Client Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //open vendors table
+    public void openVendors() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Vendor Table Updated.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Vendor Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

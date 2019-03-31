@@ -28,23 +28,15 @@ public class Main extends Application {
         String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         try {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        Connection conn = DriverManager.getConnection(url);
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection(url);
 
-        if(conn != null) //if it connected successfully
-        {
-            System.out.println("Connection successful");
-        }
+            if(conn != null) //if it connected successfully
+            {
+                System.out.println("Connection successful");
+            }
 
-        // use this to output data from a table if you want to check the connection
-        /*Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from Customer");
-
-        while (rs.next())
-            System.out.println(rs.getInt(1) + "  " + rs.getString(2)); //output values in 2 columns
-        */
-
-        conn.close();
+            conn.close();
         }
         catch (Exception e) //catch any exceptions
         {
