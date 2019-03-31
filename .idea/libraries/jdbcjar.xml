@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jdbcjar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/jdbcjar" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/jdbcjar" />
+    </NATIVE>
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/jdbcjar" recursive="false" />
+  </library>
+</component>

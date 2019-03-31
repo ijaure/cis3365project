@@ -6,9 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Main extends Application {
 
@@ -21,22 +19,39 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) throws SQLException {
-        // receiving Class Not Found Exception,
-        // but this works in the Database tools window w/ this URL: jdbc:sqlserver://localhost\\SQLEXPRESS
-        // connect via Data Source -> Microsoft SQL Server
-        // make sure to select "Use Windows domain authentication"
+    public static void main(String[] args) {
+        // NOTE: Copy the sqljdbc_auth.dll from the jdbcjar folder in the project
+        // and paste it to your JDK bin in C:\Program Files\Java\jdk-11.0.2\bin
+        // this is to allow Windows authentication to work so you don't have to use a username & password
+        // Also, make sure you add a path in Project Structure -> Libraries to the jdbcjar folder
 
-        /*String url = "jdbc:sqlserver://localhost\\SQLEXPRESS";
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
-        try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection conn = DriverManager.getConnection(url);
+        try {
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Connection conn = DriverManager.getConnection(url);
+
+        if(conn != null) //if it connected successfully
+        {
+            System.out.println("Connection successful");
         }
-        catch(ClassNotFoundException e)
+
+        // use this to output data from a table if you want to check the connection
+        /*Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from Customer");
+
+        while (rs.next())
+            System.out.println(rs.getInt(1) + "  " + rs.getString(2)); //output values in 2 columns
+        */
+
+        conn.close();
+        }
+        catch (Exception e) //catch any exceptions
         {
             e.printStackTrace();
-        }*/
+        }
+
+
 
         launch(args);
     }
