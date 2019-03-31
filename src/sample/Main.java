@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Main extends Application {
 
     @Override
@@ -17,7 +21,22 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        // receiving Class Not Found Exception,
+        // but this works in the Database tools window w/ this URL: jdbc:sqlserver://localhost\\SQLEXPRESS
+        // connect via Data Source -> Microsoft SQL Server
+        // make sure to select "Use Windows domain authentication"
+
+        /*String url = "jdbc:sqlserver://localhost\\SQLEXPRESS";
+
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection(url);
+        }
+        catch(ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }*/
 
         launch(args);
     }
