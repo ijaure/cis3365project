@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="427.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="427.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.VendorTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #916D91;">
          <children>
@@ -101,7 +101,24 @@
             </HBox>
             <ScrollPane prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
-                  <TableView fx:id="vendorTable" maxHeight="1000.0" prefHeight="319.0" prefWidth="2400.0" />
+                  <TableView fx:id="vendorTable" maxHeight="1000.0" prefHeight="319.0" prefWidth="2400.0">
+                   <columns>
+                       <TableColumn fx:id="vendorIDCol" prefWidth="40.0" text="ID" />
+                       <TableColumn fx:id="vendorNameCol" prefWidth="120.0" text="Vendor Name" />
+                       <TableColumn fx:id="vendorContactFirstCol" prefWidth="135.0" text="Contact First Name" />
+                       <TableColumn fx:id="vendorContactLastCol" prefWidth="135.0" text="Contact Last Name" />
+                       <TableColumn fx:id="vendorStatusFKIDCol" prefWidth="70.0" text="Status ID" />
+                       <TableColumn fx:id="vendorJoinDateCol" prefWidth="85.0" text="Join Date" />
+                       <TableColumn fx:id="vendorPhoneCol" prefWidth="120.0" text="Company Phone" />
+                       <TableColumn fx:id="vendorMobileCol" prefWidth="110.0" text="Mobile Phone" />
+                       <TableColumn fx:id="vendorEmailCol" prefWidth="70.0" text="Email" />
+                       <TableColumn fx:id="vendorAddressCol" text="Address" />
+                       <TableColumn fx:id="vendorRegionCol" prefWidth="70.0" text="Region ID" />
+                       <TableColumn fx:id="vendorCreditCol" prefWidth="95.0" text="Credit Limit" />
+                       <TableColumn fx:id="vendorAcctCol" prefWidth="110.0" text="Acct. Number" />
+                       <TableColumn fx:id="vendorPayTermsCol" prefWidth="115.0" text="Payment Terms" />
+                   </columns>
+               </TableView>
                </content>
             </ScrollPane>
          </children>
