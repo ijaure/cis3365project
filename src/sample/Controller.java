@@ -1,36 +1,7 @@
 package sample;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 public class Controller {
-    //open the employees form from the "New Employee" button in employees table
-    public void openEmployeeForm(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Employee Form.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("New Employee");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    //open client from from Clients table
-    public void openClientForm(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Client Form.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("New Client");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    //This is a temporary controller that is assigned by default to all the fxml files
+    //Each fxml file will need its own controller with an initialize() method that loads data from the db
+    //See the VendorTableController and VendorFormController for examples
 }

@@ -10,7 +10,7 @@ public class HomePageController {
     //load the employees table
     public void openEmployees() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Employee Table Updated.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Employee Table Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Employee Table");
@@ -24,7 +24,7 @@ public class HomePageController {
     //load the clients table
     public void openClients() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ClientTable Updated.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/ClientTable Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Client Table");
@@ -38,7 +38,7 @@ public class HomePageController {
     //open vendors table
     public void openVendors() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Vendor Table Updated.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Vendor Table Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Vendor Table");

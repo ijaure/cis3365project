@@ -18,48 +18,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="412.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="426.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="CLIENT TABLE" textFill="#f8f3f8">
+            <Label text="EMPLOYEE TABLE" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
-               <padding>
+               <HBox.margin>
                   <Insets left="25.0" top="10.0" />
-               </padding>
+               </HBox.margin>
             </Label>
-         </children></HBox>
-    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="352.0" prefWidth="800.0">
+         </children>
+      </HBox>
+    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="800.0">
          <children>
-            <ScrollPane prefHeight="305.0" prefViewportHeight="306.0" prefViewportWidth="1052.0" prefWidth="800.0">
-               <content>
-                  <TableView prefHeight="306.0" prefWidth="1250.0">
-                    <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="90.0" text="First Name" />
-                        <TableColumn prefWidth="90.0" text="Last Name" />
-                        <TableColumn prefWidth="90.0" text="Co. Name" />
-                        <TableColumn prefWidth="70.0" text="Status" />
-                        <TableColumn prefWidth="100.0" text="Billing Street" />
-                        <TableColumn prefWidth="90.0" text="Billing City" />
-                        <TableColumn prefWidth="90.0" text="Billing Zip" />
-                        <TableColumn prefWidth="65.0" text="State" />
-                        <TableColumn prefWidth="105.0" text="Main Phone" />
-                        <TableColumn prefWidth="120.0" text="Secondary Phone" />
-                        <TableColumn prefWidth="70.0" text="Email" />
-                        <TableColumn text="CC Email" />
-                        <TableColumn text="Website" />
-                    </columns>
-                  </TableView>
-               </content>
-            </ScrollPane>
-            <HBox layoutY="305.0" prefHeight="48.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
+            <HBox layoutY="318.0" prefHeight="48.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" onAction="#openClientForm" style="-fx-background-color: #916D91;" text="New Client" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #916D91;" text="New Employee" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -94,11 +73,11 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Payment Info Table" />
-                              <MenuItem mnemonicParsing="false" text="View Client Status Table" />
-                              <MenuItem mnemonicParsing="false" text="View Region Table" />
+                              <MenuItem mnemonicParsing="false" text="View Emp. Type Table" />
+                              <MenuItem mnemonicParsing="false" text="View Emp. Status Table" />
+                              <MenuItem mnemonicParsing="false" text="View Emp. Emergency Contact Table" />
+                              <MenuItem mnemonicParsing="false" text="View Emp. Tax Info Table" />
                             <MenuItem mnemonicParsing="false" text="Add Event" />
-                            <MenuItem mnemonicParsing="false" text="Add Order" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -106,6 +85,9 @@
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
+                           <rotationAxis>
+                              <Point3D />
+                           </rotationAxis>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -117,6 +99,32 @@
                   </HBox>
                </children>
             </HBox>
+            <ScrollPane hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="800.0">
+               <content>
+                  <TableView prefHeight="318.0" prefWidth="1570.0">
+                    <columns>
+                      <TableColumn prefWidth="40.0" text="ID" />
+                      <TableColumn prefWidth="95.0" text="First Name" />
+                        <TableColumn prefWidth="95.0" text="Last Name" />
+                        <TableColumn prefWidth="70.0" text="Gender" />
+                        <TableColumn prefWidth="70.0" text="DOB" />
+                        <TableColumn prefWidth="110.0" text="Marital Status" />
+                        <TableColumn text="Address" />
+                        <TableColumn prefWidth="70.0" text="State" />
+                        <TableColumn prefWidth="70.0" text="Phone" />
+                        <TableColumn prefWidth="70.0" text="Type" />
+                        <TableColumn prefWidth="90.0" text="1099/W-2" />
+                        <TableColumn prefWidth="90.0" text="Emp. Status" />
+                        <TableColumn prefWidth="115.0" text="Contract/Emp." />
+                        <TableColumn prefWidth="100.0" text="App. On File" />
+                        <TableColumn prefWidth="95.0" text="TABC Cert." />
+                        <TableColumn prefWidth="95.0" text="TABC Exp." />
+                        <TableColumn prefWidth="70.0" text="SSN" />
+                        <TableColumn prefWidth="100.0" text="Citizenship" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
    </children>
