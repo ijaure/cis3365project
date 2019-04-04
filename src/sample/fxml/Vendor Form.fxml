@@ -337,11 +337,11 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <DatePicker fx:id="vendorJoinInput" prefHeight="25.0" prefWidth="149.0">
+                              <TextField fx:id="vendorJoinInput" prefHeight="25.0" prefWidth="149.0" promptText="ex. MM/dd/yyy">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </DatePicker>
+                              </TextField>
                            </children>
                         </HBox>
                      </children>
