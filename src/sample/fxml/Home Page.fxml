@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="276.0" style="-fx-background-color: #8e6184;">
+               <children>
+                  <Pane prefHeight="116.0" prefWidth="276.0">
+                     <children>
+                        <ImageView fitHeight="86.0" fitWidth="55.0" layoutX="110.0" layoutY="14.0">
+                           <image>
+                              <Image url="@../../../../Downloads/edebf091b0615e282c0fd515a1ae3970_logomidsize.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" stylesheets="@css/styling.css" text="Client" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="41.0">
+                           <image>
+                              <Image url="@../../../../Downloads/kisspng-businessman-customer-logo-customer-service-compute-boss-svg-png-icon-free-download-455498-online-5ba3be865bd144.8094734615374577983761.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" stylesheets="@css/styling.css" text="Employees" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../../../../Downloads/844929_people_512x512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" stylesheets="@css/styling.css" text="Venue" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="41.0">
+                           <image>
+                              <Image url="@../../../../Downloads/101455-200.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" stylesheets="@css/styling.css" text="Reports" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="41.0">
+                           <image>
+                              <Image url="@../../../../Downloads/report_document_reports_paper-512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox layoutX="288.0" layoutY="200.0" prefHeight="356.0" prefWidth="603.0">
+               <children>
+                  <GridPane prefHeight="543.0" prefWidth="603.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="170.66668023003473" minHeight="10.0" prefHeight="66.22222222222223" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="303.55555046929254" minHeight="10.0" prefHeight="290.22222222222223" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@css/styling.css" GridPane.rowIndex="1">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID" />
+                            <TableColumn prefWidth="75.0" text="FirstName" />
+                              <TableColumn prefWidth="75.0" text="Lastname" />
+                              <TableColumn prefWidth="75.0" text="Created At" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button mnemonicParsing="false" stylesheets="@css/styling.css" text="Search" textFill="WHITE">
+                           <graphic>
+                              <TextField maxWidth="-Infinity" minHeight="-Infinity" prefHeight="23.0" prefWidth="305.0" />
+                           </graphic>
+                           <font>
+                              <Font name="Ebrima Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <Pane layoutX="275.0" layoutY="83.0" prefHeight="95.0" prefWidth="625.0" style="-fx-background-color: #8e6184;" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
