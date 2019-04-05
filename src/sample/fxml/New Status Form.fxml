@@ -15,7 +15,7 @@
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="REGION" textFill="#f8f3f8">
+            <Label text="NEW STATUS" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -27,11 +27,11 @@
       </HBox>
       <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="54.0" prefHeight="360.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="350.0" prefWidth="410.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="333.0" prefWidth="410.0">
                <children>
-                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="162.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="167.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
-                        <Label text="Region Information">
+                        <Label text="Status Information">
                            <VBox.margin>
                               <Insets left="98.0" top="20.0" />
                            </VBox.margin>
@@ -44,7 +44,7 @@
                         </Label>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Region Name">
+                              <Label opacity="0.61" text="Status Name">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
@@ -59,7 +59,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Region Name">
+                              <TextField promptText="Name of New Status">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -69,25 +69,31 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <HBox />
                      </children>
                   </VBox>
-                  <VBox layoutX="137.0" layoutY="184.0" prefHeight="0.0" prefWidth="138.0">
+                  <VBox layoutX="137.0" layoutY="189.0" prefHeight="0.0" prefWidth="138.0">
                      <padding>
                         <Insets top="30.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
-                           <font>
-                              <Font name="Microsoft JhengHei UI Light" size="23.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
+                        <MenuButton alignment="CENTER" mnemonicParsing="false" popupSide="TOP" prefHeight="46.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
+                           <font>
+                              <Font name="Microsoft YaHei UI Light" size="23.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Submit Employee Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Client Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Order Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Product Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Order Line Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Venue Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Event Status" />
+                              <MenuItem mnemonicParsing="false" text="Submit Vendor Status" />
+                           </items>
+                        </MenuButton>
                      </children>
                   </VBox>
                </children>

@@ -70,7 +70,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Update" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>

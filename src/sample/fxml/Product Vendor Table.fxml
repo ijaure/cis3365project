@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="426.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="461.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -34,11 +34,11 @@
       </HBox>
     <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="607.0">
          <children>
-            <HBox layoutY="318.0" prefHeight="48.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
+            <HBox layoutY="318.0" prefHeight="83.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Update" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="200.0" top="6.0" />
                            </HBox.margin>
@@ -97,5 +97,23 @@
             </ScrollPane>
          </children>
       </AnchorPane>
+      <HBox layoutX="406.0" layoutY="453.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Microsoft JhengHei UI" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="-120.0" top="-25.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>
