@@ -9,6 +9,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import javafx.util.converter.DateStringConverter;
+import javafx.util.converter.NumberStringConverter;
 
 import java.sql.*;
 import java.text.DateFormat;
@@ -120,6 +122,7 @@ public class VendorTableController {
 
     public void updateVendor(){
         //turn the cells into editable text fields
+        // NOTE: This is the
         vendorNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         vendorNameCol.setOnEditCommit(
                 (TableColumn.CellEditEvent<Vendor, String> t) ->
@@ -128,30 +131,29 @@ public class VendorTableController {
                         ).setVendor_name(t.getNewValue())
         );
 
-        //TODO need to change this since this won't work for Date or Number
-        /*vendorAcctCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorAcctCol.setCellFactory(TextFieldTableCell.<Vendor, Number>forTableColumn(new NumberStringConverter()));
         vendorAcctCol.setOnEditCommit(
                 (TableColumn.CellEditEvent<Vendor, Number> t) ->
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setVendor_acc_num(t.getNewValue())
-        );*/
+                        ).setVendor_acc_num(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
 
-        /*vendorJoinDateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorJoinDateCol.setCellFactory(TextFieldTableCell.<Vendor, Date>forTableColumn(new DateStringConverter()));
         vendorJoinDateCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<Vendor, Number> t) ->
+                (TableColumn.CellEditEvent<Vendor, Date> t) ->
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setVendor_acc_num(t.getNewValue())
-        );*/
+                        ).setVendor_join_date(t.getNewValue())
+        );
 
-        /*vendorStatusFKIDCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorStatusFKIDCol.setCellFactory(TextFieldTableCell.<Vendor, Number>forTableColumn(new NumberStringConverter()));
         vendorStatusFKIDCol.setOnEditCommit(
                 (TableColumn.CellEditEvent<Vendor, Number> t) ->
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setVendor_acc_num(t.getNewValue())
-        );*/
+                        ).setVendor_status_id(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
 
         vendorContactFirstCol.setCellFactory(TextFieldTableCell.forTableColumn());
         vendorContactFirstCol.setOnEditCommit(
@@ -168,22 +170,75 @@ public class VendorTableController {
                                 t.getTablePosition().getRow())
                         ).setVendor_contact_last_name(t.getNewValue())
         );
+
+        vendorPhoneCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorPhoneCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setVendor_company_phone(t.getNewValue())
+        );
+
+        vendorMobileCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorMobileCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setVendor_mobile_phone(t.getNewValue())
+        );
+
+        vendorEmailCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorEmailCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setVendor_email(t.getNewValue())
+        );
+
+        vendorAddressCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorAddressCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setVendor_address(t.getNewValue())
+        );
+
+        vendorRegionCol.setCellFactory(TextFieldTableCell.<Vendor, Number>forTableColumn(new NumberStringConverter()));
+        vendorRegionCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setVendor_region_id(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
+
+        vendorPayTermsCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        vendorPayTermsCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setPayment_terms(t.getNewValue())
+        );
+
+        vendorCreditCol.setCellFactory(TextFieldTableCell.<Vendor, Number>forTableColumn(new NumberStringConverter()));
+        vendorCreditCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Vendor, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setVendor_credit_limit(Double.parseDouble(String.valueOf(t.getNewValue())))
+        );
     }
 
     public void saveVendorChanges() throws SQLException, ParseException {
-        /*String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c = DriverManager.getConnection(url);
         Statement stmt = c.createStatement();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
 
-        //Vendor v = vendorTable.getSelectionModel().getSelectedItem();
-
-        //TODO Fix unparseable date error
         int row = vendorTable.getSelectionModel().getSelectedIndex();
         Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue();
         String vendorNameCell = (String) vendorNameCol.getCellObservableValue(row).getValue();
         Integer vendorAcctCell = (Integer) vendorAcctCol.getCellObservableValue(row).getValue();
-        java.util.Date vendor_join_dateCell = formatter.parse(String.valueOf(vendorJoinDateCol.getCellObservableValue(row).getValue()));
+        java.util.Date vendor_join_dateCell = vendorJoinDateCol.getCellObservableValue(row).getValue();
         java.sql.Date vendor_join_datesqlCell = new java.sql.Date(vendor_join_dateCell.getTime());
         Integer vendorStatusCell = (Integer) vendorStatusFKIDCol.getCellObservableValue(row).getValue();
         String vendorContactFirstCell = (String) vendorContactFirstCol.getCellObservableValue(row).getValue();
@@ -215,6 +270,6 @@ public class VendorTableController {
         statement.setString(12, vendorPayTermsCell);
         statement.setDouble(13, vendorCredLimCell);
         statement.execute();
-        */
+
     }
 }

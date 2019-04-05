@@ -19,18 +19,17 @@ public class ClientFormController {
     public ComboBox<Region> clientRegionList;
     public ObservableList<Region> clientRegionData = FXCollections.observableArrayList();
 
-    public TextField FName;
-    public TextField LName;
-    public TextField MainPhone;
-    public TextField SecPhone;
-    public TextField Email;
-    public TextField CCEmail;
-    public TextField BillingStreet;
-    public TextField BillingCity;
-    public TextField zipcode;
-    public TextField ClientWebsite;
-    public TextField clientCompany;
-
+    public TextField FName = new TextField();
+    public TextField LName = new TextField();
+    public TextField MainPhone = new TextField();
+    public TextField SecPhone = new TextField();
+    public TextField Email = new TextField();
+    public TextField CCEmail = new TextField();
+    public TextField BillingStreet = new TextField();
+    public TextField BillingCity = new TextField();
+    public TextField zipcode = new TextField();
+    public TextField ClientWebsite = new TextField();
+    public TextField clientCompany = new TextField();
 
 
     public void initialize(){
@@ -58,7 +57,7 @@ public class ClientFormController {
         }
         catch(Exception e){ //catch any exceptions
             e.printStackTrace();
-            System.out.println("Error on Building Vendor Status Data");
+            System.out.println("Error on Building Client Status Data");
         }
 
         try{
@@ -79,7 +78,7 @@ public class ClientFormController {
         }
         catch(Exception e){ //catch any exceptions
             e.printStackTrace();
-            System.out.println("Error on Building Vendor Region Data");
+            System.out.println("Error on Building Client Region Data");
         }
     }
 
@@ -91,10 +90,6 @@ public class ClientFormController {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection(url);
 
-            if(conn != null) //if it connected successfully
-            {
-                System.out.println("Connection successful");
-            }
             Statement stmt = conn.createStatement();
             String Client_First= FName.getText();
             String Client_Last=LName.getText();
@@ -104,20 +99,17 @@ public class ClientFormController {
             String Client_CC_Email=CCEmail.getText();
             String Client_Street=BillingStreet.getText();
             String Client_City=BillingCity.getText();
-
-            Integer Client_Zip= Integer.parseInt(zipcode.getText());
-
+            Integer Client_Zip = Integer.parseInt(zipcode.getText());
             String Client_Company_name= clientCompany.getText();
             String Client_Website=ClientWebsite.getText();
             Integer Region=clientRegionList.getSelectionModel().getSelectedItem().getRegion_id();
             Integer Client_Status=clientStatusList.getSelectionModel().getSelectedItem().getClient_status_id();
-            String sqlStatement = "INSERT INTO Client " +"(CLIENT_FNAME,CLIENT_LNAME,CLIENT_MAIN_PHONE,CLIENT_SECONDARY_PHONE,CLIENT_EMAIL, CLIENT_CC_EMAIL,BILLING_STREET,BILLING_CITY,FK_REGION_ID,CLIENT_ZIPCODE,CLIENT_COMPANY_NAME,CLIENT_WEBSITE,FK_CLIENT_STATUS_ID)" +
-                    "VALUES ('" + Client_First + "', '"+ Client_Last +"', '" + Client_Main_Phone +"', '" + Client_S_Phone +"', '" + Client_Email +"', '" +Client_CC_Email +"','" +Client_Street +"', '" +Client_City +"','" +Region+"','" +Client_Zip +"','" +Client_Company_name +"','"+ Client_Website+"','"+ Client_Status+"')";
+
+            String sqlStatement = "INSERT INTO CLIENT" +"(CLIENT_FNAME,CLIENT_LNAME,CLIENT_MAIN_PHONE,CLIENT_SECONDARY_PHONE,CLIENT_EMAIL, CLIENT_CC_EMAIL,BILLING_STREET,BILLING_CITY,FK_REGION_ID,CLIENT_ZIPCODE,CLIENT_COMPANY_NAME,CLIENT_WEBSITE,FK_CLIENT_STATUS_ID)" +
+                    " VALUES ('" + Client_First + "', '"+ Client_Last +"', '" + Client_Main_Phone +"', '" + Client_S_Phone +"', '" + Client_Email +"', '" + Client_CC_Email +"', '" + Client_Street +"', '" + Client_City +"', '" + Region +"', '" + Client_Zip +"', '" + Client_Company_name +"', '"+ Client_Website+"', '"+ Client_Status+"')";
+
             //If statement for validations before submission
             stmt.executeUpdate(sqlStatement);
-
-
-
 
             conn.close();
         }
@@ -125,10 +117,6 @@ public class ClientFormController {
         {
             e.printStackTrace();
         }
-
-
-
-
 
     }
 }

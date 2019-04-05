@@ -35,74 +35,70 @@
       </HBox>
     <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="800.0">
          <children>
-            <VBox layoutY="318.0">
+            <HBox layoutY="318.0" prefHeight="87.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
                <children>
-                  <HBox layoutY="318.0" prefHeight="87.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
+                  <HBox spacing="3.0">
                      <children>
-                        <HBox spacing="3.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#openVendorForm" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #916D91;" text="New Vendor" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="240.0" top="6.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button mnemonicParsing="false" onAction="#updateVendor" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Update" textAlignment="CENTER" textFill="WHITE">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="6.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="6.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
-                                <items>
-                                    <MenuItem mnemonicParsing="false" text="View Vendor Region Table" />
-                                    <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
-                                    <MenuItem mnemonicParsing="false" text="View Vendor Status Table" />
-                                  <MenuItem mnemonicParsing="false" text="Add Product" />
-                                </items>
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="6.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <rotationAxis>
-                                    <Point3D />
-                                 </rotationAxis>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MenuButton>
-                           </children>
+                        <Button mnemonicParsing="false" onAction="#openVendorForm" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #916D91;" text="New Vendor" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
                            <HBox.margin>
-                              <Insets top="5.0" />
+                              <Insets left="240.0" top="6.0" />
                            </HBox.margin>
-                        </HBox>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#updateVendor" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Update" textAlignment="CENTER" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
+                          <items>
+                              <MenuItem mnemonicParsing="false" text="View Vendor Region Table" />
+                              <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
+                              <MenuItem mnemonicParsing="false" text="View Vendor Status Table" />
+                            <MenuItem mnemonicParsing="false" text="Add Product" />
+                          </items>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <rotationAxis>
+                              <Point3D />
+                           </rotationAxis>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </MenuButton>
                      </children>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </HBox>
                </children>
-            </VBox>
+            </HBox>
             <ScrollPane prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
                   <TableView fx:id="vendorTable" maxHeight="1000.0" prefHeight="319.0" prefWidth="2400.0">

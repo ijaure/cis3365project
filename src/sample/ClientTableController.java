@@ -104,4 +104,8 @@ public class ClientTableController {
             e.printStackTrace();
         }
     }
+
+    public void saveClientChanges(){
+        System.out.println("See saveVendorChanges in the Vendor Table Controller for code to copy");
+    }
 }

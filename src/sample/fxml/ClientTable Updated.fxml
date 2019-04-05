@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="412.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientTableController">
+<AnchorPane prefHeight="453.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #916D91;">
          <children>
@@ -31,7 +31,7 @@
                </padding>
             </Label>
          </children></HBox>
-    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="352.0" prefWidth="800.0">
+    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="395.0" prefWidth="800.0">
          <children>
             <ScrollPane prefHeight="305.0" prefViewportHeight="306.0" prefViewportWidth="1052.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
@@ -55,7 +55,7 @@
                   </TableView>
                </content>
             </ScrollPane>
-            <HBox layoutY="305.0" prefHeight="48.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
+            <HBox layoutY="305.0" prefHeight="99.0" prefWidth="800.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox spacing="3.0">
                      <children>
@@ -119,5 +119,23 @@
             </HBox>
          </children>
       </AnchorPane>
+      <HBox layoutX="396.0" layoutY="443.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#saveClientChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Microsoft JhengHei UI" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="-25.0" top="-25.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>
