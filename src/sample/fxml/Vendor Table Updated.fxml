@@ -74,8 +74,8 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Vendor Region Table" />
                               <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
+                              <MenuItem mnemonicParsing="false" text="View Vendor Contact Table" />
                               <MenuItem mnemonicParsing="false" text="View Vendor Status Table" />
                             <MenuItem mnemonicParsing="false" text="Add Product" />
                           </items>

@@ -74,6 +74,7 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
+                              <MenuItem mnemonicParsing="false" text="View Event Planner Table" />
                             <MenuItem mnemonicParsing="false" text="Add Venue" />
                           </items>
                            <HBox.margin>

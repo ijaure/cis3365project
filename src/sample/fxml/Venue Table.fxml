@@ -76,7 +76,6 @@
                           <items>
                               <MenuItem mnemonicParsing="false" text="View Venue Contact Table" />
                               <MenuItem mnemonicParsing="false" text="View Venue Status Table" />
-                              <MenuItem mnemonicParsing="false" text="View Venue Type Table" />
                             <MenuItem mnemonicParsing="false" text="Add Event" />
                               <MenuItem mnemonicParsing="false" text="Add Planner" />
                           </items>

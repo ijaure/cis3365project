@@ -96,6 +96,7 @@
                           <items>
                               <MenuItem mnemonicParsing="false" text="View Payment Info Table" />
                               <MenuItem mnemonicParsing="false" text="View Client Status Table" />
+                              <MenuItem mnemonicParsing="false" text="View Client Event Table" />
                               <MenuItem mnemonicParsing="false" text="View Region Table" />
                               <MenuItem mnemonicParsing="false" text="Add Payment Info" />
                             <MenuItem mnemonicParsing="false" text="Add Event" />
