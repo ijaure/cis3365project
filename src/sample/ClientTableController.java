@@ -108,4 +108,6 @@ public class ClientTableController {
     public void saveClientChanges(){
         System.out.println("See saveVendorChanges in the Vendor Table Controller for code to copy");
     }
+
+    //TODO Be able to select a client and give them payment information, an order, and an event
 }

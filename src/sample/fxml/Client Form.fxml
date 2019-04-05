@@ -27,9 +27,9 @@
       </HBox>
       <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="55.0" prefHeight="600.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="1315.0" prefWidth="410.0" scaleShape="false">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="1122.0" prefWidth="410.0" scaleShape="false">
                <children>
-                  <VBox layoutX="27.0" layoutY="695.0" prefHeight="502.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="695.0" prefHeight="315.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Payment Information">
                            <font>
@@ -42,123 +42,6 @@
                               <Insets left="95.0" top="20.0" />
                            </VBox.margin>
                         </Label>
-                        <HBox>
-                           <children>
-                              <Label opacity="0.61" text="Card Type">
-                                 <VBox.margin>
-                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label opacity="0.61" text="Card Number">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="116.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Card Type">
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <TextField promptText="Card Number">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <Label opacity="0.61" text="CVC Number">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="-5.0" left="20.0" />
-                                 </VBox.margin>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label opacity="0.61" text="Expiration Date">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="99.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="CVC Number">
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <TextField prefHeight="25.0" prefWidth="67.0" promptText="Month">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <TextField prefHeight="25.0" prefWidth="67.0" promptText="Year">
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
-                        </HBox>
-                        <Label opacity="0.61" text="Name on Card">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" left="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <HBox>
-                           <children>
-                              <HBox>
-                                 <children>
-                                    <TextField promptText="First Name">
-                                       <HBox.margin>
-                                          <Insets left="15.0" />
-                                       </HBox.margin>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <TextField promptText="Last Name">
-                                       <HBox.margin>
-                                          <Insets left="25.0" />
-                                       </HBox.margin>
-                                    </TextField>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
                         <HBox>
                            <children>
                               <Label alignment="TOP_LEFT" contentDisplay="TOP" opacity="0.61" text="Billing Address">
@@ -218,14 +101,6 @@
                                     <Insets left="153.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="Zip">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="37.0" />
-                                 </HBox.margin>
-                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets bottom="-5.0" />
@@ -238,32 +113,38 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <ComboBox fx:id="clientRegionList" prefHeight="25.0" prefWidth="45.0">
+                              <ComboBox fx:id="clientRegionList" prefHeight="25.0" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </ComboBox>
-                              <TextField fx:id="zipcode" prefHeight="25.0" prefWidth="81.0" promptText="Billing Zip">
-                                 <HBox.margin>
-                                    <Insets left="22.0" />
-                                 </HBox.margin>
-                              </TextField>
                            </children>
                         </HBox>
-                        <Label opacity="0.61" text="Payment Requirements">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
+                        <HBox>
+                           <children>
+                              <Label opacity="0.61" text="Zip">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
                            <VBox.margin>
-                              <Insets bottom="-5.0" left="20.0" />
+                              <Insets bottom="-5.0" />
                            </VBox.margin>
-                        </Label>
+                        </HBox>
                         <HBox>
                            <VBox.margin>
-                              <Insets left="15.0" />
+                              <Insets />
                            </VBox.margin>
                            <children>
-                              <ComboBox fx:id="clientPayRequirements" prefWidth="149.0" promptText="Please Select" />
+                              <TextField fx:id="zipcode" prefHeight="25.0" prefWidth="149.0" promptText="Billing Zip">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
                            </children>
                         </HBox>
                      </children>
@@ -486,7 +367,7 @@
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox layoutX="137.0" layoutY="1197.0" prefHeight="50.0" prefWidth="138.0">
+                  <VBox layoutX="137.0" layoutY="1010.0" prefHeight="50.0" prefWidth="138.0">
                      <padding>
                         <Insets top="30.0" />
                      </padding>
