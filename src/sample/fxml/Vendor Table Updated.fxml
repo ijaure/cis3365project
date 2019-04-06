@@ -75,7 +75,6 @@
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#openProductVendor" text="View Product Vendor Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openVendorContact" text="View Vendor Contact Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openVendorStatus" text="View Vendor Status Table" />
                             <MenuItem mnemonicParsing="false" onAction="#openProductForm" text="Add Product" />
                           </items>

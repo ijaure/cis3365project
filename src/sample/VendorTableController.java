@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -70,6 +71,12 @@ public class VendorTableController {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             c = DriverManager.getConnection(url);
             String SQL = "Select * from VENDOR";
+
+            //Not working, doesn't recognize column VENDOR_STATUS.VENDOR_STATUS_NAME when trying to set values below
+            //String SQLStatus = "SELECT VENDOR_STATUS.VENDOR_STATUS_NAME
+            //FROM VENDOR JOIN VENDOR_STATUS
+            //ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID";
+
             ResultSet rs = c.createStatement().executeQuery(SQL);
             while(rs.next()){
                 Vendor v = new Vendor(); //make a new Vendor object
@@ -232,48 +239,59 @@ public class VendorTableController {
         String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c = DriverManager.getConnection(url);
 
-        int row = vendorTable.getSelectionModel().getSelectedIndex(); //get the index of the selected row
-        Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue(); //collect the selected vendor's id
+        if(vendorTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else {
 
-        //collect each cell's value in a variable
-        String vendorNameCell = (String) vendorNameCol.getCellObservableValue(row).getValue();
-        Integer vendorAcctCell = (Integer) vendorAcctCol.getCellObservableValue(row).getValue();
-        java.util.Date vendor_join_dateCell = vendorJoinDateCol.getCellObservableValue(row).getValue();
-        java.sql.Date vendor_join_datesqlCell = new java.sql.Date(vendor_join_dateCell.getTime());
-        Integer vendorStatusCell = (Integer) vendorStatusFKIDCol.getCellObservableValue(row).getValue();
-        String vendorContactFirstCell = (String) vendorContactFirstCol.getCellObservableValue(row).getValue();
-        String vendorContactLastCell = (String) vendorContactLastCol.getCellObservableValue(row).getValue();
-        String vendorCompanyPhoneCell = (String) vendorPhoneCol.getCellObservableValue(row).getValue();
-        String vendorMobilePhoneCell = (String) vendorPhoneCol.getCellObservableValue(row).getValue();
-        String vendorEmailCell = (String) vendorEmailCol.getCellObservableValue(row).getValue();
-        String vendorAddressCell = (String) vendorAddressCol.getCellObservableValue(row).getValue();
-        Integer vendorRegionCell = (Integer) vendorRegionCol.getCellObservableValue(row).getValue();
-        String vendorPayTermsCell = (String) vendorPayTermsCol.getCellObservableValue(row).getValue();
-        Double vendorCredLimCell = (Double) vendorCreditCol.getCellObservableValue(row).getValue();
+            int row = vendorTable.getSelectionModel().getSelectedIndex(); //get the index of the selected row
+            Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue(); //collect the selected vendor's id
 
-        // SQL statement to update the vendor, put question marks after each = sign,
-        // you'll replace these with the variables in the next step
+            //collect each cell's value in a variable
+            String vendorNameCell = (String) vendorNameCol.getCellObservableValue(row).getValue();
+            Integer vendorAcctCell = (Integer) vendorAcctCol.getCellObservableValue(row).getValue();
+            java.util.Date vendor_join_dateCell = vendorJoinDateCol.getCellObservableValue(row).getValue();
+            java.sql.Date vendor_join_datesqlCell = new java.sql.Date(vendor_join_dateCell.getTime());
+            Integer vendorStatusCell = (Integer) vendorStatusFKIDCol.getCellObservableValue(row).getValue();
+            String vendorContactFirstCell = (String) vendorContactFirstCol.getCellObservableValue(row).getValue();
+            String vendorContactLastCell = (String) vendorContactLastCol.getCellObservableValue(row).getValue();
+            String vendorCompanyPhoneCell = (String) vendorPhoneCol.getCellObservableValue(row).getValue();
+            String vendorMobilePhoneCell = (String) vendorPhoneCol.getCellObservableValue(row).getValue();
+            String vendorEmailCell = (String) vendorEmailCol.getCellObservableValue(row).getValue();
+            String vendorAddressCell = (String) vendorAddressCol.getCellObservableValue(row).getValue();
+            Integer vendorRegionCell = (Integer) vendorRegionCol.getCellObservableValue(row).getValue();
+            String vendorPayTermsCell = (String) vendorPayTermsCol.getCellObservableValue(row).getValue();
+            Double vendorCredLimCell = (Double) vendorCreditCol.getCellObservableValue(row).getValue();
+
+            // SQL statement to update the vendor, put question marks after each = sign,
+            // you'll replace these with the variables in the next step
             PreparedStatement statement = c.prepareStatement("UPDATE VENDOR SET VENDOR_NAME = ?, VENDOR_ACC_NUM = ?, VENDOR_JOIN_DATE = ?, " +
                     "FK_VENDOR_STATUS_ID = ?, VENDOR_CONTACT_FIRST_NAME = ?, VENDOR_CONTACT_LAST_NAME = ?, " +
                     "VENDOR_COMPANY_PHONE = ?, VENDOR_MOBILE_PHONE = ?, VENDOR_EMAIL = ?, VENDOR_ADDRESS = ?, " +
-                    "FK_VENDOR_REGION_ID = ?, PAYMENT_TERMS = ?, VENDOR_CREDIT_LIMIT = ? " + "WHERE VENDOR_ID ="+currentID);
+                    "FK_VENDOR_REGION_ID = ?, PAYMENT_TERMS = ?, VENDOR_CREDIT_LIMIT = ? " + "WHERE VENDOR_ID =" + currentID);
 
-        // set the value of each question mark in the sql statement to the variables above
-        // make sure these are in the correct order
-        statement.setString(1, vendorNameCell);
-        statement.setInt(2, vendorAcctCell);
-        statement.setDate(3, vendor_join_datesqlCell);
-        statement.setInt(4, vendorStatusCell);
-        statement.setString(5, vendorContactFirstCell);
-        statement.setString(6, vendorContactLastCell);
-        statement.setString(7, vendorCompanyPhoneCell);
-        statement.setString(8, vendorMobilePhoneCell);
-        statement.setString(9, vendorEmailCell);
-        statement.setString(10, vendorAddressCell);
-        statement.setInt(11, vendorRegionCell);
-        statement.setString(12, vendorPayTermsCell);
-        statement.setDouble(13, vendorCredLimCell);
-        statement.execute();
+            // set the value of each question mark in the sql statement to the variables above
+            // make sure these are in the correct order
+            statement.setString(1, vendorNameCell);
+            statement.setInt(2, vendorAcctCell);
+            statement.setDate(3, vendor_join_datesqlCell);
+            statement.setInt(4, vendorStatusCell);
+            statement.setString(5, vendorContactFirstCell);
+            statement.setString(6, vendorContactLastCell);
+            statement.setString(7, vendorCompanyPhoneCell);
+            statement.setString(8, vendorMobilePhoneCell);
+            statement.setString(9, vendorEmailCell);
+            statement.setString(10, vendorAddressCell);
+            statement.setInt(11, vendorRegionCell);
+            statement.setString(12, vendorPayTermsCell);
+            statement.setDouble(13, vendorCredLimCell);
+            statement.execute();
+        }
 
     }
 
@@ -283,16 +301,26 @@ public class VendorTableController {
         Connection c = DriverManager.getConnection(url);
         Statement stmt = c.createStatement();
 
-        int row = vendorTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
-        Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue(); //get the id of the selected vendor
+        if(vendorTable.getSelectionModel().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else {
+            int row = vendorTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+            Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue(); //get the id of the selected vendor
 
-        //delete the vendor whose id matches the currently selected vendor's id
-        String SQL = "DELETE FROM VENDOR WHERE VENDOR_ID =" +currentID;
+            //delete the vendor whose id matches the currently selected vendor's id
+            String SQL = "DELETE FROM VENDOR WHERE VENDOR_ID =" + currentID;
 
-        stmt.executeUpdate(SQL);
-        vendorData.remove(vendorTable.getSelectionModel().getSelectedIndex()); //update the observable list
-        vendorTable.setItems(vendorData); //update the tableview so the deletion shows immediately
-        c.close();
+            stmt.executeUpdate(SQL);
+            vendorData.remove(vendorTable.getSelectionModel().getSelectedIndex()); //update the observable list
+            vendorTable.setItems(vendorData); //update the tableview so the deletion shows immediately
+            c.close();
+        }
     }
 
     public void openProductVendor(){
@@ -301,19 +329,6 @@ public class VendorTableController {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Product Vendor Table");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openVendorContact(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Vendor Contact Table.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Vendor Contact Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

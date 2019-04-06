@@ -39,7 +39,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #916D91;" text="New Product" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openProductForm" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #916D91;" text="New Product" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -50,7 +50,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editProduct" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -61,7 +61,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -74,11 +74,10 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
-                              <MenuItem mnemonicParsing="false" text="View Product Type Table" />
-                              <MenuItem mnemonicParsing="false" text="View Product Status Table" />
-                            <MenuItem mnemonicParsing="false" text="Add Vendor" />
-                              <MenuItem mnemonicParsing="false" text="Add Order" />
+                              <MenuItem mnemonicParsing="false" onAction="#openProductVendorTable" text="View Product Vendor Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openProductTypeTable" text="View Product Type Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openProductStatusTable" text="View Product Status Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#addOrderToProduct" text="Add Order" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -120,7 +119,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveProductChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

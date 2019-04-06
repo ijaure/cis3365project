@@ -337,7 +337,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField fx:id="vendorJoinInput" prefHeight="25.0" prefWidth="149.0" promptText="ex. MM/dd/yyy">
+                              <TextField fx:id="vendorJoinInput" prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>

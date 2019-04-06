@@ -2,8 +2,12 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -66,6 +70,74 @@ public class ProductTableController {
             e.printStackTrace();
             System.out.println("Error on Building Product Data");
         }
+    }
+
+    public void openProductForm(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Form.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Product");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editProduct(){
+
+    }
+
+    public void saveProductChanges(){
+
+    }
+
+    public void deleteProduct(){
+
+    }
+
+    public void openProductVendorTable(){
+        try{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Vendor Table.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Product Vendor Table");
+        stage.setScene(new Scene(root));
+        stage.show();
+        }
+        catch (Exception e) {
+        e.printStackTrace();
+        }
+    }
+
+    public void openProductTypeTable(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Type Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Product Type Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openProductStatusTable(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Status Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Product Status");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addOrderToProduct(){
 
     }
 }
