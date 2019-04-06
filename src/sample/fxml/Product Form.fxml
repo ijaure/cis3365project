@@ -118,11 +118,11 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField promptText="Vendor">
+                              <ComboBox prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </TextField>
+                              </ComboBox>
                            </children>
                         </HBox>
                         <HBox>

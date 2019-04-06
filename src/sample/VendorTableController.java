@@ -63,7 +63,7 @@ public class VendorTableController {
         vendorAcctCol.setCellValueFactory(data -> data.getValue().vendor_acc_numProperty());
         vendorPayTermsCol.setCellValueFactory(data -> data.getValue().payment_termsProperty());
 
-        vendorTable.setEditable(true);
+        vendorTable.setEditable(true); //so we can edit rows later
 
         //this try/catch loads data from the database into the tableview
         try{
@@ -80,7 +80,7 @@ public class VendorTableController {
                 v.vendor_acc_num.set((rs.getInt("VENDOR_ACC_NUM")));
                 v.vendor_join_date.set(rs.getDate("VENDOR_JOIN_DATE"));
 
-                //TODO make status the actual status name, not the foreign id
+                //TODO make status the actual status name, not the foreign id, but don't do if this takes too much time
                 v.vendor_status_id.set((rs.getInt("FK_VENDOR_STATUS_ID")));
                 v.vendor_contact_first_name.set(rs.getString("VENDOR_CONTACT_FIRST_NAME"));
                 v.vendor_contact_last_name.set(rs.getString("VENDOR_CONTACT_LAST_NAME"));
@@ -89,7 +89,7 @@ public class VendorTableController {
                 v.vendor_email.set(rs.getString("VENDOR_EMAIL"));
                 v.vendor_address.set(rs.getString("VENDOR_ADDRESS"));
 
-                //TODO make region the region name, not the id
+                //TODO make region the region name, not the id, but don't do if this takes too much time
                 v.vendor_region_id.set((rs.getInt("FK_VENDOR_REGION_ID")));
                 v.payment_terms.set(rs.getString("PAYMENT_TERMS"));
                 v.vendor_credit_limit.set((rs.getDouble("VENDOR_CREDIT_LIMIT")));
@@ -122,7 +122,6 @@ public class VendorTableController {
 
     public void updateVendor(){
         //turn the cells into editable text fields
-        // NOTE: This is the
         vendorNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         vendorNameCol.setOnEditCommit(
                 (TableColumn.CellEditEvent<Vendor, String> t) ->
@@ -229,13 +228,14 @@ public class VendorTableController {
     }
 
     public void saveVendorChanges() throws SQLException, ParseException {
+        //get the connection
         String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c = DriverManager.getConnection(url);
-        Statement stmt = c.createStatement();
-        DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
 
-        int row = vendorTable.getSelectionModel().getSelectedIndex();
-        Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue();
+        int row = vendorTable.getSelectionModel().getSelectedIndex(); //get the index of the selected row
+        Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue(); //collect the selected vendor's id
+
+        //collect each cell's value in a variable
         String vendorNameCell = (String) vendorNameCol.getCellObservableValue(row).getValue();
         Integer vendorAcctCell = (Integer) vendorAcctCol.getCellObservableValue(row).getValue();
         java.util.Date vendor_join_dateCell = vendorJoinDateCol.getCellObservableValue(row).getValue();
@@ -251,11 +251,15 @@ public class VendorTableController {
         String vendorPayTermsCell = (String) vendorPayTermsCol.getCellObservableValue(row).getValue();
         Double vendorCredLimCell = (Double) vendorCreditCol.getCellObservableValue(row).getValue();
 
+        // SQL statement to update the vendor, put question marks after each = sign,
+        // you'll replace these with the variables in the next step
             PreparedStatement statement = c.prepareStatement("UPDATE VENDOR SET VENDOR_NAME = ?, VENDOR_ACC_NUM = ?, VENDOR_JOIN_DATE = ?, " +
                     "FK_VENDOR_STATUS_ID = ?, VENDOR_CONTACT_FIRST_NAME = ?, VENDOR_CONTACT_LAST_NAME = ?, " +
                     "VENDOR_COMPANY_PHONE = ?, VENDOR_MOBILE_PHONE = ?, VENDOR_EMAIL = ?, VENDOR_ADDRESS = ?, " +
                     "FK_VENDOR_REGION_ID = ?, PAYMENT_TERMS = ?, VENDOR_CREDIT_LIMIT = ? " + "WHERE VENDOR_ID ="+currentID);
 
+        // set the value of each question mark in the sql statement to the variables above
+        // make sure these are in the correct order
         statement.setString(1, vendorNameCell);
         statement.setInt(2, vendorAcctCell);
         statement.setDate(3, vendor_join_datesqlCell);
@@ -272,4 +276,75 @@ public class VendorTableController {
         statement.execute();
 
     }
+
+    public void deleteVendor() throws SQLException {
+        //get the connection
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+        Statement stmt = c.createStatement();
+
+        int row = vendorTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+        Integer currentID = (Integer) vendorIDCol.getCellObservableValue(row).getValue(); //get the id of the selected vendor
+
+        //delete the vendor whose id matches the currently selected vendor's id
+        String SQL = "DELETE FROM VENDOR WHERE VENDOR_ID =" +currentID;
+
+        stmt.executeUpdate(SQL);
+        vendorData.remove(vendorTable.getSelectionModel().getSelectedIndex()); //update the observable list
+        vendorTable.setItems(vendorData); //update the tableview so the deletion shows immediately
+        c.close();
+    }
+
+    public void openProductVendor(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Vendor Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Product Vendor Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openVendorContact(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Vendor Contact Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Vendor Contact Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openVendorStatus(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Vendor Status Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Vendor Status Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openProductForm(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Form.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Product");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

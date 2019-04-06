@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="461.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="461.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ProductTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -100,18 +100,18 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="ALWAYS" prefHeight="319.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0">
+            <ScrollPane hbarPolicy="ALWAYS" prefHeight="319.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="317.0" prefWidth="708.0">
+                  <TableView fx:id="productTable" prefHeight="317.0" prefWidth="900.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="115.0" text="Product Name" />
-                        <TableColumn text="Vendor" />
-                        <TableColumn prefWidth="60.0" text="Size" />
-                        <TableColumn prefWidth="70.0" text="Type" />
-                        <TableColumn prefWidth="70.0" text="Status" />
-                        <TableColumn prefWidth="70.0" text="Price" />
-                        <TableColumn prefWidth="135.0" text="Price Last Updated" />
+                      <TableColumn fx:id="productIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="productNameCol" prefWidth="115.0" text="Product Name" />
+                        <TableColumn fx:id="productVendorCol" prefWidth="90.0" text="Vendor No." />
+                        <TableColumn fx:id="productSizeCol" prefWidth="100.0" text="Size (ounces)" />
+                        <TableColumn fx:id="productTypeCol" prefWidth="70.0" text="Type No." />
+                        <TableColumn fx:id="productStatusCol" text="Status No." />
+                        <TableColumn fx:id="productPriceCol" prefWidth="70.0" text="Price" />
+                        <TableColumn fx:id="productPriceDateCol" prefWidth="135.0" text="Price Last Updated" />
                     </columns>
                   </TableView>
                </content>

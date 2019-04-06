@@ -61,7 +61,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteVendor" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -74,10 +74,10 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Product Vendor Table" />
-                              <MenuItem mnemonicParsing="false" text="View Vendor Contact Table" />
-                              <MenuItem mnemonicParsing="false" text="View Vendor Status Table" />
-                            <MenuItem mnemonicParsing="false" text="Add Product" />
+                              <MenuItem mnemonicParsing="false" onAction="#openProductVendor" text="View Product Vendor Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openVendorContact" text="View Vendor Contact Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openVendorStatus" text="View Vendor Status Table" />
+                            <MenuItem mnemonicParsing="false" onAction="#openProductForm" text="Add Product" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
