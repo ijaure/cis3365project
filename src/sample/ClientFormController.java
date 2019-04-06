@@ -1,15 +1,13 @@
 package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class ClientFormController {
 
@@ -83,39 +81,54 @@ public class ClientFormController {
     }
 
     //add a new client to the database
-    public void addClient(){
+    public void addClient() throws ClassNotFoundException, SQLException {
         String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Connection conn = DriverManager.getConnection(url);
+        Statement stmt = conn.createStatement();
 
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection conn = DriverManager.getConnection(url);
-
-            Statement stmt = conn.createStatement();
-            String Client_First= FName.getText();
-            String Client_Last=LName.getText();
-            String Client_Main_Phone=MainPhone.getText();
-            String Client_S_Phone= SecPhone.getText();
-            String Client_Email=Email.getText();
-            String Client_CC_Email=CCEmail.getText();
-            String Client_Street=BillingStreet.getText();
-            String Client_City=BillingCity.getText();
+        if(FName.getText().trim().isEmpty() ||
+                LName.getText().trim().isEmpty() ||
+                MainPhone.getText().trim().isEmpty() ||
+                SecPhone.getText().trim().isEmpty() ||
+                Email.getText().trim().isEmpty() ||
+                CCEmail.getText().trim().isEmpty() ||
+                BillingStreet.getText().trim().isEmpty() ||
+                BillingCity.getText().trim().isEmpty() ||
+                zipcode.getText().trim().isEmpty() ||
+                clientCompany.getText().trim().isEmpty() ||
+                ClientWebsite.getText().trim().isEmpty() ||
+                clientRegionList.getSelectionModel().isEmpty() ||
+                clientStatusList.getSelectionModel().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Missing Values");
+            alert.setHeaderText("There Are Missing Values");
+            alert.setContentText("Please check that all fields are complete before submitting.");
+            alert.showAndWait();
+        }
+        else {
+            String Client_First = FName.getText();
+            String Client_Last = LName.getText();
+            String Client_Main_Phone = MainPhone.getText();
+            String Client_S_Phone = SecPhone.getText();
+            String Client_Email = Email.getText();
+            String Client_CC_Email = CCEmail.getText();
+            String Client_Street = BillingStreet.getText();
+            String Client_City = BillingCity.getText();
             Integer Client_Zip = Integer.parseInt(zipcode.getText());
-            String Client_Company_name= clientCompany.getText();
-            String Client_Website=ClientWebsite.getText();
-            Integer Region=clientRegionList.getSelectionModel().getSelectedItem().getRegion_id();
-            Integer Client_Status=clientStatusList.getSelectionModel().getSelectedItem().getClient_status_id();
+            String Client_Company_name = clientCompany.getText();
+            String Client_Website = ClientWebsite.getText();
+            Integer Region = clientRegionList.getSelectionModel().getSelectedItem().getRegion_id();
+            Integer Client_Status = clientStatusList.getSelectionModel().getSelectedItem().getClient_status_id();
 
-            String sqlStatement = "INSERT INTO CLIENT" +"(CLIENT_FNAME,CLIENT_LNAME,CLIENT_MAIN_PHONE,CLIENT_SECONDARY_PHONE,CLIENT_EMAIL, CLIENT_CC_EMAIL,BILLING_STREET,BILLING_CITY,FK_REGION_ID,CLIENT_ZIPCODE,CLIENT_COMPANY_NAME,CLIENT_WEBSITE,FK_CLIENT_STATUS_ID)" +
-                    " VALUES ('" + Client_First + "', '"+ Client_Last +"', '" + Client_Main_Phone +"', '" + Client_S_Phone +"', '" + Client_Email +"', '" + Client_CC_Email +"', '" + Client_Street +"', '" + Client_City +"', '" + Region +"', '" + Client_Zip +"', '" + Client_Company_name +"', '"+ Client_Website+"', '"+ Client_Status+"')";
+            String sqlStatement = "INSERT INTO CLIENT" + "(CLIENT_FNAME,CLIENT_LNAME,CLIENT_MAIN_PHONE,CLIENT_SECONDARY_PHONE,CLIENT_EMAIL, CLIENT_CC_EMAIL,BILLING_STREET,BILLING_CITY,FK_REGION_ID,CLIENT_ZIPCODE,CLIENT_COMPANY_NAME,CLIENT_WEBSITE,FK_CLIENT_STATUS_ID)" +
+                    " VALUES ('" + Client_First + "', '" + Client_Last + "', '" + Client_Main_Phone + "', '" + Client_S_Phone + "', '" + Client_Email + "', '" + Client_CC_Email + "', '" + Client_Street + "', '" + Client_City + "', '" + Region + "', '" + Client_Zip + "', '" + Client_Company_name + "', '" + Client_Website + "', '" + Client_Status + "')";
 
             //If statement for validations before submission
             stmt.executeUpdate(sqlStatement);
 
             conn.close();
-        }
-        catch (Exception e) //catch any exceptions
-        {
-            e.printStackTrace();
         }
 
     }

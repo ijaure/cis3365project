@@ -40,4 +40,9 @@ public class Product_Status {
     public void setProduct_status_name(String product_status_name) {
         this.product_status_name.set(product_status_name);
     }
+
+    @Override
+    public String toString(){
+        return product_status_id.get() + ", " + product_status_name.get();
+    }
 }

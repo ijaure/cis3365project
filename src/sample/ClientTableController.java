@@ -5,14 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class ClientTableController {
 
@@ -105,9 +104,56 @@ public class ClientTableController {
         }
     }
 
-    public void saveClientChanges(){
-        System.out.println("See saveVendorChanges in the Vendor Table Controller for code to copy");
+    public void editClient(){
+
     }
 
-    //TODO Be able to select a client and give them payment information, an order, and an event
+    public void saveClientChanges() throws SQLException {
+        //get the connection
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+
+        if(clientTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else {
+            System.out.println("Put all code for saving the changes here");
+        }
+
+    }
+
+    public void deleteClient() throws SQLException {
+        //get the connection
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+        Statement stmt = c.createStatement();
+
+        if(clientTable.getSelectionModel().isEmpty()) //output an error message if nothing is selected
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else{
+            System.out.println("Put all code for deleting here");
+        }
+
+    }
+
+    //open th client status table
+    public void openClientStatusTable(){
+
+    }
+
+    //open the client event table
+    public void openClientEventTable(){
+
+    }
 }

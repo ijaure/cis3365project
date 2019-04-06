@@ -2,10 +2,7 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.*;
 import java.text.DateFormat;
@@ -93,30 +90,52 @@ public class VendorFormController {
         Statement stmt = c.createStatement();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy"); //used the parse the textfield input to a Date
 
-        //collect all the values from the textfields
-        String vendor_name = vendorNameInput.getText();
-        Integer vendor_acc_num = Integer.parseInt(vendorAcctInput.getText());
-        java.util.Date vendor_join_date = formatter.parse(vendorJoinInput.getText());
-        java.sql.Date vendor_join_datesql = new java.sql.Date(vendor_join_date.getTime());
-        Integer vendor_status = vendorStatusList.getSelectionModel().getSelectedItem().getVendor_status_id();
-        String vendor_contact_first = vendorContactFirstInput.getText();
-        String vendor_contact_last = vendorContactLastInput.getText();
-        String vendor_company_phone = vendorPhoneInput.getText();
-        String vendor_mobile_phone = vendorContactMobileInput.getText();
-        String vendor_email = vendorEmailInput.getText();
-        String vendor_address = vendorAddressInput.getText();
-        Integer vendor_region = vendorRegionList.getSelectionModel().getSelectedItem().getRegion_id();
-        String vendor_payterms = vendorPayTermsInput.getText();
-        Double vendor_credit = Double.parseDouble(vendorCreditInput.getText());
+        if(vendorNameInput.getText().trim().isEmpty() ||
+                vendorAcctInput.getText().trim().isEmpty() ||
+                vendorJoinInput.getText().trim().isEmpty() ||
+                vendorStatusList.getSelectionModel().isEmpty() ||
+                vendorContactFirstInput.getText().trim().isEmpty() ||
+                vendorContactLastInput.getText().trim().isEmpty() ||
+                vendorPhoneInput.getText().trim().isEmpty() ||
+                vendorContactMobileInput.getText().trim().isEmpty() ||
+                vendorEmailInput.getText().trim().isEmpty() ||
+                vendorAddressInput.getText().trim().isEmpty() ||
+                vendorRegionList.getSelectionModel().isEmpty() ||
+                vendorPayTermsInput.getText().trim().isEmpty() ||
+                vendorCreditInput.getText().trim().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Missing Values");
+            alert.setHeaderText("There Are Missing Values");
+            alert.setContentText("Please check that all fields are complete before submitting.");
+            alert.showAndWait();
+        }
+        else {
+            //collect all the values from the textfields
+            String vendor_name = vendorNameInput.getText();
+            Integer vendor_acc_num = Integer.parseInt(vendorAcctInput.getText());
+            java.util.Date vendor_join_date = formatter.parse(vendorJoinInput.getText());
+            java.sql.Date vendor_join_datesql = new java.sql.Date(vendor_join_date.getTime());
+            Integer vendor_status = vendorStatusList.getSelectionModel().getSelectedItem().getVendor_status_id();
+            String vendor_contact_first = vendorContactFirstInput.getText();
+            String vendor_contact_last = vendorContactLastInput.getText();
+            String vendor_company_phone = vendorPhoneInput.getText();
+            String vendor_mobile_phone = vendorContactMobileInput.getText();
+            String vendor_email = vendorEmailInput.getText();
+            String vendor_address = vendorAddressInput.getText();
+            Integer vendor_region = vendorRegionList.getSelectionModel().getSelectedItem().getRegion_id();
+            String vendor_payterms = vendorPayTermsInput.getText();
+            Double vendor_credit = Double.parseDouble(vendorCreditInput.getText());
 
-        //insert all of these values to the db as a new vendor, make sure they are in the same order as in the db
-        String SQL = "INSERT INTO VENDOR " + "(VENDOR_NAME, VENDOR_ACC_NUM, VENDOR_JOIN_DATE, FK_VENDOR_STATUS_ID, VENDOR_CONTACT_FIRST_NAME, VENDOR_CONTACT_LAST_NAME, VENDOR_COMPANY_PHONE, VENDOR_MOBILE_PHONE, VENDOR_EMAIL, VENDOR_ADDRESS, FK_VENDOR_REGION_ID, PAYMENT_TERMS, VENDOR_CREDIT_LIMIT) "
-                + "VALUES ('" + vendor_name + "', '" + vendor_acc_num + "', '" + vendor_join_datesql + "', '"
-                + vendor_status + "', '" + vendor_contact_first + "', '" + vendor_contact_last + "', '" + vendor_company_phone + "', '" +
-                vendor_mobile_phone + "', '" + vendor_email + "', '" + vendor_address + "', '" + vendor_region + "', '" + vendor_payterms + "', '" + vendor_credit + "')";
+            //insert all of these values to the db as a new vendor, make sure they are in the same order as in the db
+            String SQL = "INSERT INTO VENDOR " + "(VENDOR_NAME, VENDOR_ACC_NUM, VENDOR_JOIN_DATE, FK_VENDOR_STATUS_ID, VENDOR_CONTACT_FIRST_NAME, VENDOR_CONTACT_LAST_NAME, VENDOR_COMPANY_PHONE, VENDOR_MOBILE_PHONE, VENDOR_EMAIL, VENDOR_ADDRESS, FK_VENDOR_REGION_ID, PAYMENT_TERMS, VENDOR_CREDIT_LIMIT) "
+                    + "VALUES ('" + vendor_name + "', '" + vendor_acc_num + "', '" + vendor_join_datesql + "', '"
+                    + vendor_status + "', '" + vendor_contact_first + "', '" + vendor_contact_last + "', '" + vendor_company_phone + "', '" +
+                    vendor_mobile_phone + "', '" + vendor_email + "', '" + vendor_address + "', '" + vendor_region + "', '" + vendor_payterms + "', '" + vendor_credit + "')";
 
-        stmt.executeUpdate(SQL); //execute the sql statement
-        c.close(); //close the connection
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
+        }
     }
 
 

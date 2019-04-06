@@ -5,13 +5,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import javafx.util.converter.DateStringConverter;
+import javafx.util.converter.NumberStringConverter;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.Date;
 
 public class ProductTableController {
@@ -86,14 +88,135 @@ public class ProductTableController {
     }
 
     public void editProduct(){
+        productIDCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productIDCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setProduct_id(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
+
+        productTypeCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productTypeCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setFk_product_type_id(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
+
+        productStatusCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productStatusCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setFk_product_status_id(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
+
+        productVendorCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productVendorCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setFk_vendor_id(Integer.parseInt(String.valueOf(t.getNewValue())))
+        );
+
+        productNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        productNameCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setProduct_name(t.getNewValue())
+        );
+
+        productSizeCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productSizeCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setProduct_size(Double.parseDouble(String.valueOf(t.getNewValue())))
+        );
+
+        productPriceDateCol.setCellFactory(TextFieldTableCell.<Product, Date>forTableColumn(new DateStringConverter()));
+        productPriceDateCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Date> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setProduct_price_date(t.getNewValue())
+        );
 
     }
 
-    public void saveProductChanges(){
+    public void saveProductChanges() throws SQLException {
+//get the connection
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
 
+        if(productTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else {
+            int row = productTable.getSelectionModel().getSelectedIndex(); //get the index of the selected row
+            Integer currentID = (Integer) productIDCol.getCellObservableValue(row).getValue(); //collect the selection id
+
+            //collect each cell's value in a variable
+            Integer productTypeCell = (Integer) productTypeCol.getCellObservableValue(row).getValue();
+            Integer productStatusCell = (Integer) productStatusCol.getCellObservableValue(row).getValue();
+            Integer productVendorCell = (Integer) productVendorCol.getCellObservableValue(row).getValue();
+            String productNameCell = (String) productNameCol.getCellObservableValue(row).getValue();
+            Double productSizeCell = (Double) productSizeCol.getCellObservableValue(row).getValue();
+            Double productPriceCell = (Double) productPriceCol.getCellObservableValue(row).getValue();
+            java.util.Date productPriceDateCell = productPriceDateCol.getCellObservableValue(row).getValue();
+            java.sql.Date productPriceDateSQLCell = new java.sql.Date(productPriceDateCell.getTime());
+
+            PreparedStatement statement = c.prepareStatement("UPDATE PRODUCT SET FK_PRODUCT_TYPE_ID = ?, " +
+                    "FK_PRODUCT_STATUS_ID = ?, FK_VENDOR_ID = ?, PRODUCT_NAME = ?, PRODUCT_SIZE = ?, PRODUCT_PRICE = ?, "
+                    + "PRODUCT_PRICE_DATE = ? "
+                    + "WHERE PRODUCT_ID =" + currentID);
+
+            // set the value of each question mark in the sql statement to the variables above
+            // make sure these are in the correct order
+            statement.setInt(1, productTypeCell);
+            statement.setInt(2, productStatusCell);
+            statement.setInt(3, productVendorCell);
+            statement.setString(4, productNameCell);
+            statement.setDouble(5, productSizeCell);
+            statement.setDouble(6, productPriceCell);
+            statement.setDate(7, productPriceDateSQLCell);
+            statement.execute();
+        }
     }
 
-    public void deleteProduct(){
+    public void deleteProduct() throws SQLException {
+        //get the connection
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+        Statement stmt = c.createStatement();
+
+        if(productTable.getSelectionModel().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else {
+            int row = productTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+            Integer currentID = (Integer) productIDCol.getCellObservableValue(row).getValue(); //get the id of the selection
+
+            //delete the vendor whose id matches the currently selected vendor's id
+            String SQL = "DELETE FROM PRODUCT WHERE PRODUCT_ID =" + currentID;
+
+            stmt.executeUpdate(SQL);
+            productData.remove(productTable.getSelectionModel().getSelectedIndex()); //update the observable list
+            productTable.setItems(productData); //update the tableview so the deletion shows immediately
+            c.close();
+        }
 
     }
 
@@ -135,9 +258,5 @@ public class ProductTableController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void addOrderToProduct(){
-
     }
 }

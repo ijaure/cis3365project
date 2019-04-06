@@ -41,4 +41,9 @@ public class Product_Type {
     public void setProduct_type_name(String product_type_name) {
         this.product_type_name.set(product_type_name);
     }
+
+    @Override
+    public String toString(){
+        return product_type_id.get() + ", " + product_type_name.get();
+    }
 }

@@ -208,4 +208,9 @@ public class Vendor {
     public void setVendor_credit_limit(double vendor_credit_limit) {
         this.vendor_credit_limit.set(vendor_credit_limit);
     }
+
+    @Override
+    public String toString(){
+        return vendor_id.get() + ", " + vendor_name.get();
+    }
 }
