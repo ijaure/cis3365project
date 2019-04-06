@@ -84,13 +84,13 @@
                               <Font name="Microsoft YaHei UI Light" size="23.0" />
                            </font>
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Submit Employee Status" />
-                              <MenuItem mnemonicParsing="false" text="Submit Client Status" />
-                              <MenuItem mnemonicParsing="false" text="Submit Order Status" />
-                              <MenuItem mnemonicParsing="false" text="Submit Product Status" />
-                              <MenuItem mnemonicParsing="false" text="Submit Order Line Status" />
-                              <MenuItem mnemonicParsing="false" text="Submit Venue Status" />
-                              <MenuItem mnemonicParsing="false" text="Submit Event Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addEmployeeStatus" text="Submit Employee Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addClientStatus" text="Submit Client Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addOrderStatus" text="Submit Order Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addProductStatus" text="Submit Product Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addOrderLineStatus" text="Submit Order Line Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addVenueStatus" text="Submit Venue Status" />
+                              <MenuItem mnemonicParsing="false" onAction="#addEventStatus" text="Submit Event Status" />
                               <MenuItem mnemonicParsing="false" onAction="#addVendorStatus" text="Submit Vendor Status" />
                            </items>
                         </MenuButton>

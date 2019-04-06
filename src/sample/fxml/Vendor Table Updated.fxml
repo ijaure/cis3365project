@@ -76,7 +76,6 @@
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#openProductVendor" text="View Product Vendor Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openVendorStatus" text="View Vendor Status Table" />
-                            <MenuItem mnemonicParsing="false" onAction="#openProductForm" text="Add Product" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />

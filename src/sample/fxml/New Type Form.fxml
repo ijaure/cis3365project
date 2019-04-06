@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TypeFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
@@ -59,7 +59,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Name of New Type">
+                              <TextField fx:id="typeNameInput" promptText="Name of New Type">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -84,9 +84,9 @@
                               <Font name="Microsoft YaHei UI Light" size="23.0" />
                            </font>
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Submit Employee Type" />
-                              <MenuItem mnemonicParsing="false" text="Submit Note Type" />
-                              <MenuItem mnemonicParsing="false" text="Submit Product Type" />
+                              <MenuItem mnemonicParsing="false" onAction="#addEmployeeType" text="Submit Employee Type" />
+                              <MenuItem mnemonicParsing="false" onAction="#addNoteType" text="Submit Note Type" />
+                              <MenuItem mnemonicParsing="false" onAction="#addProductType" text="Submit Product Type" />
                            </items>
                         </MenuButton>
                      </children>

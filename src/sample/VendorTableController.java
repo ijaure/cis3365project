@@ -349,17 +349,4 @@ public class VendorTableController {
         }
     }
 
-    public void openProductForm(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Form.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("New Product");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }
