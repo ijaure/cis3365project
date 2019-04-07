@@ -34,7 +34,7 @@ public class ClientFormController {
         String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
-        //these try/catch statements load Vendor Status and Regions into the appropriate drop-down lists
+        //these try/catch statements load data into the appropriate drop-down lists
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             c = DriverManager.getConnection(url);

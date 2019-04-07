@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EmployeeFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" style="-fx-background-color: #916D91;">
          <children>
@@ -29,7 +29,7 @@
          <content>
             <AnchorPane prefHeight="1669.0" prefWidth="410.0">
                <children>
-                  <VBox layoutX="24.0" layoutY="25.0" prefHeight="446.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="24.0" layoutY="25.0" prefHeight="417.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Employee Information">
                            <VBox.margin>
@@ -70,7 +70,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="First Name">
+                              <TextField fx:id="empFirstNameInput" promptText="First Name">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
@@ -78,7 +78,7 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField promptText="Last Name">
+                              <TextField fx:id="empLastNameInput" promptText="Last Name">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -116,16 +116,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <TextField fx:id="empGenderInput" promptText="M/F">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
-                              <DatePicker prefHeight="25.0" prefWidth="149.0">
+                              </TextField>
+                              <TextField fx:id="empDOBInput" promptText="MM/dd/yyyy">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </DatePicker>
+                              </TextField>
                            </children>
                         </HBox>
                         <HBox>
@@ -153,16 +153,21 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <CheckBox fx:id="empMarriedTrue" mnemonicParsing="false" text="Married">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              </CheckBox>
+                              <CheckBox fx:id="empMarriedFalse" mnemonicParsing="false" text="Single">
+                                 <HBox.margin>
+                                    <Insets left="32.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                              <TextField fx:id="empCitizenInput" promptText="Citizenship">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
+                              </TextField>
                            </children>
                         </HBox>
                         <HBox prefHeight="7.0" prefWidth="355.0">
@@ -190,34 +195,17 @@
                         </HBox>
                         <HBox prefHeight="15.0" prefWidth="355.0">
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Social Security Number">
+                              <TextField fx:id="empSSinput" prefHeight="25.0" prefWidth="149.0" promptText="Social Security Number">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <ComboBox fx:id="empStatusList" prefHeight="25.0" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
+                              </ComboBox>
                            </children>
-                        </HBox>
-                        <HBox prefHeight="3.0" prefWidth="355.0">
-                           <children>
-                              <CheckBox alignment="CENTER" mnemonicParsing="false" text="1099">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </CheckBox>
-                              <CheckBox alignment="CENTER" mnemonicParsing="false" text="W-2">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </CheckBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="3.0" top="3.0" />
-                           </VBox.margin>
                         </HBox>
                         <HBox>
                            <children>
@@ -232,12 +220,12 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="State">
+                              <Label opacity="0.61" text="Tax ID">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="128.0" />
+                                    <Insets left="126.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -247,16 +235,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Address (Street, City, Zip)">
+                              <TextField fx:id="empAddressInput" prefHeight="25.0" prefWidth="149.0" promptText="Address (Street, City, Zip)">
                                  <VBox.margin>
                                     <Insets left="15.0" right="17.0" />
                                  </VBox.margin>
                               </TextField>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <ComboBox fx:id="empTaxList" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
+                              </ComboBox>
                            </children>
                            <VBox.margin>
                               <Insets left="15.0" />
@@ -264,8 +252,8 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator layoutX="32.0" layoutY="504.0" prefHeight="14.0" prefWidth="338.0" />
-                  <VBox layoutX="24.0" layoutY="912.0" prefHeight="356.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <Separator layoutX="32.0" layoutY="476.0" prefHeight="14.0" prefWidth="338.0" />
+                  <VBox layoutX="24.0" layoutY="771.0" prefHeight="314.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Job Information">
                            <font>
@@ -303,16 +291,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <ComboBox fx:id="empTypeList" prefHeight="25.0" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
-                              <DatePicker prefHeight="25.0" prefWidth="149.0">
+                              </ComboBox>
+                              <TextField fx:id="empStartDateInput" promptText="MM/dd/yyyy">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </DatePicker>
+                              </TextField>
                            </children>
                            <VBox.margin>
                               <Insets />
@@ -346,7 +334,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="ex. 25000.00">
+                              <TextField fx:id="empStartSalaryInput" prefHeight="25.0" prefWidth="149.0" promptText="ex. 25000.00">
                                  <VBox.margin>
                                     <Insets left="15.0" right="37.0" />
                                  </VBox.margin>
@@ -354,7 +342,7 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="ex. 25000.00">
+                              <TextField fx:id="empCurrentSalaryInput" prefHeight="25.0" prefWidth="149.0" promptText="ex. 25000.00">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -363,23 +351,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="TABC Certification Date">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="-5.0" left="20.0" />
-                                 </VBox.margin>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
                               <Label opacity="0.61" text="TABC Expiration Date">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="40.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -391,52 +368,32 @@
                            <children>
                               <HBox>
                                  <children>
-                                    <DatePicker prefHeight="25.0" prefWidth="149.0">
+                                    <TextField fx:id="empTABCExpInput" promptText="MM/dd/yyyy">
                                        <HBox.margin>
                                           <Insets left="15.0" />
                                        </HBox.margin>
-                                    </DatePicker>
-                                    <DatePicker prefHeight="25.0" prefWidth="149.0">
+                                    </TextField>
+                                    <CheckBox fx:id="empCertifiedTrue" alignment="CENTER" mnemonicParsing="false" text="TABC Certified">
                                        <HBox.margin>
                                           <Insets left="25.0" />
                                        </HBox.margin>
-                                    </DatePicker>
+                                    </CheckBox>
                                  </children>
                               </HBox>
                            </children>
                         </HBox>
-                        <HBox prefHeight="12.0" prefWidth="355.0">
-                           <children>
-                              <Label opacity="0.61" text="Contract/Employee">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" />
-                           </VBox.margin>
-                        </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Contract or Employee">
+                              <CheckBox fx:id="empOnFileTrue" alignment="CENTER" mnemonicParsing="false" text="Job Application on File">
                                  <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <CheckBox alignment="CENTER" mnemonicParsing="false" text="Job Application on File">
-                                 <HBox.margin>
-                                    <Insets bottom="5.0" left="25.0" />
+                                    <Insets bottom="5.0" left="15.0" />
                                  </HBox.margin>
                               </CheckBox>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="24.0" layoutY="550.0" prefHeight="283.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="24.0" layoutY="522.0" prefHeight="172.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Contact Information">
                            <font>
@@ -477,12 +434,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Phone Number">
+                              <TextField fx:id="empPhoneInput" prefHeight="25.0" prefWidth="149.0" promptText="Phone Number">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField promptText="Email Address">
+                              <TextField fx:id="empEmailInput" promptText="Email Address">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -491,84 +448,6 @@
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <Label opacity="0.61" text="Emergency Contact Name">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                                 <VBox.margin>
-                                    <Insets bottom="-5.0" left="20.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="First Name">
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                                 <VBox.margin>
-                                    <Insets left="15.0" right="37.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Last Name">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <Label opacity="0.61" text="Emergency Contact Phone">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="-5.0" left="20.0" />
-                                 </VBox.margin>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label opacity="0.61" text="Emergency Contact Email">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Emergency Phone">
-                                 <VBox.margin>
-                                    <Insets left="15.0" />
-                                 </VBox.margin>
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Emergency Email">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
                         </HBox>
                         <HBox prefHeight="28.0" prefWidth="355.0" />
                         <HBox />
@@ -579,15 +458,15 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator layoutX="32.0" layoutY="867.0" prefHeight="14.0" prefWidth="338.0" />
-                  <HBox layoutX="134.0" layoutY="1268.0">
+                  <Separator layoutX="32.0" layoutY="726.0" prefHeight="14.0" prefWidth="338.0" />
+                  <HBox layoutX="140.0" layoutY="1085.0">
                      <children>
                         <VBox layoutX="134.0" layoutY="1348.0" prefHeight="55.0" prefWidth="138.0">
                            <padding>
                               <Insets bottom="30.0" top="30.0" />
                            </padding>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                              <Button mnemonicParsing="false" onAction="#addEmployee" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="23.0" />
                                  </font>

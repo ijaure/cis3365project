@@ -52,6 +52,14 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
+                              <Label opacity="0.61" text="Position (Employee Type)">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="138.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets bottom="-5.0" />
@@ -59,9 +67,14 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField fx:id="typeNameInput" promptText="Name of New Type">
+                              <TextField fx:id="typeNameInput" prefWidth="149.0" promptText="Name of New Type">
                                  <HBox.margin>
                                     <Insets left="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="typeNameInput1" prefWidth="149.0" promptText="Employee Type Description">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
