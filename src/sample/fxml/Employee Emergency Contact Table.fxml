@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="462.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="462.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EmergencyContactTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -38,12 +38,23 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #916D91;" text="New Contact" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="135.0" top="6.0" />
+                           </HBox.margin>
+                        </Button>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #916D91;" text="Employee Table" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="180.0" top="6.0" />
+                              <Insets left="10.0" top="6.0" />
                            </HBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />

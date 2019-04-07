@@ -49,7 +49,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editEmployee" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -60,7 +60,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -73,11 +73,10 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Emp. Type Table" />
-                              <MenuItem mnemonicParsing="false" text="View Emp. Status Table" />
-                              <MenuItem mnemonicParsing="false" text="View Emp. Emergency Contact Table" />
-                              <MenuItem mnemonicParsing="false" text="View Emp. Tax Info Table" />
-                            <MenuItem mnemonicParsing="false" text="Add Event" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEmpTypeTable" text="View Emp. Type Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEmpStatusTable" text="View Emp. Status Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEmpContactTable" text="View Emp. Emergency Contact Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openTaxInfoTable" text="View Emp. Tax Info Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -99,28 +98,30 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="800.0">
+            <ScrollPane hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="318.0" prefWidth="1570.0">
+                  <TableView fx:id="employeeTable" prefHeight="318.0" prefWidth="2100.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="95.0" text="First Name" />
-                        <TableColumn prefWidth="95.0" text="Last Name" />
-                        <TableColumn prefWidth="70.0" text="Gender" />
-                        <TableColumn prefWidth="70.0" text="DOB" />
-                        <TableColumn prefWidth="110.0" text="Marital Status" />
-                        <TableColumn text="Address" />
-                        <TableColumn prefWidth="70.0" text="State" />
-                        <TableColumn prefWidth="70.0" text="Phone" />
-                        <TableColumn prefWidth="70.0" text="Type" />
-                        <TableColumn prefWidth="90.0" text="1099/W-2" />
-                        <TableColumn prefWidth="90.0" text="Emp. Status" />
-                        <TableColumn prefWidth="115.0" text="Contract/Emp." />
-                        <TableColumn prefWidth="100.0" text="App. On File" />
-                        <TableColumn prefWidth="95.0" text="TABC Cert." />
-                        <TableColumn prefWidth="95.0" text="TABC Exp." />
-                        <TableColumn prefWidth="70.0" text="SSN" />
-                        <TableColumn prefWidth="100.0" text="Citizenship" />
+                      <TableColumn fx:id="empIDCol" prefWidth="40.0" text="ID" />
+                      <TableColumn fx:id="empFNameCol" prefWidth="95.0" text="First Name" />
+                        <TableColumn fx:id="empLNameCol" prefWidth="95.0" text="Last Name" />
+                        <TableColumn fx:id="empGenderCol" prefWidth="70.0" text="Gender" />
+                        <TableColumn fx:id="empDOBCol" prefWidth="70.0" text="DOB" />
+                        <TableColumn fx:id="empMaritalCol" prefWidth="110.0" text="Married" />
+                        <TableColumn fx:id="empCitizenCol" prefWidth="100.0" text="Citizenship" />
+                        <TableColumn fx:id="empAddrCol" text="Address" />
+                        <TableColumn fx:id="empPhoneCol" prefWidth="70.0" text="Phone" />
+                        <TableColumn fx:id="empEmailCol" prefWidth="70.0" text="Email" />
+                        <TableColumn fx:id="empTypeCol" prefWidth="70.0" text="Type" />
+                        <TableColumn fx:id="empStartDateCol" prefWidth="90.0" text="Start Date" />
+                        <TableColumn fx:id="empTaxCol" prefWidth="125.0" text="Tax Form ID" />
+                        <TableColumn fx:id="empStatusCol" prefWidth="90.0" text="Emp. Status" />
+                        <TableColumn fx:id="empAppFileCol" prefWidth="100.0" text="App. On File" />
+                        <TableColumn fx:id="empTABCCertCol" prefWidth="95.0" text="TABC Cert." />
+                        <TableColumn fx:id="empTABCExpCol" prefWidth="115.0" text="TABC Exp. Date" />
+                        <TableColumn fx:id="empSSCol" prefWidth="70.0" text="SSN" />
+                        <TableColumn fx:id="empStartSalaryCol" prefWidth="110.0" text="Starting Salary" />
+                        <TableColumn fx:id="empCurrentSalaryCol" prefWidth="110.0" text="Current Salary" />
                     </columns>
                   </TableView>
                </content>
@@ -129,7 +130,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveEmpChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 
 public class EmployeeFormController {
 
-    public ObservableList<Employee> employeeData = FXCollections.observableArrayList();
     public ObservableList<EmployeeStatus> employeeStatusData = FXCollections.observableArrayList();
     public ObservableList<EmployeeTaxInfo> employeeTaxInfoData = FXCollections.observableArrayList();
     public ObservableList<EmployeeType> employeeTypeData = FXCollections.observableArrayList();
