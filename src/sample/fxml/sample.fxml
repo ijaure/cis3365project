@@ -24,6 +24,7 @@
       <Button layoutX="15.0" layoutY="159.0" mnemonicParsing="false" text="Planners" />
       <Button layoutX="91.0" layoutY="159.0" mnemonicParsing="false" onAction="#openPaymentInfoTable" text="Payment Info" />
       <Button layoutX="187.0" layoutY="159.0" mnemonicParsing="false" text="Region" />
+      <Button layoutX="187.0" layoutY="159.0" mnemonicParsing="false" onAction="#openReportsTable" text="Reports" />
       <Label layoutX="21.0" layoutY="203.0" text="etc...add buttons as needed" />
    </children>
 </AnchorPane>
