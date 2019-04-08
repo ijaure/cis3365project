@@ -12,7 +12,11 @@ public class StatusFormController {
 
     public TextField statusNameInput;
 
-    public void addEmployeeStatus(){
+    public void addEmployeeStatus() throws SQLException {
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+        Statement stmt = c.createStatement();
+
         if(statusNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -22,7 +26,13 @@ public class StatusFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for adding the new status goes here");
+            String statusName = statusNameInput.getText();
+
+            String SQL = "INSERT INTO EMPLOYEE_STATUS " + "(EMPLOYEE_STATUS_NAME) "
+                    + "VALUES ('" + statusName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }

@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EmergencyContactFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" style="-fx-background-color: #916D91;">
          <children>
@@ -50,7 +50,7 @@
                               <Insets bottom="-5.0" left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ComboBox prefWidth="149.0">
+                        <ComboBox fx:id="employeeList" prefWidth="149.0">
                            <VBox.margin>
                               <Insets left="15.0" />
                            </VBox.margin>
@@ -75,7 +75,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="First Name">
+                              <TextField fx:id="empContactFName" prefHeight="25.0" prefWidth="149.0" promptText="First Name">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -83,7 +83,7 @@
                                     <Insets left="15.0" right="37.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Last Name">
+                              <TextField fx:id="empContactLName" prefHeight="25.0" prefWidth="149.0" promptText="Last Name">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -118,7 +118,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Emergency Phone">
+                              <TextField fx:id="empContactPhone" prefHeight="25.0" prefWidth="149.0" promptText="Emergency Phone">
                                  <VBox.margin>
                                     <Insets left="15.0" />
                                  </VBox.margin>
@@ -126,7 +126,7 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Emergency Email">
+                              <TextField fx:id="empContactEmail" prefHeight="25.0" prefWidth="149.0" promptText="Emergency Email">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -147,7 +147,7 @@
                         <Insets bottom="30.0" top="30.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                        <Button mnemonicParsing="false" onAction="#addEmpContact" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="23.0" />
                            </font>

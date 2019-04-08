@@ -1,7 +1,9 @@
 package sample;
 
+import javafx.beans.property.StringProperty;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import org.w3c.dom.Text;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,9 +13,15 @@ import java.sql.Statement;
 public class TypeFormController {
 
     public TextField typeNameInput;
+    public TextField typeDescInput;
 
-    public void addEmployeeType(){
-        if(typeNameInput.getText().trim().isEmpty())
+    public void addEmployeeType() throws SQLException {
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+        Statement stmt = c.createStatement();
+
+        if(typeNameInput.getText().trim().isEmpty() ||
+        typeDescInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Missing Values");
@@ -22,7 +30,16 @@ public class TypeFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for new type goes here");
+            //collect all the values from the textfields
+            String typeName = typeNameInput.getText();
+            String typeDesc = typeDescInput.getText();
+
+            //insert all of these values to the db, make sure they are in the same order as in the db
+            String SQL = "INSERT INTO EMPLOYEE_TYPE " + "(POSITION_NAME, POSITION_DESCRIPTION) "
+                    + "VALUES ('" + typeName + "', '" + typeDesc + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }

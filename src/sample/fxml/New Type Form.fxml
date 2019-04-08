@@ -52,7 +52,7 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="Position (Employee Type)">
+                              <Label opacity="0.61" text="Position Desc. (Emp. Type)">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
@@ -72,7 +72,7 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField fx:id="typeNameInput1" prefWidth="149.0" promptText="Employee Type Description">
+                              <TextField fx:id="typeDescInput" prefWidth="149.0" promptText="Employee Type Description">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>

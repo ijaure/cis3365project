@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EmployeeTaxInfoFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" style="-fx-background-color: #916D91;">
          <children>
@@ -59,7 +59,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="1099 or W-2">
+                              <TextField fx:id="taxFormInput" promptText="1099 or W-2">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -79,7 +79,7 @@
                               <Insets bottom="30.0" top="30.0" />
                            </padding>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                              <Button mnemonicParsing="false" onAction="#addTaxInfo" prefHeight="80.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="23.0" />
                                  </font>

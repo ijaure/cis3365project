@@ -294,6 +294,6 @@ public class Employee {
 
     @Override
     public String toString(){
-        return employee_id.get() + ", " + employee_last_name.get();
+        return employee_id.get() + ", " + employee_first_name.get() + " " + employee_last_name.get();
     }
 }
