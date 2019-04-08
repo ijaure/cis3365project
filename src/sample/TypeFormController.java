@@ -85,4 +85,23 @@ public class TypeFormController {
             c.close(); //close the connection
         }
     }
+
+    public void addPaymentRequirement() throws SQLException {
+        //get the connection
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        Connection c = DriverManager.getConnection(url);
+        Statement stmt = c.createStatement();
+
+            if(typeNameInput.getText().trim().isEmpty())
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Missing Values");
+                alert.setHeaderText("There Are Missing Values");
+                alert.setContentText("Please check that all fields are complete before submitting.");
+                alert.showAndWait();
+            }
+            else {
+                System.out.println("Code for adding a new payment requirement goes here");
+            }
+        }
 }

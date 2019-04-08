@@ -11,11 +11,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TypeFormController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="NEW TYPE" textFill="#f8f3f8">
+            <Label text="EVENT EMPLOYEE" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -25,15 +25,15 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="54.0" prefHeight="360.0" prefWidth="419.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="54.0" prefHeight="500.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="333.0" prefWidth="410.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="311.0" prefWidth="410.0">
                <children>
-                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="167.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="177.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
-                        <Label text="Type Information">
+                        <Label text="Event Employee">
                            <VBox.margin>
-                              <Insets left="98.0" top="20.0" />
+                              <Insets left="100.0" top="20.0" />
                            </VBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="18.0" />
@@ -44,20 +44,23 @@
                         </Label>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Name">
+                              <Label opacity="0.61" text="Event">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label opacity="0.61" text="Position Desc. (Emp. Type)">
+                              <Label opacity="0.61" text="Employee">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="138.0" />
+                                    <Insets left="143.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -67,42 +70,36 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField fx:id="typeNameInput" prefWidth="149.0" promptText="Name of New Type">
+                              <ChoiceBox prefWidth="149.0">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </TextField>
-                              <TextField fx:id="typeDescInput" prefWidth="149.0" promptText="Employee Type Description">
+                              </ChoiceBox>
+                              <ChoiceBox prefWidth="149.0">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </TextField>
+                              </ChoiceBox>
                            </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="137.0" layoutY="189.0" prefHeight="0.0" prefWidth="138.0">
+                  <VBox layoutX="137.0" layoutY="199.0" prefHeight="0.0" prefWidth="138.0">
                      <padding>
                         <Insets top="30.0" />
                      </padding>
                      <children>
-                        <MenuButton alignment="CENTER" mnemonicParsing="false" popupSide="TOP" prefHeight="46.0" prefWidth="138.0" style="-fx-background-color: #916D91;" text="Submit" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                           <font>
+                              <Font name="Microsoft JhengHei UI Light" size="23.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <font>
-                              <Font name="Microsoft YaHei UI Light" size="23.0" />
-                           </font>
-                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#addEmployeeType" text="Submit Employee Type" />
-                              <MenuItem mnemonicParsing="false" onAction="#addNoteType" text="Submit Note Type" />
-                              <MenuItem mnemonicParsing="false" onAction="#addProductType" text="Submit Product Type" />
-                              <MenuItem mnemonicParsing="false" onAction="#addPaymentRequirement" text="Submit Payment Requirement" />
-                           </items>
-                        </MenuButton>
+                        </Button>
                      </children>
                   </VBox>
                </children>

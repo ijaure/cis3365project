@@ -27,9 +27,9 @@
       </HBox>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="54.0" prefHeight="600.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="1239.0" prefWidth="410.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="1186.0" prefWidth="410.0">
                <children>
-                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="509.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="413.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Event Information">
                            <VBox.margin>
@@ -147,16 +147,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Venue Name">
+                              <ComboBox prefWidth="150.0">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </TextField>
-                              <TextField promptText="Client Name">
+                              </ComboBox>
+                              <ComboBox prefWidth="150.0">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </TextField>
+                              </ComboBox>
                            </children>
                         </HBox>
                         <HBox>
@@ -196,39 +196,52 @@
                               </DatePicker>
                            </children>
                         </HBox>
-                        <Label opacity="0.61" text="Actual End Date">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" left="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <DatePicker prefWidth="149.0">
-                           <VBox.margin>
-                              <Insets left="15.0" />
-                           </VBox.margin>
-                        </DatePicker>
-                        <Label opacity="0.61" text="Event Note">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" left="20.0" />
-                           </VBox.margin>
-                        </Label>
                         <HBox>
                            <children>
-                              <TextArea prefHeight="55.0" prefWidth="323.0">
+                              <Label opacity="0.61" text="Actual End Date">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" left="20.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label opacity="0.61" text="Note">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="83.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <DatePicker prefWidth="149.0">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </TextArea>
+                              </DatePicker>
+                              <ComboBox prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </ComboBox>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="137.0" layoutY="1118.0" prefHeight="0.0" prefWidth="138.0">
+                  <VBox layoutX="137.0" layoutY="1014.0" prefHeight="0.0" prefWidth="138.0">
                      <padding>
                         <Insets top="30.0" />
                      </padding>
@@ -246,8 +259,8 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Separator layoutX="37.0" layoutY="574.0" prefHeight="14.0" prefWidth="338.0" />
-                  <VBox layoutX="27.0" layoutY="624.0" prefHeight="226.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <Separator layoutX="37.0" layoutY="476.0" prefHeight="14.0" prefWidth="338.0" />
+                  <VBox layoutX="27.0" layoutY="526.0" prefHeight="226.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Contact Information">
                            <font>
@@ -328,7 +341,7 @@
                         <HBox />
                      </children>
                   </VBox>
-                  <VBox layoutX="27.0" layoutY="936.0" prefHeight="182.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="832.0" prefHeight="182.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Payment Information">
                            <font>
@@ -379,7 +392,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator layoutX="37.0" layoutY="889.0" prefHeight="14.0" prefWidth="338.0" />
+                  <Separator layoutX="37.0" layoutY="785.0" prefHeight="14.0" prefWidth="338.0" />
                </children>
             </AnchorPane>
          </content>
