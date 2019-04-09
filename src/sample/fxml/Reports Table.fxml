@@ -47,8 +47,11 @@
                            </font>
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#queryVendorStatusName" text="Show Vendors by Status Name" />
+                              <MenuItem mnemonicParsing="false" onAction="#queryVendorState" text="Show Vendors by State" />
+                              <MenuItem mnemonicParsing="false" onAction="#queryProductVendorOrder" text="Show Vendors, Products, &amp; Their Orders" />
+                              <MenuItem mnemonicParsing="false" onAction="#queryInactiveVendor" text="Show Inactive Vendors &amp; Their Products" />
                               <MenuItem mnemonicParsing="false" onAction="#queryEmployeeStatusName" text="Show Employees by Status Name" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryProductVendorOrder" text="Show Vendors, Products, and Their Orders" />
+                              <MenuItem mnemonicParsing="false" onAction="#queryOrdersHold" text="Show Orders On-Hold" />
                            </items>
                            <HBox.margin>
                               <Insets left="200.0" top="6.0" />

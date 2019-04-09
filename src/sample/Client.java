@@ -208,4 +208,9 @@ public class Client {
     public void setFk_client_status_id(int fk_client_status_id) {
         this.fk_client_status_id.set(fk_client_status_id);
     }
+
+    @Override
+    public String toString(){
+        return client_id.get() + ", " + client_fname.get() + " " + client_lname.get();
+    }
 }

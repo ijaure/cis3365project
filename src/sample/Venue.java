@@ -149,4 +149,10 @@ public class Venue {
     public void setComission_percentage(int comission_percentage) {
         this.comission_percentage.set(comission_percentage);
     }
+
+    @Override
+    public String toString(){
+        return venue_id.get() + ", " + venue_name.get();
+    }
 }
+
