@@ -48,6 +48,7 @@
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#queryVendorStatusName" text="Show Vendors by Status Name" />
                               <MenuItem mnemonicParsing="false" onAction="#queryEmployeeStatusName" text="Show Employees by Status Name" />
+                              <MenuItem mnemonicParsing="false" onAction="#queryProductVendorOrder" text="Show Vendors, Products, and Their Orders" />
                            </items>
                            <HBox.margin>
                               <Insets left="200.0" top="6.0" />

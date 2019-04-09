@@ -9,21 +9,45 @@ import java.util.Date;
 
 public class OrderTableController {
 
-    //public ObservableList<Vendor> vendorData = FXCollections.observableArrayList();
-    public TableView<Vendor> orderTable;
-    public TableColumn<Vendor, Number> orderIDCol;
-    public TableColumn<Vendor, Date> orderDateCol;
-    public TableColumn<Vendor, Number> orderClientCol;
-    public TableColumn<Vendor, Number> orderStatusCol;
-    public TableColumn<Vendor, Date> orderDelDateCol;
-    public TableColumn<Vendor, Number> orderDelTimeCol;
-    public TableColumn<Vendor, Date> orderCompleteDateCol;
-    public TableColumn<Vendor, String> orderNotesCol;
+    public ObservableList<Order> orderData = FXCollections.observableArrayList();
+    public TableView<Order> orderTable;
+    public TableColumn<Order, Number> orderIDCol;
+    public TableColumn<Order, Number> orderClientCol;
+    public TableColumn<Order, Number> orderStatusCol;
+    public TableColumn<Order, Date> orderCompleteDateCol;
+    public TableColumn<Order, Date> orderDateCol;
+    public TableColumn<Order, String> orderNotesCol;
+    public TableColumn<Order, Date> orderDelDateCol;
+    public TableColumn<Order, Number> orderDelTimeCol;
 
+    //initialize the table data; reference other table controllers
+    public void initialize(){
 
+    }
 
+    public void openOrderForm(){
 
+    }
 
+    public void editOrder(){
+
+    }
+
+    public void saveOrderChanges(){
+
+    }
+
+    public void deleteOrder(){
+
+    }
+
+    public void openOrderStatusTable(){
+
+    }
+
+    public void openOrderLineTable(){
+
+    }
 
 
 }

@@ -25,9 +25,9 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="55.0" prefHeight="600.0" prefWidth="419.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="55.0" prefHeight="500.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="627.0" prefWidth="410.0" scaleShape="false">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="500.0" prefWidth="410.0" scaleShape="false">
                <children>
                   <VBox layoutX="28.0" layoutY="23.0" prefHeight="345.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
@@ -172,6 +172,14 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
+                              <Label opacity="0.61" text="Client">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets bottom="-5.0" />
@@ -185,6 +193,11 @@
                               <ComboBox fx:id="clientPayRequirements" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <ComboBox prefWidth="149.0" promptText="Please Select">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
                                  </HBox.margin>
                               </ComboBox>
                            </children>

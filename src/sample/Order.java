@@ -13,7 +13,7 @@ public class Order {
     ObjectProperty<Date> order_date = new SimpleObjectProperty<>(this, "order_join_date");
     ObjectProperty<Date> order_complete_date = new SimpleObjectProperty<>(this, "order_complete_date");
     StringProperty order_notes = new SimpleStringProperty();
-    ObjectProperty<Date> order_delivery_date = new SimpleObjectProperty<>(this, "order_complete_date");
+    ObjectProperty<Date> order_delivery_date = new SimpleObjectProperty<>(this, "order_delivery_date");
     StringProperty order_delivery_time = new SimpleStringProperty();
 
 
