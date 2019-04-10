@@ -1,5 +1,5 @@
 package sample;
 
 public class ProductVendorTableController {
-    //TODO finish Order and Order Line so Order IDs can be used in this table
+    //TODO will probably be queried instead of having data loaded here
 }

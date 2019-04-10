@@ -18,7 +18,7 @@
       <Button layoutX="226.0" layoutY="88.0" mnemonicParsing="false" onAction="#openEvents" text="Events" />
       <Button layoutX="14.0" layoutY="125.0" mnemonicParsing="false" onAction="#openProducts" text="Products" />
       <Label layoutX="14.0" layoutY="65.0" text="TABLES:" />
-      <Button layoutX="95.0" layoutY="125.0" mnemonicParsing="false" text="Orders" />
+      <Button layoutX="95.0" layoutY="125.0" mnemonicParsing="false" onAction="#openOrders" text="Orders" />
       <Button layoutX="158.0" layoutY="125.0" mnemonicParsing="false" text="Venues" />
       <Button layoutX="224.0" layoutY="125.0" mnemonicParsing="false" onAction="#openNotes" text="Notes" />
       <Button layoutX="15.0" layoutY="159.0" mnemonicParsing="false" text="Planners" />

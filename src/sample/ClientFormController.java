@@ -31,13 +31,11 @@ public class ClientFormController {
 
 
     public void initialize(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         //these try/catch statements load data into the appropriate drop-down lists
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from CLIENT_STATUS";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -59,8 +57,7 @@ public class ClientFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from REGION";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -82,9 +79,7 @@ public class ClientFormController {
 
     //add a new client to the database
     public void addClient() throws ClassNotFoundException, SQLException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        Connection conn = DriverManager.getConnection(url);
+        Connection conn = DBClass.connect();
         Statement stmt = conn.createStatement();
 
         if(FName.getText().trim().isEmpty() ||

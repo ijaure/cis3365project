@@ -29,7 +29,6 @@ public class EmergencyContactTableController {
     public void initialize(){
         //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         //assign columns to the property methods in the Vendor class
         empContactIDCol.setCellValueFactory(data -> data.getValue().emergency_contact_idProperty());
@@ -44,7 +43,7 @@ public class EmergencyContactTableController {
         //this try/catch loads data from the database into the tableview
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from EMPLOYEE_EMERGENCY_CONTACT";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -115,8 +114,7 @@ public class EmergencyContactTableController {
 
     public void saveEmpContactChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(empContactTable.getSelectionModel().isEmpty())
         {
@@ -149,14 +147,14 @@ public class EmergencyContactTableController {
             statement.setString(4, contactPhoneCell);
             statement.setString(5, contactEmailCell);
             statement.execute();
+            c.close();
         }
 
     }
 
     public void deleteEmpContact() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(empContactTable.getSelectionModel().isEmpty())

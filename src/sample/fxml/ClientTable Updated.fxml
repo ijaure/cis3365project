@@ -33,7 +33,7 @@
          </children></HBox>
     <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="395.0" prefWidth="800.0">
          <children>
-            <ScrollPane prefHeight="305.0" prefViewportHeight="306.0" prefViewportWidth="1052.0" prefWidth="800.0" vbarPolicy="NEVER">
+            <ScrollPane fitToHeight="true" prefHeight="305.0" prefViewportHeight="306.0" prefViewportWidth="1052.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
                   <TableView fx:id="clientTable" prefHeight="306.0" prefWidth="1600.0">
                     <columns>

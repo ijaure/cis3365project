@@ -23,7 +23,6 @@ public class ProductStatusTableController {
     public void initialize(){
         //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         productStatusIDCol.setCellValueFactory(data -> data.getValue().product_status_idProperty());
         productStatusNameCol.setCellValueFactory(data -> data.getValue().product_status_nameProperty());
@@ -31,8 +30,7 @@ public class ProductStatusTableController {
         productStatusTable.setEditable(true);
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from PRODUCT_STATUS";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -68,8 +66,7 @@ public class ProductStatusTableController {
 
     public void saveProductStatusChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(productStatusTable.getSelectionModel().isEmpty())
         {
@@ -92,14 +89,14 @@ public class ProductStatusTableController {
             // make sure these are in the correct order
             statement.setString(1, productStatusNameCell);
             statement.execute();
+            c.close();
         }
 
     }
 
     public void deleteProductStatus() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(productStatusTable.getSelectionModel().isEmpty())

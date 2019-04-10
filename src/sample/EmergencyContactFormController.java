@@ -24,12 +24,11 @@ public class EmergencyContactFormController {
 
 
     public void initialize(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from EMPLOYEE";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -55,8 +54,7 @@ public class EmergencyContactFormController {
 
     public void addEmpContact() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
         //output an error if any of the fields are empty
         if(employeeList.getSelectionModel().isEmpty() ||

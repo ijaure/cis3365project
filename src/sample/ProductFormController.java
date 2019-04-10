@@ -28,13 +28,11 @@ public class ProductFormController {
     public ComboBox<Product_Status> productStatusList;
 
     public void initialize(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         //load all the Comboboxes with data from the other tables
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from PRODUCT_TYPE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -56,8 +54,7 @@ public class ProductFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from VENDOR";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -79,8 +76,7 @@ public class ProductFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from PRODUCT_STATUS";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -105,8 +101,7 @@ public class ProductFormController {
 
     public void addProduct() throws SQLException, ParseException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy"); //used the parse the textfield input to a Date
 

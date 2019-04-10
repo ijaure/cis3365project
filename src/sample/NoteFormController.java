@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
@@ -12,16 +13,14 @@ public class NoteFormController {
     public ComboBox<NoteType> noteTypeList;
     public ObservableList<NoteType> noteTypeData = FXCollections.observableArrayList();
 
-    public TextField noteDescription = new TextField();
+    public TextArea noteDescription = new TextArea();
 
     public void initialize() {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         //these try/catch statements load data into the appropriate drop-down lists
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from NOTE_TYPE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -43,9 +42,7 @@ public class NoteFormController {
 
     }
     public void addNote() throws ClassNotFoundException, SQLException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        Connection conn = DriverManager.getConnection(url);
+        Connection conn = DBClass.connect();
         Statement stmt = conn.createStatement();
 
         if(noteDescription.getText().trim().isEmpty()||

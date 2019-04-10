@@ -13,8 +13,7 @@ public class EmployeeTaxInfoFormController {
     public TextField taxFormInput;
 
     public void addTaxInfo() throws SQLException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(taxFormInput.getText().trim().isEmpty())

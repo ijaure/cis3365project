@@ -22,7 +22,6 @@ public class EmployeeStatusTableController {
 
     public void initialize(){
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         empStatusIDCol.setCellValueFactory(data -> data.getValue().employee_status_idProperty());
         empStatusNameCol.setCellValueFactory(data -> data.getValue().employee_status_nameProperty());
@@ -30,8 +29,7 @@ public class EmployeeStatusTableController {
         empStatusTable.setEditable(true);
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from EMPLOYEE_STATUS";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -67,8 +65,7 @@ public class EmployeeStatusTableController {
 
     public void saveEmpStatusChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(empStatusTable.getSelectionModel().isEmpty())
         {
@@ -91,14 +88,14 @@ public class EmployeeStatusTableController {
             // make sure these are in the correct order
             statement.setString(1, empStatusNameCell);
             statement.execute();
+            c.close();
         }
 
     }
 
     public void deleteEmpStatus() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(empStatusTable.getSelectionModel().isEmpty())

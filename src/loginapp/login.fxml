@@ -66,7 +66,7 @@
       </VBox>
       <ImageView fitHeight="200.0" fitWidth="162.0" layoutX="56.0" layoutY="100.0">
          <image>
-            <Image url="@../sample/fxml/company%20logo.png" />
+            <Image url="@../cblogo.png" />
          </image>
       </ImageView>
    </children>

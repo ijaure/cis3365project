@@ -25,7 +25,6 @@ public class EmployeeTypeTableController {
 
     public void initialize(){
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         empTypeIDCol.setCellValueFactory(data -> data.getValue().employee_type_idProperty());
         empTypeNameCol.setCellValueFactory(data -> data.getValue().position_nameProperty());
@@ -35,8 +34,7 @@ public class EmployeeTypeTableController {
         empTypeTable.setEditable(true);
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from EMPLOYEE_TYPE";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -80,8 +78,7 @@ public class EmployeeTypeTableController {
 
     public void saveEmpTypeChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(empTypeTable.getSelectionModel().isEmpty())
         {
@@ -107,14 +104,14 @@ public class EmployeeTypeTableController {
             statement.setString(1, empTypeNameCell);
             statement.setString(2, empTypeDescCell);
             statement.execute();
+            c.close();
         }
 
     }
 
     public void deleteEmpType() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(empTypeTable.getSelectionModel().isEmpty())

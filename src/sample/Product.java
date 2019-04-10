@@ -123,4 +123,11 @@ public class Product {
     public void setProduct_price_date(Date product_price_date) {
         this.product_price_date.set(product_price_date);
     }
+
+    @Override
+    public String toString(){
+        return product_id.get() + ", " + product_name.get();
+    }
 }
+
+

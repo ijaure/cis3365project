@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OrderLineFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
@@ -70,12 +70,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <ComboBox prefWidth="150.0">
+                              <ComboBox fx:id="ordList" prefWidth="150.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </ComboBox>
-                              <ComboBox prefWidth="150.0">
+                              <ComboBox fx:id="prodList" prefWidth="150.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -110,12 +110,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <ComboBox fx:id="lineStatList" prefHeight="25.0" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="Product Quantity">
+                              </ComboBox>
+                              <TextField fx:id="quantityInput" prefHeight="25.0" prefWidth="149.0" promptText="Product Quantity">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -142,7 +142,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Order Total">
+                              <TextField fx:id="totalInput" promptText="Order Total">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -157,7 +157,7 @@
                         <Insets top="30.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                        <Button mnemonicParsing="false" onAction="#addOrderLine" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="23.0" />
                            </font>

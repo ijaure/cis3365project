@@ -13,8 +13,7 @@ public class StatusFormController {
     public TextField statusNameInput;
 
     public void addEmployeeStatus() throws SQLException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(statusNameInput.getText().trim().isEmpty())
@@ -52,7 +51,10 @@ public class StatusFormController {
 
     }
 
-    public void addOrderStatus(){
+    public void addOrderStatus() throws SQLException {
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
         if(statusNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -62,15 +64,20 @@ public class StatusFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for adding the new status goes here");
+            String statusName = statusNameInput.getText();
+
+            String SQL = "INSERT INTO ORDER_STATUS " + "(ORDER_STATUS_NAME) "
+                    + "VALUES ('" + statusName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }
 
     public void addProductStatus() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(statusNameInput.getText().trim().isEmpty())
@@ -93,7 +100,11 @@ public class StatusFormController {
 
     }
 
-    public void addOrderLineStatus(){
+    public void addOrderLineStatus() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
         if(statusNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -103,7 +114,13 @@ public class StatusFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for adding the new status goes here");
+            String statusName = statusNameInput.getText();
+
+            String SQL = "INSERT INTO ORDER_LINE_STATUS " + "(ORDER_LINE_STATUS_NAME) "
+                    + "VALUES ('" + statusName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }
@@ -140,8 +157,7 @@ public class StatusFormController {
 
     public void addVendorStatus() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(statusNameInput.getText().trim().isEmpty())

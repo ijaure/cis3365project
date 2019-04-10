@@ -42,12 +42,11 @@ public class EmployeeFormController {
     public ComboBox<EmployeeType> empTypeList;
 
     public void initialize(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from EMPLOYEE_TYPE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -70,8 +69,7 @@ public class EmployeeFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from EMPLOYEE_TAX_INFORMATION";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -93,8 +91,7 @@ public class EmployeeFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from EMPLOYEE_STATUS";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -118,8 +115,7 @@ public class EmployeeFormController {
     }
 
     public void addEmployee() throws SQLException, ClassNotFoundException, ParseException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy"); //used the parse the textfield input to a Date
 

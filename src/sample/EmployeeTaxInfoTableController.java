@@ -22,7 +22,6 @@ public class EmployeeTaxInfoTableController {
 
     public void initialize(){
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         empTaxIDCol.setCellValueFactory(data -> data.getValue().employee_tax_idProperty());
         empTaxFormCol.setCellValueFactory(data -> data.getValue().tax_formProperty());
@@ -30,8 +29,7 @@ public class EmployeeTaxInfoTableController {
         empTaxTable.setEditable(true);
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from EMPLOYEE_TAX_INFORMATION";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -67,8 +65,7 @@ public class EmployeeTaxInfoTableController {
 
     public void saveTaxInfoChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(empTaxTable.getSelectionModel().isEmpty())
         {
@@ -91,14 +88,14 @@ public class EmployeeTaxInfoTableController {
             // make sure these are in the correct order
             statement.setString(1, empTaxFormCell);
             statement.execute();
+            c.close();
         }
 
     }
 
     public void deleteTaxInfo() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(empTaxTable.getSelectionModel().isEmpty())

@@ -97,7 +97,7 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="800.0">
+            <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
                   <TableView fx:id="eventTable" prefHeight="317.0" prefWidth="1500.0">
                     <columns>

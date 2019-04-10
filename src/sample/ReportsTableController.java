@@ -25,10 +25,8 @@ public class ReportsTableController {
 
         //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
             try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+                c = DBClass.connect();
             String SQL = "SELECT VENDOR_STATUS.VENDOR_STATUS_NAME, VENDOR.VENDOR_NAME " +
                     " FROM VENDOR JOIN VENDOR_STATUS " +
                     "ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID";
@@ -56,6 +54,7 @@ public class ReportsTableController {
                 //add to tableview
                 dynamicTable.setItems(tableData);
              }
+                c.close();
          }
             catch(Exception e){ //catch any exceptions
                 e.printStackTrace();
@@ -71,10 +70,8 @@ public class ReportsTableController {
 
             //Connect to Database
             Connection c;
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
             try {
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                c = DriverManager.getConnection(url);
+                c = DBClass.connect();
                 String SQL = "SELECT EMPLOYEE_STATUS.EMPLOYEE_STATUS_NAME, EMPLOYEE.EMPLOYEE_FIRST_NAME, EMPLOYEE.EMPLOYEE_LAST_NAME " +
                         " FROM EMPLOYEE JOIN EMPLOYEE_STATUS " +
                         "ON EMPLOYEE.FK_EMPLOYEE_STATUS_ID = EMPLOYEE_STATUS.EMPLOYEE_STATUS_ID";
@@ -102,6 +99,7 @@ public class ReportsTableController {
                     //add to tableview
                     dynamicTable.setItems(tableData);
                 }
+                c.close();
             }
             catch(Exception e){ //catch any exceptions
                 e.printStackTrace();
@@ -116,10 +114,8 @@ public class ReportsTableController {
 
             //Connect to Database
             Connection c;
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
             try {
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                c = DriverManager.getConnection(url);
+                c = DBClass.connect();
                 String SQL = "SELECT VENDOR.VENDOR_NAME, PRODUCT.PRODUCT_NAME, ORDER_LINE.FK_ORDER_ID " +
                         " FROM VENDOR JOIN PRODUCT ON PRODUCT.FK_VENDOR_ID = VENDOR.VENDOR_ID " +
                         "JOIN ORDER_LINE ON ORDER_LINE.FK_PRODUCT_ID = PRODUCT.PRODUCT_ID";
@@ -147,6 +143,7 @@ public class ReportsTableController {
                     //add to tableview
                     dynamicTable.setItems(tableData);
                 }
+                c.close();
             }
             catch(Exception e){ //catch any exceptions
                 e.printStackTrace();
@@ -161,10 +158,8 @@ public class ReportsTableController {
 
             //Connect to Database
             Connection c;
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
             try {
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                c = DriverManager.getConnection(url);
+                c = DBClass.connect();
                 String SQL = "SELECT VENDOR.VENDOR_NAME, REGION.REGION_NAME " +
                         " FROM VENDOR JOIN REGION ON VENDOR.FK_VENDOR_REGION_ID = REGION.REGION_ID ";
                 ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -191,6 +186,7 @@ public class ReportsTableController {
                     //add to tableview
                     dynamicTable.setItems(tableData);
                 }
+                c.close();
             }
             catch(Exception e){ //catch any exceptions
                 e.printStackTrace();
@@ -206,10 +202,8 @@ public class ReportsTableController {
 
             //Connect to Database
             Connection c;
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
             try {
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                c = DriverManager.getConnection(url);
+                c = DBClass.connect();
                 String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, PRODUCT.PRODUCT_NAME " +
                         " FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID " +
                         "JOIN PRODUCT ON PRODUCT.FK_VENDOR_ID = VENDOR.VENDOR_ID WHERE VENDOR_STATUS_NAME = 'Inactive' ";
@@ -237,6 +231,7 @@ public class ReportsTableController {
                     //add to tableview
                     dynamicTable.setItems(tableData);
                 }
+                c.close();
             }
             catch(Exception e){ //catch any exceptions
                 e.printStackTrace();

@@ -13,10 +13,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/sample.fxml")); //loads home page which is temporarily in sample.fxml
-        primaryStage.setTitle("Home Page");
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/login ver 1.fxml")); //loads home page which is temporarily in sample.fxml
+        primaryStage.setTitle("Login");
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 
@@ -26,24 +26,6 @@ public class Main extends Application {
         // and paste it to your JDK bin in C:\Program Files\Java\jdk-11.0.2\bin
         // this is to allow Windows authentication to work so you don't have to use a username & password
         // Also, make sure you add a path in Project Structure -> Libraries to the jdbcjar folder
-
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection conn = DriverManager.getConnection(url);
-
-            if(conn != null) //if it connected successfully
-            {
-                System.out.println("Connection successful");
-            }
-
-            conn.close();
-        }
-        catch (Exception e) //catch any exceptions
-        {
-            e.printStackTrace();
-        }
 
 
 

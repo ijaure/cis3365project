@@ -16,8 +16,7 @@ public class TypeFormController {
     public TextField typeDescInput;
 
     public void addEmployeeType() throws SQLException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(typeNameInput.getText().trim().isEmpty() ||
@@ -61,8 +60,7 @@ public class TypeFormController {
 
     public void addProductType() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(typeNameInput.getText().trim().isEmpty())
@@ -88,8 +86,7 @@ public class TypeFormController {
 
     public void addPaymentRequirement() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
             if(typeNameInput.getText().trim().isEmpty())

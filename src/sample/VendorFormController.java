@@ -33,13 +33,11 @@ public class VendorFormController {
 
     //initialize the Vendor Form
     public void initialize(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         //these try/catch statements load Vendor Status and Regions into the appropriate drop-down lists
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from VENDOR_STATUS";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -61,8 +59,7 @@ public class VendorFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from REGION";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -85,8 +82,7 @@ public class VendorFormController {
     //add a new vendor to the database
     public void addVendor() throws SQLException, ParseException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy"); //used the parse the textfield input to a Date
 

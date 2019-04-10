@@ -23,7 +23,6 @@ public class VendorStatusTableController {
     public void initialize(){
         //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         vendorStatusIDCol.setCellValueFactory(data -> data.getValue().vendor_status_idProperty());
         vendorStatusNameCol.setCellValueFactory(data -> data.getValue().vendor_status_nameProperty());
@@ -31,8 +30,7 @@ public class VendorStatusTableController {
         vendorStatusTable.setEditable(true);
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from VENDOR_STATUS";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -93,8 +91,7 @@ public class VendorStatusTableController {
 
     public void saveVendorStatusChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(vendorStatusTable.getSelectionModel().isEmpty())
         {
@@ -117,13 +114,13 @@ public class VendorStatusTableController {
             // make sure these are in the correct order
             statement.setString(1, vendorStatusNameCell);
             statement.execute();
+            c.close();
         }
     }
 
     public void deleteVendorStatus() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(vendorStatusTable.getSelectionModel().isEmpty())

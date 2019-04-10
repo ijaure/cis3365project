@@ -40,4 +40,9 @@ public class OrderLineStatus {
     public void setOrder_line_status_name(String order_line_status_name) {
         this.order_line_status_name.set(order_line_status_name);
     }
+
+    @Override
+    public String toString(){
+        return order_line_status_id.get() + ", " + order_line_status_name.get();
+    }
 }

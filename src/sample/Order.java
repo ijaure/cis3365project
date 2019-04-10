@@ -128,7 +128,10 @@ public class Order {
         this.order_delivery_time.set(order_delivery_time);
     }
 
-
+    @Override
+    public String toString(){
+        return order_id.get() + ", " + order_notes.get();
+    }
 
 
 

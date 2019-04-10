@@ -46,7 +46,6 @@ public class VendorTableController {
     {
         //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         //assign columns to the property methods in the Vendor class
         vendorIDCol.setCellValueFactory(data -> data.getValue().vendor_idProperty());
@@ -68,8 +67,7 @@ public class VendorTableController {
 
         //this try/catch loads data from the database into the tableview
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from VENDOR";
 
             //Not working, doesn't recognize column VENDOR_STATUS.VENDOR_STATUS_NAME when trying to set values below
@@ -236,8 +234,7 @@ public class VendorTableController {
 
     public void saveVendorChanges() throws SQLException, ParseException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(vendorTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
         {
@@ -291,14 +288,14 @@ public class VendorTableController {
             statement.setString(12, vendorPayTermsCell);
             statement.setDouble(13, vendorCredLimCell);
             statement.execute();
+            c.close();
         }
 
     }
 
     public void deleteVendor() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(vendorTable.getSelectionModel().isEmpty())

@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OrderFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
@@ -70,16 +70,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
+                              <TextField fx:id="orderDateInput" prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <ComboBox fx:id="orderStatusList" prefHeight="25.0" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
+                              </ComboBox>
                            </children>
                            <VBox.margin>
                               <Insets />
@@ -113,12 +113,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
+                              <TextField fx:id="orderDelDateInput" prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField promptText="Delivery Time">
+                              <TextField fx:id="orderDelTimeInput" promptText="Delivery Time">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -153,16 +153,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
+                              <TextField fx:id="orderCompDateInput" prefHeight="25.0" prefWidth="149.0" promptText="MM/dd/yyy">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <ChoiceBox prefHeight="25.0" prefWidth="149.0">
+                              <ComboBox fx:id="orderClientList" prefHeight="25.0" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
+                              </ComboBox>
                            </children>
                         </HBox>
                         <Label opacity="0.61" text="Order Notes">
@@ -175,7 +175,7 @@
                         </Label>
                         <HBox>
                            <children>
-                              <TextArea prefHeight="104.0" prefWidth="329.0" promptText="Order Notes">
+                              <TextArea fx:id="orderNotesInput" prefHeight="104.0" prefWidth="329.0" promptText="Order Notes">
                                  <HBox.margin>
                                     <Insets left="15.0" right="17.0" />
                                  </HBox.margin>
@@ -189,7 +189,7 @@
                         <Insets top="30.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                        <Button mnemonicParsing="false" onAction="#addOrder" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="23.0" />
                            </font>

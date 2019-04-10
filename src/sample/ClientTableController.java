@@ -36,9 +36,8 @@ public class ClientTableController {
 
 
     public void initialize() {
-//Connect to Database
-        Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
+        //Connect to Database
+        Connection c = null;
 
         //assign columns to the property methods in the Vendor class
         clientIDCol.setCellValueFactory(data -> data.getValue().client_idProperty());
@@ -60,8 +59,7 @@ public class ClientTableController {
 
         //this try/catch loads data from the database into the tableview
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from CLIENT";
             ResultSet rs = c.createStatement().executeQuery(SQL);
             while (rs.next()) {
@@ -205,8 +203,7 @@ public class ClientTableController {
 
     public void saveClientChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if (clientTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
         {
@@ -255,6 +252,7 @@ public class ClientTableController {
             statement.setInt(13, ClientStatusCell);
 
             statement.execute();
+            c.close();
         }
 
 
@@ -262,8 +260,7 @@ public class ClientTableController {
 
     public void deleteClient() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if (clientTable.getSelectionModel().isEmpty()) //output an error message if nothing is selected

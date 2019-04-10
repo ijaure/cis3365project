@@ -49,7 +49,6 @@ public class EmployeeTableController {
     public void initialize(){
 //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         //assign columns to the property methods in the Vendor class
         empIDCol.setCellValueFactory(data -> data.getValue().employee_idProperty());
@@ -77,8 +76,7 @@ public class EmployeeTableController {
 
         //this try/catch loads data from the database into the tableview
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from EMPLOYEE";
 
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -278,8 +276,7 @@ public class EmployeeTableController {
 
     public void saveEmpChanges() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if(employeeTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
         {
@@ -355,6 +352,7 @@ public class EmployeeTableController {
             statement.setBoolean(18, onFileCell);
             statement.setInt(19, empTaxCell);
             statement.execute();
+            c.close();
         }
 
 
@@ -362,8 +360,7 @@ public class EmployeeTableController {
 
     public void deleteEmployee() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(employeeTable.getSelectionModel().isEmpty())

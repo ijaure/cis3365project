@@ -93,7 +93,7 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="607.0">
+            <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
                   <TableView fx:id="orderLineTable" prefHeight="318.0" prefWidth="700.0">
                     <columns>
@@ -102,7 +102,7 @@
                         <TableColumn fx:id="orderLineProductIDCol" prefWidth="90.0" text="Product ID" />
                         <TableColumn fx:id="orderLineStatusCol" prefWidth="125.0" text="Order Line Status" />
                         <TableColumn fx:id="orderLineQuantCol" text="Quantity" />
-                        <TableColumn fx:id="orderLineTotalCol" prefWidth="90.0" text="Order Total" />
+                        <TableColumn fx:id="orderLineTotCol" prefWidth="90.0" text="Order Total" />
                     </columns>
                   </TableView>
                </content>

@@ -99,7 +99,7 @@
                   </HBox>
                </children>
             </HBox>
-            <ScrollPane prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0">
+            <ScrollPane fitToHeight="true" prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
                   <TableView prefHeight="319.0" prefWidth="1350.0">
                     <columns>

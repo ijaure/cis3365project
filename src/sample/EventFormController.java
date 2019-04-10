@@ -36,13 +36,11 @@ public class EventFormController {
     public TextField billAddrInput;
 
     public void initialize(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
         Connection c;
 
         //these try/catch statements load data into the appropriate drop-down lists
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from EVENT_OCCURANCE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -64,8 +62,7 @@ public class EventFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from VENUE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -87,8 +84,7 @@ public class EventFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from CLIENT";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -111,8 +107,7 @@ public class EventFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from NOTE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -134,8 +129,7 @@ public class EventFormController {
         }
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "SELECT * from EVENT_STATUS";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -159,8 +153,7 @@ public class EventFormController {
     }
 
     public void addEvent() throws SQLException, ParseException {
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection conn = DriverManager.getConnection(url);
+        Connection conn = DBClass.connect();
         Statement stmt = conn.createStatement();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy"); //used the parse the textfield input to a Date
 

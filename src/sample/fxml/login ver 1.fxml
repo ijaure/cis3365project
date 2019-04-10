@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+   <children>
+      <ImageView fitHeight="213.0" fitWidth="174.0" layoutX="75.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../cblogo.png" />
+         </image></ImageView>
+      <VBox layoutX="284.0" layoutY="96.0" prefHeight="239.0" prefWidth="255.0">
+         <children>
+            <Label prefHeight="38.0" prefWidth="223.0" text="Sign In" textAlignment="CENTER">
+               <padding>
+                  <Insets left="87.0" />
+               </padding>
+               <font>
+                  <Font name="Microsoft JhengHei UI Light" size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userInput" prefHeight="34.0" prefWidth="255.0" promptText="Username">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="passInput" prefHeight="34.0" prefWidth="255.0" promptText="Password">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="255.0" text="Sign In">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Microsoft JhengHei UI Light" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

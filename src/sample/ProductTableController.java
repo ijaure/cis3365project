@@ -32,7 +32,6 @@ public class ProductTableController {
     public void initialize(){
         //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         productIDCol.setCellValueFactory(data -> data.getValue().product_idProperty());
         productTypeCol.setCellValueFactory(data -> data.getValue().fk_product_type_idProperty());
@@ -46,8 +45,7 @@ public class ProductTableController {
         productTable.setEditable(true); //so we can edit rows later
 
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from PRODUCT";
             ResultSet rs = c.createStatement().executeQuery(SQL);
             while(rs.next()){
@@ -88,14 +86,6 @@ public class ProductTableController {
     }
 
     public void editProduct(){
-        productIDCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
-        productIDCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<Product, Number> t) ->
-                        ( t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setProduct_id(Integer.parseInt(String.valueOf(t.getNewValue())))
-        );
-
         productTypeCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
         productTypeCol.setOnEditCommit(
                 (TableColumn.CellEditEvent<Product, Number> t) ->
@@ -147,9 +137,8 @@ public class ProductTableController {
     }
 
     public void saveProductChanges() throws SQLException {
-//get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        //get the connection
+        Connection c = DBClass.connect();
 
         if(productTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
         {
@@ -188,13 +177,13 @@ public class ProductTableController {
             statement.setDouble(6, productPriceCell);
             statement.setDate(7, productPriceDateSQLCell);
             statement.execute();
+            c.close();
         }
     }
 
     public void deleteProduct() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if(productTable.getSelectionModel().isEmpty())
