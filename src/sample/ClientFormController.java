@@ -42,7 +42,7 @@ public class ClientFormController {
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
             while(rs.next()){
-                Client_Status vStatus = new Client_Status(); //make a new Vendor_status object
+                Client_Status vStatus = new Client_Status(); //make a new Client_status object
 
                 //assign an ID and Status Name from the database
                 vStatus.client_status_id.set(rs.getInt("CLIENT_STATUS_ID"));
@@ -132,6 +132,7 @@ public class ClientFormController {
         }
 
     }
+
 }
 
 
