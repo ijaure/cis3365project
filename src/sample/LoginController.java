@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -14,12 +15,20 @@ public class LoginController {
     public TextField passInput;
     Connection c = null;
 
+    public void changeLogin(){
+
+    }
+
     public void login(){
         //TODO need to be able to input a user and password
         String user = userInput.getText();
         String pass = passInput.getText();
+        Connection c = null;
+
         try {
-            c = DBClass.connect();
+            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS";
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            c = DriverManager.getConnection(url, user, pass);
 
             if(c != null) //if it connected successfully
             {
@@ -39,7 +48,14 @@ public class LoginController {
         }
         catch (Exception e) //catch any exceptions
         {
-            e.printStackTrace();
+            e.printStackTrace(); //print the error
+
+            //output an error message
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login Failed");
+            alert.setHeaderText("Invalid username or password");
+            alert.setContentText("Please check that username and password are correct or contact administrator.");
+            alert.showAndWait();
         }
 
     }
