@@ -16,7 +16,7 @@ public class DBClass {
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url,"rache","1234");
+            c = DriverManager.getConnection(url, "rache", "1234");
         }
         catch(Exception e)
         {
