@@ -56,6 +56,8 @@ public class ClientTableController {
         clientCCEmailCol.setCellValueFactory(data -> data.getValue().client_cc_emailProperty());
         clientWebsiteCol.setCellValueFactory(data -> data.getValue().client_websiteProperty());
 
+        clientTable.setEditable(true);
+
         //this try/catch loads data from the database into the tableview
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -236,7 +238,7 @@ public class ClientTableController {
 
             String clientwebsiteCell = (String) clientWebsiteCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE CLIENT SET CLIENT_FNAME = ?,CLIENT_LNAME=?,CLIENT_MAIN_PHONE=?,CLIENT_SECONDARY_PHONE=?,CLIENT_EMAIL=?,CLIENT_CC_EMAIL=?,BILLING_STREET=?,BILLING_CITY=?,FK_REGION_ID=?,CLIENT_ZIPCODE=?,CLIENT_COMPANY_NAME=?,CLIENT_WEBSITE=?,FK_CLIENT_STATUS_ID=?" + "WHERE CLIENT_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE CLIENT SET CLIENT_FNAME = ?,CLIENT_LNAME=?,CLIENT_MAIN_PHONE=?,CLIENT_SECONDARY_PHONE=?,CLIENT_EMAIL=?,CLIENT_CC_EMAIL=?,BILLING_STREET=?,BILLING_CITY=?,FK_REGION_ID=?,CLIENT_ZIPCODE=?,CLIENT_COMPANY_NAME=?,CLIENT_WEBSITE=?,FK_CLIENT_STATUS_ID=? " + "WHERE CLIENT_ID =" + currentID);
 
             statement.setString(1, clientFNameCell);
             statement.setString(2, clientLNameCell);

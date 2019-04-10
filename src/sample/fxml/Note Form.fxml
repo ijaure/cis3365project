@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NoteFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
@@ -44,20 +44,12 @@
                         </Label>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Note Name">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
                               <Label opacity="0.61" text="Note Type">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="105.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -67,16 +59,11 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Note Name">
+                              <ComboBox fx:id="noteTypeList" prefWidth="150.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </TextField>
-                              <ChoiceBox prefWidth="150.0">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
-                              </ChoiceBox>
+                              </ComboBox>
                            </children>
                            <VBox.margin>
                               <Insets />

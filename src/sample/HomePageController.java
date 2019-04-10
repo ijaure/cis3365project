@@ -100,4 +100,18 @@ public class HomePageController {
             e.printStackTrace();
         }
     }
+
+    //temporarily launching note form until table is complete
+    public void openNotes(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Note Form.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Note");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

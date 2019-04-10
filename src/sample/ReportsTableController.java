@@ -210,8 +210,9 @@ public class ReportsTableController {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 c = DriverManager.getConnection(url);
-                String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME " +
-                        " FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID WHERE VENDOR_STATUS_NAME = 'Inactive' ";
+                String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, PRODUCT.PRODUCT_NAME " +
+                        " FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID " +
+                        "JOIN PRODUCT ON PRODUCT.FK_VENDOR_ID = VENDOR.VENDOR_ID WHERE VENDOR_STATUS_NAME = 'Inactive' ";
                 ResultSet rs = c.createStatement().executeQuery(SQL);
                 int index = rs.getMetaData().getColumnCount();
                 //dynamically add table columns, so they are made based off database columns

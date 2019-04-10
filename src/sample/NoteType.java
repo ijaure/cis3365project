@@ -40,4 +40,9 @@ public class NoteType {
     public void setNote_type_name(String note_type_name) {
         this.note_type_name.set(note_type_name);
     }
+
+    @Override
+    public String toString(){
+        return note_type_id.get() + ", " + note_type_name.get();
+    }
 }
