@@ -15,10 +15,6 @@ public class LoginController {
     public TextField passInput;
     Connection c = null;
 
-    public void changeLogin(){
-
-    }
-
     public void login(){
         //TODO need to be able to input a user and password
         String user = userInput.getText();

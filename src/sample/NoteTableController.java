@@ -25,7 +25,6 @@ public class NoteTableController {
     public void initialize() {
 //Connect to Database
         Connection c;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
 
         noteIDCol.setCellValueFactory(data -> data.getValue().note_idProperty());
         noteDescrCol.setCellValueFactory(data -> data.getValue().note_descriptionProperty());
@@ -33,8 +32,7 @@ public class NoteTableController {
 
         noteTable.setEditable(true);
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url);
+            c = DBClass.connect();
             String SQL = "Select * from NOTE";
             ResultSet rs = c.createStatement().executeQuery(SQL);
             while (rs.next()) {
@@ -84,8 +82,7 @@ public class NoteTableController {
     }
     public void saveNoteChanges() throws SQLException {
 
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
 
         if (noteTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
         {
@@ -110,10 +107,9 @@ public class NoteTableController {
         }
 
     }
-    public void deleteClient() throws SQLException {
+    public void deleteNote() throws SQLException {
         //get the connection
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;integratedSecurity=true";
-        Connection c = DriverManager.getConnection(url);
+        Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         if (noteTable.getSelectionModel().isEmpty()) //output an error message if nothing is selected

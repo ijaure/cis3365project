@@ -35,16 +35,17 @@
          <children>
             <ScrollPane fitToHeight="true" prefHeight="305.0" prefViewportHeight="306.0" prefViewportWidth="1052.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="306.0" prefWidth="1150.0">
+                  <TableView fx:id="payInfoTable" prefHeight="306.0" prefWidth="1150.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="90.0" text="First Name" />
-                        <TableColumn prefWidth="90.0" text="Last Name" />
-                        <TableColumn prefWidth="95.0" text="CC Number" />
-                        <TableColumn prefWidth="105.0" text="CVC Number" />
-                        <TableColumn prefWidth="120.0" text="Exp. Month Date" />
-                        <TableColumn prefWidth="120.0" text="Exp. Year Date" />
-                        <TableColumn prefWidth="150.0" text="Payment Requirements" />
+                      <TableColumn fx:id="payInfoIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="payInfoClientCol" prefWidth="90.0" text="Client No." />
+                      <TableColumn fx:id="fNameCol" prefWidth="90.0" text="First Name" />
+                        <TableColumn fx:id="lNameCol" prefWidth="90.0" text="Last Name" />
+                        <TableColumn fx:id="ccNumbCol" prefWidth="95.0" text="CC Number" />
+                        <TableColumn fx:id="cvcNumbCol" prefWidth="105.0" text="CVC Number" />
+                        <TableColumn fx:id="expMonthCol" prefWidth="120.0" text="Exp. Month Date" />
+                        <TableColumn fx:id="expYearCol" prefWidth="120.0" text="Exp. Year Date" />
+                        <TableColumn fx:id="payInfoReqCol" prefWidth="170.0" text="Payment Requirement No." />
                     </columns>
                   </TableView>
                </content>
@@ -64,7 +65,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editPayInfo" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -75,7 +76,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deletePayInfo" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -94,7 +95,7 @@
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <items>
-                              <MenuItem mnemonicParsing="false" text="View Payment Req. Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openClientTable" text="View Client Table" />
                            </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -111,7 +112,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#savePayInfoChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

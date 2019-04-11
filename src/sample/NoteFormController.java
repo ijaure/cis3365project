@@ -37,7 +37,7 @@ public class NoteFormController {
             c.close();
         } catch (Exception e) { //catch any exceptions
             e.printStackTrace();
-            System.out.println("Error on Building Client Status Data");
+            System.out.println("Error on Building Note Data");
         }
 
     }

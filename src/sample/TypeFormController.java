@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class TypeFormController {
 
     public TextField typeNameInput;
-    public TextField typeDescInput;
+    public TextField typeDescInput; //used for employee type since it has a desc. field
 
     public void addEmployeeType() throws SQLException {
         Connection c = DBClass.connect();
@@ -43,7 +43,9 @@ public class TypeFormController {
 
     }
 
-    public void addNoteType(){
+    public void addNoteType() throws SQLException {
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
         if(typeNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -53,7 +55,15 @@ public class TypeFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for new type goes here");
+            //collect all the values from the textfields
+            String typeName = typeNameInput.getText();
+
+            //insert all of these values to the db, make sure they are in the same order as in the db
+            String SQL = "INSERT INTO NOTE_TYPE " + "(NOTE_TYPE_NAME) "
+                    + "VALUES ('" + typeName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }
@@ -89,16 +99,22 @@ public class TypeFormController {
         Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
-            if(typeNameInput.getText().trim().isEmpty())
-            {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Missing Values");
-                alert.setHeaderText("There Are Missing Values");
-                alert.setContentText("Please check that all fields are complete before submitting.");
-                alert.showAndWait();
-            }
-            else {
-                System.out.println("Code for adding a new payment requirement goes here");
-            }
+        if (typeNameInput.getText().trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Missing Values");
+            alert.setHeaderText("There Are Missing Values");
+            alert.setContentText("Please check that all fields are complete before submitting.");
+            alert.showAndWait();
+        } else {
+            //get the inputted type name
+            String typeName = typeNameInput.getText();
+
+            //insert the new type into the type table
+            String SQL = "INSERT INTO PAYMENT_REQUIREMENT " + "(PAYMENT_REQ_NAME) "
+                    + "VALUES ('" + typeName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection            }
         }
+    }
 }
