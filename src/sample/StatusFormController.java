@@ -36,7 +36,10 @@ public class StatusFormController {
 
     }
 
-    public void addClientStatus(){
+    public void addClientStatus() throws SQLException {
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
         if(statusNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -46,7 +49,13 @@ public class StatusFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for adding the new status goes here");
+            String statusName = statusNameInput.getText();
+
+            String SQL = "INSERT INTO CLIENT_STATUS " + "(CLIENT_STATUS_NAME) "
+                    + "VALUES ('" + statusName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }
@@ -125,7 +134,11 @@ public class StatusFormController {
 
     }
 
-    public void addVenueStatus(){
+    public void addVenueStatus() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
         if(statusNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -135,12 +148,22 @@ public class StatusFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for adding the new status goes here");
+            String statusName = statusNameInput.getText();
+
+            String SQL = "INSERT INTO VENUE_STATUS " + "(VENUE_STATUS_NAME) "
+                    + "VALUES ('" + statusName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }
 
-    public void addEventStatus(){
+    public void addEventStatus() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
         if(statusNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -150,7 +173,13 @@ public class StatusFormController {
             alert.showAndWait();
         }
         else {
-            System.out.println("Code for adding the new status goes here");
+            String statusName = statusNameInput.getText();
+
+            String SQL = "INSERT INTO EVENT_STATUS " + "(EVENT_STATUS_NAME) "
+                    + "VALUES ('" + statusName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection
         }
 
     }
