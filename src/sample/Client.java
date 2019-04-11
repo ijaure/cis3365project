@@ -38,7 +38,7 @@ public class Client {
         this.fk_client_status_id = fk_client_status_id;
     }
 
-    public Client() {
+    public Client()  {
     }
 
     public int getClient_id() {
