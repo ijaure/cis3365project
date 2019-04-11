@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="464.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="464.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.VenueTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #916D91;">
          <children>
@@ -39,7 +39,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #916D91;" text="New Venue" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openVenueForm" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #916D91;" text="New Venue" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -50,7 +50,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editVenue" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -61,7 +61,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteVenue" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -74,10 +74,8 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Venue Contact Table" />
-                              <MenuItem mnemonicParsing="false" text="View Venue Status Table" />
-                            <MenuItem mnemonicParsing="false" text="Add Event" />
-                              <MenuItem mnemonicParsing="false" text="Add Planner" />
+                              <MenuItem mnemonicParsing="false" onAction="#openVenueContact" text="View Venue Contact Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openVenueStatus" text="View Venue Status Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -101,21 +99,18 @@
             </HBox>
             <ScrollPane fitToHeight="true" prefHeight="321.0" prefViewportHeight="319.0" prefViewportWidth="872.0" prefWidth="800.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="319.0" prefWidth="1350.0">
+                  <TableView fx:id="venueTable" prefHeight="319.0" prefWidth="1350.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="110.0" text="Venue Name" />
-                        <TableColumn prefWidth="70.0" text="Type" />
-                        <TableColumn prefWidth="70.0" text="Status" />
-                        <TableColumn prefWidth="85.0" text="Join Date" />
-                        <TableColumn prefWidth="70.0" text="Phone" />
-                        <TableColumn prefWidth="70.0" text="Email" />
-                        <TableColumn text="Address" />
-                        <TableColumn prefWidth="70.0" text="State" />
-                        <TableColumn prefWidth="110.0" text="Work Hours" />
-                        <TableColumn prefWidth="110.0" text="Delivery Hours" />
-                        <TableColumn prefWidth="115.0" text="Contract Exp." />
-                        <TableColumn prefWidth="115.0" text="Commission %" />
+                      <TableColumn fx:id="venueIDCol" prefWidth="40.0" text="ID" />
+                      <TableColumn fx:id="venueNameCol" prefWidth="110.0" text="Venue Name" />
+                        <TableColumn fx:id="venueStatusIDCol" prefWidth="70.0" text="Status No." />
+                        <TableColumn fx:id="venuephoneCol" prefWidth="70.0" text="Phone" />
+                        <TableColumn fx:id="venueEmailCol" prefWidth="70.0" text="Email" />
+                        <TableColumn fx:id="venueaddressCol" text="Address" />
+                        <TableColumn fx:id="venueWorkHoursCol" prefWidth="110.0" text="Work Hours" />
+                        <TableColumn fx:id="venueDeliveryHoursCol" prefWidth="110.0" text="Delivery Hours" />
+                        <TableColumn fx:id="contractexpirationCol" prefWidth="115.0" text="Contract Exp." />
+                        <TableColumn fx:id="commission_percentageCol" prefWidth="115.0" text="Commission %" />
                     </columns>
                   </TableView>
                </content>
@@ -124,7 +119,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveVenueChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

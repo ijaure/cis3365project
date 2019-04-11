@@ -221,4 +221,9 @@ public class Event {
     public void setFk_event_note_id(int fk_event_note_id) {
         this.fk_event_note_id.set(fk_event_note_id);
     }
+
+    @Override
+    public String toString(){
+        return event_id.get() + ", " + event_name.get();
+    }
 }

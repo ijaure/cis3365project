@@ -60,7 +60,7 @@ public class PlannerTableController {
             c.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error on Building Employee Data");
+            System.out.println("Error on Building Planner Data");
         }
     }
         public void openPlannerForm(){
@@ -69,6 +69,19 @@ public class PlannerTableController {
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Planner Form");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void openEventTable(){
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Event Table");
                 stage.setScene(new Scene(root));
                 stage.show();
             } catch (Exception e) {
@@ -145,7 +158,7 @@ public class PlannerTableController {
 
                 Boolean isClientCell = (Boolean) isClientCol.getCellObservableValue(row).getValue();
 
-                PreparedStatement statement = c.prepareStatement("UPDATE PLANNER SET PLANNER_FIRST_NAME=?.PLANNER_LAST_NAME=?,PLANNER_PHONE=?,PLANNER_EMAIL=?IS_CLIENT=?,FK_VENUE_ID=?" + "WHERE PLANNER_ID =" + currentID);
+                PreparedStatement statement = c.prepareStatement("UPDATE PLANNER SET PLANNER_FIRST_NAME=?,PLANNER_LAST_NAME=?,PLANNER_PHONE=?,PLANNER_EMAIL=?,IS_CLIENT=?,FK_VENUE_ID=? " + "WHERE PLANNER_ID =" + currentID);
                 statement.setString(1, plannerFNameCell);
                 statement.setString(2, plannerLNameCell);
                 statement.setString(3, plannerphoneCell);
@@ -173,7 +186,7 @@ public class PlannerTableController {
         }
         else {
             int row = plannerTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
-            Integer currentID = (Integer) venueIDCol.getCellObservableValue(row).getValue(); //get the id of the selected
+            Integer currentID = (Integer) plannerIDCol.getCellObservableValue(row).getValue(); //get the id of the selected
 
             //delete the vendor whose id matches the currently selected vendor's id
             String SQL = "DELETE FROM PLANNER WHERE PLANNER_ID =" + currentID;

@@ -243,4 +243,9 @@ public class ReportsTableController {
         public void queryOrdersHold(){
 
         }
+
+        //query to view events and planners, show by name
+        public void eventPlanner(){
+
+        }
 }

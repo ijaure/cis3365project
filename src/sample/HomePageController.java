@@ -130,10 +130,23 @@ public class HomePageController {
 
     public void openPlanners(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Planner Form.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Planner Table.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Planner Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openVenues(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Venue Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Venue Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
