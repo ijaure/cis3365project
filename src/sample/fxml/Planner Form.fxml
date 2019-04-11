@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlannerFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
@@ -27,9 +27,9 @@
       </HBox>
       <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="54.0" prefHeight="600.0" prefWidth="419.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="573.0" prefWidth="410.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="650.0" prefWidth="410.0">
                <children>
-                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="219.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="22.0" prefHeight="294.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Planner Information">
                            <VBox.margin>
@@ -59,12 +59,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="First Name">
+                              <TextField fx:id="plannerFirstNameInput" promptText="First Name">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField promptText="Last Name">
+                              <TextField fx:id="plannerLastNameInput" promptText="Last Name">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
@@ -87,22 +87,34 @@
                         </Label>
                         <HBox>
                            <children>
-                              <ComboBox prefWidth="150.0">
+                              <ComboBox fx:id="venueIDList" prefWidth="150.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </ComboBox>
-                              <CheckBox mnemonicParsing="false" text="Is Client">
+                              <CheckBox fx:id="isClientInput" mnemonicParsing="false" text="Is Client">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </CheckBox>
                            </children>
                         </HBox>
-                        <HBox />
+                        <Label opacity="0.61" text="Event">
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-5.0" left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="plannerEventList" prefWidth="150.0" promptText="Please Select">
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin>
+                        </ComboBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="27.0" layoutY="313.0" prefHeight="158.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
+                  <VBox layoutX="27.0" layoutY="383.0" prefHeight="158.0" prefWidth="357.0" spacing="13.0" style="-fx-background-color: #E9E6E9; -fx-border-color: #D4CDD4;">
                      <children>
                         <Label text="Contact Information">
                            <font>
@@ -143,7 +155,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField promptText="Phone Number">
+                              <TextField fx:id="plannerPhoneInput" promptText="Phone Number">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -151,7 +163,7 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField promptText="Email Address">
+                              <TextField fx:id="plannerEmailInput" promptText="Email Address">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -161,12 +173,12 @@
                         <HBox />
                      </children>
                   </VBox>
-                  <VBox layoutX="136.0" layoutY="471.0" prefHeight="0.0" prefWidth="138.0">
+                  <VBox layoutX="136.0" layoutY="541.0" prefHeight="0.0" prefWidth="138.0">
                      <padding>
                         <Insets top="30.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                        <Button mnemonicParsing="false" onAction="#addPlanner" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="23.0" />
                            </font>
@@ -179,7 +191,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Separator layoutX="38.0" layoutY="273.0" prefHeight="14.0" prefWidth="338.0" style="-fx-border-style: dash;" />
+                  <Separator layoutX="38.0" layoutY="343.0" prefHeight="14.0" prefWidth="338.0" style="-fx-border-style: dash;" />
                </children>
             </AnchorPane>
          </content>

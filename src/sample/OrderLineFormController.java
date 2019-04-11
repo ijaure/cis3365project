@@ -126,6 +126,7 @@ public class OrderLineFormController {
             String SQL = "INSERT INTO ORDER_LINE " + "(FK_ORDER_ID, FK_PRODUCT_ID, FK_ORDER_LINE_STATUS_ID, QUANTITY, TOTAL) "
                     + "VALUES ('" + order + "', '" + product + "', '" + lineStatus + "', '"
                     + quantity + "', '" + total + "')";
+
             String SQL2 =  "INSERT INTO PRODUCT_VENDOR (FK_PRODUCT_ID, FK_VENDOR_ID, FK_ORDER_ID) "
                     + "VALUES('" + product + "', '" + vendor + "', '" + order + "')";
 
