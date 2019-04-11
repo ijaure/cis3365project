@@ -40,4 +40,9 @@ public class VenueStatus {
     public void setVenue_status_name(String venue_status_name) {
         this.venue_status_name.set(venue_status_name);
     }
+
+    @Override
+    public String toString(){
+        return venue_status_id.get() + ", " + venue_status_name.get();
+    }
 }

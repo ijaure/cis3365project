@@ -191,7 +191,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Separator layoutX="38.0" layoutY="343.0" prefHeight="14.0" prefWidth="338.0" style="-fx-border-style: dash;" />
+                  <Separator layoutX="38.0" layoutY="343.0" prefHeight="14.0" prefWidth="338.0" />
                </children>
             </AnchorPane>
          </content>

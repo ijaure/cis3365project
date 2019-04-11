@@ -50,7 +50,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editPlanner" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -61,7 +61,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deletePlanner" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -74,8 +74,7 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Event Table" />
-                            <MenuItem mnemonicParsing="false" text="Add Venue" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEventTable" text="View Event Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -99,15 +98,15 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="317.0" prefWidth="641.0">
+                  <TableView fx:id="plannerTable" prefHeight="317.0" prefWidth="641.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="95.0" text="First Name" />
-                        <TableColumn prefWidth="95.0" text="Last Name" />
-                        <TableColumn prefWidth="70.0" text="Venue" />
-                        <TableColumn prefWidth="70.0" text="Phone" />
-                        <TableColumn prefWidth="70.0" text="Email" />
-                        <TableColumn text="Is Client" />
+                      <TableColumn fx:id="plannerIDCol" prefWidth="40.0" text="ID" />
+                      <TableColumn fx:id="PlannerFNameCol" prefWidth="95.0" text="First Name" />
+                        <TableColumn fx:id="plannerLNameCol" prefWidth="95.0" text="Last Name" />
+                        <TableColumn fx:id="venueIDCol" prefWidth="70.0" text="Venue No." />
+                        <TableColumn fx:id="plannerPhoneCol" prefWidth="70.0" text="Phone" />
+                        <TableColumn fx:id="plannerEmailCol" prefWidth="70.0" text="Email" />
+                        <TableColumn fx:id="isClientCol" text="Is Client" />
                     </columns>
                   </TableView>
                </content>
@@ -116,7 +115,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#savePlannerChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -76,6 +76,19 @@ public class PlannerTableController {
             }
         }
 
+        public void openEventTable(){
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Event Table");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         public void editPlanner(){
             PlannerFNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             plannerLNameCol.setOnEditCommit(
@@ -145,7 +158,7 @@ public class PlannerTableController {
 
                 Boolean isClientCell = (Boolean) isClientCol.getCellObservableValue(row).getValue();
 
-                PreparedStatement statement = c.prepareStatement("UPDATE PLANNER SET PLANNER_FIRST_NAME=?,PLANNER_LAST_NAME=?,PLANNER_PHONE=?,PLANNER_EMAIL=?IS_CLIENT=?,FK_VENUE_ID=?" + "WHERE PLANNER_ID =" + currentID);
+                PreparedStatement statement = c.prepareStatement("UPDATE PLANNER SET PLANNER_FIRST_NAME=?,PLANNER_LAST_NAME=?,PLANNER_PHONE=?,PLANNER_EMAIL=?,IS_CLIENT=?,FK_VENUE_ID=? " + "WHERE PLANNER_ID =" + currentID);
                 statement.setString(1, plannerFNameCell);
                 statement.setString(2, plannerLNameCell);
                 statement.setString(3, plannerphoneCell);

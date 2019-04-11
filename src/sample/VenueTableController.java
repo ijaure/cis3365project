@@ -59,7 +59,7 @@ public class VenueTableController {
                 v.venue_work_hours.set(rs.getString("VENUE_WORK_HOURS"));
                 v.venue_delivery_hours.set(rs.getString("VENUE_DELIVERY_HOURS"));
                 v.contract_expiration.set(rs.getBoolean("CONTRACT_EXPIRATION"));
-                v.comission_percentage.set(rs.getInt("COMMISSION_PERCENTAGE"));
+                v.comission_percentage.set(rs.getInt("COMISSION_PERCENTAGE"));
 
 
 
@@ -85,6 +85,34 @@ public class VenueTableController {
             e.printStackTrace();
         }
     }
+
+    public void openVenueContact(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Venue Contact Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Venue Contact Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openVenueStatus(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Venue Status Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Venue Status Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void editVenue(){
         venueNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         venueNameCol.setOnEditCommit(
@@ -153,7 +181,7 @@ public class VenueTableController {
 
 
     }
-    public void saveVenueTableChanges() throws SQLException{
+    public void saveVenueChanges() throws SQLException{
         Connection c = DBClass.connect();
 
         if(venueTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
@@ -178,7 +206,7 @@ public class VenueTableController {
             Integer venuecommissionpercentageCell = (Integer) commission_percentageCol.getCellObservableValue(row).getValue();
             Boolean contractExpirationCell = (Boolean) contractexpirationCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE VENUE SET VENUE_NAME=?,FK_VENUE_STATUS_ID=?,VENUE_ADDRESS=?,VENUE_PHONE_NUMBER=?,VENUE_EMAIL_ADDRESS=?,VENUE_WORK_HOURS=?,VENUE_DELIVERY_HOURS=?,CONTRACT_EXPIRATION=?,COMMISSION_PERCENTAGE=?"+ "WHERE VENUE_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE VENUE SET VENUE_NAME=?,FK_VENUE_STATUS_ID=?,VENUE_ADDRESS=?,VENUE_PHONE_NUMBER=?,VENUE_EMAIL_ADDRESS=?,VENUE_WORK_HOURS=?,VENUE_DELIVERY_HOURS=?,CONTRACT_EXPIRATION=?,COMISSION_PERCENTAGE=? "+ "WHERE VENUE_ID =" + currentID);
             statement.setString(1, venueNameCell);
             statement.setInt(2,venueStatusIDCell);
             statement.setString(3,venueaddressCell);
