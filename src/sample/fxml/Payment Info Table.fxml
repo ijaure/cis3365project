@@ -54,7 +54,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#openPaymentReqTable" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #916D91;" text="Payment Req. Table" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openPayInfoForm" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #916D91;" text="New Payment Info" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -96,6 +96,7 @@
                            </font>
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#openClientTable" text="View Client Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openPaymentReqTable" text="View Payment Req. Table" />
                            </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -120,7 +121,7 @@
                   <Font name="Microsoft JhengHei UI" size="12.0" />
                </font>
                <HBox.margin>
-                  <Insets left="-55.0" />
+                  <Insets left="-60.0" />
                </HBox.margin>
             </Button>
          </children>

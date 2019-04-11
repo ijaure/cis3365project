@@ -44,23 +44,12 @@
                         </Label>
                         <HBox>
                            <children>
-                              <Label opacity="0.61" text="Card Type">
-                                 <VBox.margin>
-                                    <Insets bottom="-5.0" left="65.0" top="10.0" />
-                                 </VBox.margin>
+                              <Label opacity="0.61" text="CC Number">
                                  <font>
                                     <Font name="Microsoft JhengHei UI" size="12.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label opacity="0.61" text="Card Number">
-                                 <font>
-                                    <Font name="Microsoft JhengHei UI" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="116.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -70,14 +59,9 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <TextField fx:id="cardTypeInput" prefHeight="25.0" prefWidth="149.0" promptText="Card Type">
+                              <TextField fx:id="ccInput" promptText="CC Number">
                                  <HBox.margin>
                                     <Insets left="15.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <TextField fx:id="cardNoInput" promptText="Card Number">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
