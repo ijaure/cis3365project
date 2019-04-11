@@ -24,7 +24,7 @@
             </ImageView>
          </graphic></Button>
       <Button layoutX="522.0" layoutY="191.0" mnemonicParsing="false" onAction="#openVendors" prefHeight="36.0" prefWidth="102.0" text="Vendors" textFill="WHITE" />
-      <Button layoutX="367.0" layoutY="191.0" mnemonicParsing="false" onAction="#openEvents" prefHeight="36.0" prefWidth="102.0" text="Events" textFill="WHITE" />
+      <Button layoutX="375.0" layoutY="191.0" mnemonicParsing="false" onAction="#openEvents" prefHeight="36.0" prefWidth="102.0" text="Events" textFill="WHITE" />
       <Button layoutX="35.0" layoutY="191.0" mnemonicParsing="false" onAction="#openProducts" prefHeight="34.0" prefWidth="102.0" text="Products" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="28.0">
