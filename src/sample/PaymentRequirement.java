@@ -40,4 +40,9 @@ public class PaymentRequirement {
     public void setPayment_req_name(String payment_req_name) {
         this.payment_req_name.set(payment_req_name);
     }
+
+    @Override
+    public String toString(){
+        return payment_req_id.get() + ", " + payment_req_name.get();
+    }
 }

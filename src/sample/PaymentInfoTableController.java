@@ -13,9 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.NumberStringConverter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.Date;
 
 
@@ -146,11 +144,11 @@ public class PaymentInfoTableController {
 
     }
 
-    public void savePayInfoChanges(){
-        /*//get the connection
+    public void savePayInfoChanges() throws SQLException {
+        //get the connection
         Connection c = DBClass.connect();
 
-        if(orderTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
+        if(payInfoTable.getSelectionModel().isEmpty()) //output an error message if there is nothing selected
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("No Selection");
@@ -159,47 +157,79 @@ public class PaymentInfoTableController {
             alert.showAndWait();
         }
         else {
-            int row = orderTable.getSelectionModel().getSelectedIndex(); //get the index of the selected row
-            Integer currentID = (Integer) orderIDCol.getCellObservableValue(row).getValue(); //collect the selection id
+            int row = payInfoTable.getSelectionModel().getSelectedIndex(); //get the index of the selected row
+            Integer currentID = (Integer) payInfoIDCol.getCellObservableValue(row).getValue(); //collect the selection id
 
             //collect each cell's value in a variable
-            Integer clientCell = (Integer) orderClientCol.getCellObservableValue(row).getValue();
-            Integer statusCell = (Integer) orderStatusCol.getCellObservableValue(row).getValue();
+            Integer clientCell = (Integer) payInfoClientCol.getCellObservableValue(row).getValue();
+            String fNameCell = (String) fNameCol.getCellObservableValue(row).getValue();
+            String lNameCell = (String) lNameCol.getCellObservableValue(row).getValue();
+            Integer ccCell = (Integer) ccNumbCol.getCellObservableValue(row).getValue();
+            Integer cvcCell = (Integer) cvcNumbCol.getCellObservableValue(row).getValue();
+            Integer monthCell = (Integer) expMonthCol.getCellObservableValue(row).getValue();
+            Integer yearCell = (Integer) expYearCol.getCellObservableValue(row).getValue();
+            String payReqCell = (String) payInfoReqCol.getCellObservableValue(row).getValue();
 
-            java.util.Date dateCell = orderDateCol.getCellObservableValue(row).getValue();
-            java.sql.Date dateCellSQL = new java.sql.Date(dateCell.getTime());
-
-            java.util.Date compDateCell = orderCompleteDateCol.getCellObservableValue(row).getValue();
-            java.sql.Date compDateCellSQL = new java.sql.Date(compDateCell.getTime());
-
-            String notesCell = (String) orderNotesCol.getCellObservableValue(row).getValue();
-
-            java.util.Date delDateCell = orderDelDateCol.getCellObservableValue(row).getValue();
-            java.sql.Date delDateCellSQL = new java.sql.Date(delDateCell.getTime());
-
-            String delTimeCell = (String) orderDelTimeCol.getCellObservableValue(row).getValue();
-
-            PreparedStatement statement = c.prepareStatement("UPDATE [ORDER] SET FK_CLIENT_ID = ?, " +
-                    "FK_ORDER_STATUS_ID = ?, ORDER_DATE = ?, ORDER_COMPLETE_DATE = ?, ORDER_NOTES = ?, ORDER_DELIVERY_DATE = ?, "
-                    + "ORDER_DELIVERY_TIME = ? "
-                    + "WHERE ORDER_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE PAYMENT_INFORMATION SET FK_CLIENT_ID = ?, " +
+                    "PAYMENT_FIRST_NAME = ?, PAYMENT_LAST_NAME = ?, CC_NUMBER = ?, CVC_NUMBER = ?, EXP_MONTH_DATE = ?, "
+                    + "EXP_YEAR_DATE = ?, PAYMENT_REQUIREMENT = ? "
+                    + "WHERE PAYMENT_INFO_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above
             // make sure these are in the correct order
             statement.setInt(1, clientCell);
-            statement.setInt(2, statusCell);
-            statement.setDate(3, dateCellSQL);
-            statement.setDate(4, compDateCellSQL);
-            statement.setString(5, notesCell);
-            statement.setDate(6, delDateCellSQL);
-            statement.setString(7, delTimeCell);
+            statement.setString(2, fNameCell);
+            statement.setString(3, lNameCell);
+            statement.setInt(4, ccCell);
+            statement.setInt(5, cvcCell);
+            statement.setInt(6, monthCell);
+            statement.setInt(7, yearCell);
+            statement.setString(8, payReqCell);
             statement.execute();
             c.close();
-        }*/
+        }
 
     }
 
-    public void deletePayInfo(){
+    public void deletePayInfo() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
+        if(payInfoTable.getSelectionModel().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        }
+        else {
+            int row = payInfoTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+            Integer currentID = (Integer) payInfoIDCol.getCellObservableValue(row).getValue(); //get the id of the selection
+
+            //delete the vendor whose id matches the currently selected vendor's id
+            String SQL = "DELETE FROM PAYMENT_INFORMATION WHERE PAYMENT_INFO_ID =" + currentID;
+
+            stmt.executeUpdate(SQL);
+            payInfoData.remove(payInfoTable.getSelectionModel().getSelectedIndex()); //update the observable list
+            payInfoTable.setItems(payInfoData); //update the tableview so the deletion shows immediately
+            c.close();
+        }
+
+    }
+
+    public void openPayInfoForm(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Payment Info Form.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Payment Info");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
