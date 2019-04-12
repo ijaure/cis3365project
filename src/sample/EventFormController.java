@@ -181,6 +181,13 @@ public class EventFormController {
             alert.showAndWait();
         }
         else {
+            // Since this deals with of associative tables, local SQL variables need to be used to store
+            // the ids of the last inserts.
+            // See PlannerFormController for an example that adds to Event Planner.
+            // Event_Venue does not store the Venue ID - it stores Client_Event, Venue, and Client IDs.
+            // To get Client_Event ID, declare another local SQL variable to store the last insert into Client_Event
+            // right after the insert statement that stores EventID and ClientID into Client_Event
+
             String eventName = eventNameInput.getText();
             Integer eventVenue = eventVenueList.getSelectionModel().getSelectedItem().getVenue_id();
             Integer eventClient = eventClientList.getSelectionModel().getSelectedItem().getClient_id();
@@ -204,11 +211,22 @@ public class EventFormController {
             Integer eventNote = eventNoteList.getSelectionModel().getSelectedItem().getNote_id();
 
             String sqlStatement = "INSERT INTO EVENT" + "(EVENT_NAME, FK_VENUE_ID, FK_CLIENT_ID, BILLING_ADDRESS, EVENT_CONTACT_FIRST, EVENT_CONTACT_LAST, EVENT_PHONE, EVENT_EMAIL, START_DATE, PROJ_END_DATE, ACT_END_DATE, FK_EVENT_STATUS, FK_EVENT_OCCURANCE_ID, FK_EVENT_NOTE_ID)" +
-                    " VALUES ('" + eventName + "', '" + eventVenue + "', '" + eventClient + "', '" + billAddr + "', '" + fName + "', '" + lName + "', '" + phone + "', '" + email + "', '" + startDateSQL + "', '" + projDateSQL + "', '" + actEndDateSQL + "', '" + eventStatus + "', '" + eventOccur + "', '" + eventNote + "')";
+                    " VALUES ('" + eventName + "', '" + eventVenue + "', '" + eventClient + "', '" + billAddr + "', '" + fName + "', '" + lName + "', '" + phone + "', '" + email + "', '" + startDateSQL + "', '" + projDateSQL + "', '" + actEndDateSQL + "', '" + eventStatus + "', '" + eventOccur + "', '" + eventNote + "'); " +
+                    "DECLARE @newEvent_id int" + " SET @newEvent_id = @@IDENTITY;";
+
+            String SQLEN = "INSERT INTO EVENT_NOTE(FK_EVENT_ID, FK_NOTE_ID) VALUES(@newEvent_id, " + eventNote + ");";
+
+            String SQLCE = "INSERT INTO CLIENT_EVENT(FK_CLIENT_ID, FK_EVENT_ID) VALUES('" + eventClient + "', @newEvent_id); " +
+                    "DECLARE @newClientEvent_id int" + " SET @newClientEvent_id = @@IDENTITY;";
+
+            String SQLEV = "INSERT INTO EVENT_VENUE(FK_CLIENT_EVENT_ID, FK_VENUE_ID, FK_CLIENT_ID) VALUES(@newClientEvent_id, " + eventVenue + ", " + eventClient + ");";
 
             //If statement for validations before submission
-            stmt.executeUpdate(sqlStatement);
-
+            stmt.addBatch(sqlStatement);
+            stmt.addBatch(SQLEN);
+            stmt.addBatch(SQLCE);
+            stmt.addBatch(SQLEV);
+            stmt.executeBatch();
             conn.close();
         }
 
