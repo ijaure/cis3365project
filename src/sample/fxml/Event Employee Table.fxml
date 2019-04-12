@@ -50,17 +50,6 @@
                               <Insets left="120.0" top="6.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#openEventTable" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #916D91;" text="Event Table" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
                         <Button mnemonicParsing="false" onAction="#editEventEmployee" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -83,6 +72,21 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openEventTable" text="View Event Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEmployeeTable" text="View Employee Table" />
+                           </items>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </MenuButton>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />

@@ -155,7 +155,7 @@ public class EventEmployeeTableController {
 
     public void openEventTable(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Employee Table.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Event Table");
@@ -165,5 +165,18 @@ public class EventEmployeeTableController {
             e.printStackTrace();
         }
 
+    }
+
+    public void openEmployeeTable(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Employee Table Updated.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Employee Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
