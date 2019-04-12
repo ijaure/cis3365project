@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="466.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NoteTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -39,9 +39,20 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openNoteForm" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #916D91;" text="New Note" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
                            <HBox.margin>
-                              <Insets left="200.0" top="6.0" />
+                              <Insets left="160.0" top="6.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editNote" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
@@ -50,7 +61,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteNote" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -63,9 +74,8 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Event Table" />
-                              <MenuItem mnemonicParsing="false" text="View Event Note Table" />
-                            <MenuItem mnemonicParsing="false" text="View Note Type Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEventNote" text="View Event Note Table" />
+                            <MenuItem mnemonicParsing="false" onAction="#openNoteTypeTable" text="View Note Type Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
@@ -89,12 +99,11 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="317.0" prefWidth="641.0">
+                  <TableView fx:id="noteTable" prefHeight="317.0" prefWidth="641.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                      <TableColumn prefWidth="95.0" text="Note Name" />
-                        <TableColumn prefWidth="125.0" text="Note Description" />
-                        <TableColumn prefWidth="90.0" text="Note Type" />
+                      <TableColumn fx:id="noteIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="noteDescrCol" prefWidth="125.0" text="Note Description" />
+                        <TableColumn fx:id="noteTypeIDCol" prefWidth="90.0" text="Note Type No." />
                     </columns>
                   </TableView>
                </content>
@@ -103,7 +112,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveNoteChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

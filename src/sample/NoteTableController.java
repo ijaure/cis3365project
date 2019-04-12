@@ -99,7 +99,7 @@ public class NoteTableController {
             String noteDescriptionCell= (String) noteDescrCol.getCellObservableValue(row).getValue();
             Integer noteTypeCell= (Integer) noteTypeIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE NOTE WHERE NOTE_DESCRIPTION=?,FK_NOTE_TYPE_ID=?"+ "WHERE NOTE_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE NOTE SET NOTE_DESCRIPTION = ?, FK_NOTE_TYPE_ID=?" + " WHERE NOTE_ID =" + currentID);
 
             statement.setString(1, noteDescriptionCell);
             statement.setInt(2, noteTypeCell);
@@ -145,6 +145,19 @@ public class NoteTableController {
             e.printStackTrace();
         }
 
+    }
+
+    public void openEventNote(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Note Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Note");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

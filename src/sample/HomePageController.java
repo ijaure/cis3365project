@@ -104,10 +104,10 @@ public class HomePageController {
     //temporarily launching note form until table is complete
     public void openNotes(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Note Form.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Note Table.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("New Note");
+            stage.setTitle("Note Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
