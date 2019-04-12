@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,9 +17,10 @@ public class ReportsTableController {
     public TableView<ObservableList<String>> dynamicTable;
     public ObservableList<ObservableList<String>> tableData = FXCollections.observableArrayList();
 
+    public TextArea queryInput;
 
     //initialize the tables
-    public void queryVendorStatusName() {
+    public void queryButtonClicked() {
         //clear the columns and rows from the previous query
         dynamicTable.getColumns().clear();
         dynamicTable.getItems().clear();
@@ -27,9 +29,7 @@ public class ReportsTableController {
         Connection c;
             try {
                 c = DBClass.connect();
-            String SQL = "SELECT VENDOR_STATUS.VENDOR_STATUS_NAME, VENDOR.VENDOR_NAME " +
-                    " FROM VENDOR JOIN VENDOR_STATUS " +
-                    "ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID";
+            String SQL = queryInput.getText();
             ResultSet rs = c.createStatement().executeQuery(SQL);
             int index = rs.getMetaData().getColumnCount();
             //dynamically add table columns, so they are made based off database columns
@@ -63,7 +63,7 @@ public class ReportsTableController {
 
         }
 
-        public void queryEmployeeStatusName(){
+        /*public void queryEmployeeStatusName(){
             //clear the columns and rows from the previous query
             dynamicTable.getColumns().clear();
             dynamicTable.getItems().clear();
@@ -247,5 +247,5 @@ public class ReportsTableController {
         //query to view events and planners, show by name
         public void eventPlanner(){
 
-        }
+        }*/
 }

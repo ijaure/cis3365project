@@ -18,11 +18,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="437.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportsTableController">
+<AnchorPane prefHeight="545.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportsTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="REPORTS TABLE" textFill="#f8f3f8">
+            <Label text="SQL QUERY TABLE" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -32,31 +32,23 @@
             </Label>
          </children>
       </HBox>
-    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="607.0">
+    <AnchorPane layoutY="167.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="607.0">
          <children>
             <HBox layoutY="318.0" prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox prefHeight="55.0" prefWidth="482.0" spacing="3.0">
                      <children>
-                        <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="224.0" style="-fx-background-color: #916D91;" text="Please Select a Report" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#queryButtonClicked" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #916D91;" text="Submit Query" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <font>
-                              <Font name="Microsoft JhengHei UI" size="17.0" />
+                              <Font name="Microsoft JhengHei Light" size="21.0" />
                            </font>
-                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#queryVendorStatusName" text="Show Vendors by Status Name" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryVendorState" text="Show Vendors by State" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryProductVendorOrder" text="Show Vendors, Products, &amp; Their Orders" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryInactiveVendor" text="Show Inactive Vendors &amp; Their Products" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryEmployeeStatusName" text="Show Employees by Status Name" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryOrdersHold" text="Show Orders On-Hold" />
-                           </items>
                            <HBox.margin>
-                              <Insets left="200.0" top="6.0" />
+                              <Insets left="220.0" top="4.0" />
                            </HBox.margin>
-                        </MenuButton>
+                        </Button>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />
@@ -71,5 +63,6 @@
             </ScrollPane>
          </children>
       </AnchorPane>
+      <TextArea fx:id="queryInput" layoutX="14.0" layoutY="72.0" prefHeight="82.0" prefWidth="579.0" promptText="Select a Report from the Menu or Paste Directly Here" />
    </children>
 </AnchorPane>
