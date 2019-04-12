@@ -75,12 +75,12 @@ public class HomePageController {
         }
     }
 
-    public void openReportsTable(){
+    public void openSQLTable(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Reports Table.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/SQLQuery Table.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Reports Table");
+            stage.setTitle("SQL Query Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -147,6 +147,19 @@ public class HomePageController {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Venue Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openRegions(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Region Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Region Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

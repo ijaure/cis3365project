@@ -76,12 +76,12 @@ public class PlannerTableController {
             }
         }
 
-        public void openEventTable(){
+        public void openVenueTable(){
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Venue Table.fxml"));
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
-                stage.setTitle("Event Table");
+                stage.setTitle("Venue Table");
                 stage.setScene(new Scene(root));
                 stage.show();
             } catch (Exception e) {
@@ -197,6 +197,19 @@ public class PlannerTableController {
             c.close();
         }
 
+    }
+
+    public void openEventPlannerTable(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Planner Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Planner Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     }

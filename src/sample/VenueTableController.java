@@ -112,6 +112,19 @@ public class VenueTableController {
         }
     }
 
+    public void openEventVenue(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Venue Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Venue Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void editVenue(){
         venueNameCol.setCellFactory(TextFieldTableCell.forTableColumn());

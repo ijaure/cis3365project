@@ -76,6 +76,7 @@
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#openVenueContact" text="View Venue Contact Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openVenueStatus" text="View Venue Status Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEventVenue" text="View Event Venue Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />

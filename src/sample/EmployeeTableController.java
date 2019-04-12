@@ -399,6 +399,19 @@ public class EmployeeTableController {
         }
     }
 
+    public void openEventEmployee(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Employee Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Employee Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void openEmpStatusTable(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Employee Status Table.fxml"));

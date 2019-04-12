@@ -1,5 +1,8 @@
 package sample;
 
 public class ProductVendorTableController {
-    //TODO will probably be queried instead of having data loaded here
+
+    //no need for this table if products and orders can already be seen in order line
+    //also products and vendors can be seen in product table
+
 }
