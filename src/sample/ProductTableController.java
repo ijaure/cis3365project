@@ -209,20 +209,6 @@ public class ProductTableController {
 
     }
 
-    public void openProductVendorTable(){
-        try{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Vendor Table.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Product Vendor Table");
-        stage.setScene(new Scene(root));
-        stage.show();
-        }
-        catch (Exception e) {
-        e.printStackTrace();
-        }
-    }
-
     public void openProductTypeTable(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Type Table.fxml"));

@@ -74,7 +74,6 @@
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#openProductVendorTable" text="View Product Vendor Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openProductTypeTable" text="View Product Type Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openProductStatusTable" text="View Product Status Table" />
                           </items>
