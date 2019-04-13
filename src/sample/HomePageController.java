@@ -166,4 +166,17 @@ public class HomePageController {
             e.printStackTrace();
         }
     }
+
+    public void openReports(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Reports Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Reports");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

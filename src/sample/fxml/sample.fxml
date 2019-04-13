@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
    <children>
       <Button layoutX="168.0" layoutY="192.0" mnemonicParsing="false" onAction="#openEmployees" prefHeight="31.0" prefWidth="102.0" text="Employees" textFill="WHITE">
          <graphic>
@@ -45,7 +45,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="168.0" layoutY="318.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="102.0" onAction="#openVenues" text="Venues" textFill="WHITE">
+      <Button layoutX="168.0" layoutY="318.0" mnemonicParsing="false" onAction="#openVenues" prefHeight="33.0" prefWidth="102.0" text="Venues" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0">
                <image>
@@ -77,5 +77,6 @@
             <Image url="@../../cblogo.png" />
          </image>
       </ImageView>
+      <Button layoutX="270.0" layoutY="374.0" mnemonicParsing="false" onAction="#openReports" prefHeight="36.0" prefWidth="102.0" text="Reports" textFill="WHITE" />
    </children>
 </AnchorPane>
