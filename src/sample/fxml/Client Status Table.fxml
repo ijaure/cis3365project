@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="462.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="462.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientStatusTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -38,7 +38,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #916D91;" text="New Status" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openStatusForm" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #916D91;" text="New Status" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -49,7 +49,7 @@
                               <Insets left="150.0" top="6.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #916D91;" text="Client Table" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openClientTable" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #916D91;" text="Client Table" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -60,7 +60,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editStatus" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -71,7 +71,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteStatus" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -91,10 +91,10 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="318.0" prefWidth="700.0">
+                  <TableView fx:id="csTable" prefHeight="318.0" prefWidth="700.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="125.0" text="Status Name" />
+                      <TableColumn fx:id="csIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="csNameCol" prefWidth="125.0" text="Status Name" />
                     </columns>
                   </TableView>
                </content>
@@ -103,7 +103,7 @@
       </AnchorPane>
       <HBox layoutX="292.0" layoutY="457.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveStatusChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

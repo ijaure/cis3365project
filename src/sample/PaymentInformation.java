@@ -14,9 +14,9 @@ public class PaymentInformation {
     IntegerProperty cvc_number = new SimpleIntegerProperty();
     IntegerProperty exp_month_date = new SimpleIntegerProperty();
     IntegerProperty exp_year_date = new SimpleIntegerProperty();
-    StringProperty payment_requirement = new SimpleStringProperty();
+    IntegerProperty payment_requirement = new SimpleIntegerProperty();
 
-    public PaymentInformation(IntegerProperty payment_info_id, IntegerProperty fk_client_id, StringProperty payment_first_name, StringProperty payment_last_name, IntegerProperty cc_number, IntegerProperty cvc_number, IntegerProperty exp_month_date, IntegerProperty exp_year_date, StringProperty payment_requirement) {
+    public PaymentInformation(IntegerProperty payment_info_id, IntegerProperty fk_client_id, StringProperty payment_first_name, StringProperty payment_last_name, IntegerProperty cc_number, IntegerProperty cvc_number, IntegerProperty exp_month_date, IntegerProperty exp_year_date, IntegerProperty payment_requirement) {
         this.payment_info_id = payment_info_id;
         this.fk_client_id = fk_client_id;
         this.payment_first_name = payment_first_name;
@@ -127,15 +127,15 @@ public class PaymentInformation {
         this.exp_year_date.set(exp_year_date);
     }
 
-    public String getPayment_requirement() {
+    public int getPayment_requirement() {
         return payment_requirement.get();
     }
 
-    public StringProperty payment_requirementProperty() {
+    public IntegerProperty payment_requirementProperty() {
         return payment_requirement;
     }
 
-    public void setPayment_requirement(String payment_requirement) {
+    public void setPayment_requirement(int payment_requirement) {
         this.payment_requirement.set(payment_requirement);
     }
 }

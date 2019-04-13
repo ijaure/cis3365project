@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="430.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="430.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegionTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -38,9 +38,20 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openNewTypeForm" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #916D91;" text="New Region" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
                            <HBox.margin>
-                              <Insets left="230.0" top="6.0" />
+                              <Insets left="150.0" top="6.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editRegion" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
@@ -49,7 +60,18 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteRegion" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#saveRegionChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -69,10 +91,10 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="318.0" prefWidth="700.0">
+                  <TableView fx:id="regTable" prefHeight="318.0" prefWidth="700.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="125.0" text="Region Name" />
+                      <TableColumn fx:id="rIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="rNameCol" prefWidth="125.0" text="Region Name" />
                     </columns>
                   </TableView>
                </content>

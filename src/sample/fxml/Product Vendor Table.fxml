@@ -40,7 +40,7 @@
                      <children>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="240.0" top="6.0" />
+                              <Insets left="205.0" top="6.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
@@ -48,6 +48,17 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#deleteProductType" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                            <cursor>
@@ -76,10 +87,10 @@
                <content>
                   <TableView prefHeight="318.0" prefWidth="700.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="90.0" text="Product ID" />
-                        <TableColumn prefWidth="90.0" text="Vendor ID" />
-                        <TableColumn prefWidth="90.0" text="Order ID" />
+                      <TableColumn fx:id="pvIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="pIDCol" prefWidth="90.0" text="Product ID" />
+                        <TableColumn fx:id="vIDCol" prefWidth="90.0" text="Vendor ID" />
+                        <TableColumn fx:id="oIDCol" prefWidth="90.0" text="Order ID" />
                     </columns>
                   </TableView>
                </content>

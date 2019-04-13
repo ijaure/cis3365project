@@ -102,6 +102,7 @@
                               <MenuItem mnemonicParsing="false" onAction="#addProductType" text="Submit Product Type" />
                               <MenuItem mnemonicParsing="false" onAction="#addPaymentRequirement" text="Submit Payment Requirement" />
                               <MenuItem mnemonicParsing="false" onAction="#addEventOccur" text="Submit Event Occurrence" />
+                              <MenuItem mnemonicParsing="false" onAction="#addRegion" text="Submit Region" />
                            </items>
                         </MenuButton>
                      </children>

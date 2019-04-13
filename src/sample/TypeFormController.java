@@ -141,4 +141,28 @@ public class TypeFormController {
             c.close(); //close the connection            }
         }
     }
+
+    public void addRegion() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+        Statement stmt = c.createStatement();
+
+        if (typeNameInput.getText().trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Missing Values");
+            alert.setHeaderText("There Are Missing Values");
+            alert.setContentText("Please check that all fields are complete before submitting.");
+            alert.showAndWait();
+        } else {
+            //get the inputted type name
+            String typeName = typeNameInput.getText();
+
+            //insert the new type into the type table
+            String SQL = "INSERT INTO REGION " + "(REGION_NAME) "
+                    + "VALUES ('" + typeName + "')";
+
+            stmt.executeUpdate(SQL); //execute the sql statement
+            c.close(); //close the connection            }
+        }
+    }
 }

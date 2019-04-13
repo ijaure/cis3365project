@@ -15,7 +15,6 @@ import java.sql.SQLException;
 
 public class ReportTableController {
 
-
     public TableView<ObservableList<String>> dynamicTable;
     public ObservableList<ObservableList<String>> tableData = FXCollections.observableArrayList();
 
@@ -168,7 +167,7 @@ public class ReportTableController {
             Connection c;
             try {
                 c = DBClass.connect();
-                String SQL = "SELECT [ORDER].ORDER_ID, PRODUCT.PRODUCT_NAME, ORDER_LINE.ORDER_LINE_ID, ORDER_LINE_STATUS.ORDER_LINE_STATUS_NAME\n" +
+                String SQL = "SELECT [ORDER].ORDER_ID, PRODUCT.PRODUCT_NAME, ORDER_LINE.ORDER_LINE_ID, ORDER_LINE_STATUS.ORDER_LINE_STATUS_NAME, ORDER_LINE.QUANTITY\n" +
                         "FROM [ORDER] JOIN ORDER_LINE ON [ORDER].ORDER_ID=ORDER_LINE.FK_ORDER_ID \n" +
                         "JOIN PRODUCT ON PRODUCT.PRODUCT_ID=ORDER_LINE.FK_PRODUCT_ID \n" +
                         "JOIN ORDER_LINE_STATUS ON ORDER_LINE.FK_ORDER_LINE_STATUS_ID=ORDER_LINE_STATUS.ORDER_LINE_STATUS_ID \n" +

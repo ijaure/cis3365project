@@ -102,7 +102,7 @@ public class PaymentInfoFormController {
             Integer cvc = Integer.parseInt(cvcInput.getText());
             Integer month = Integer.parseInt(expMonthInput.getText());
             Integer year = Integer.parseInt(expYearInput.getText());
-            String payReq = payReqList.getSelectionModel().getSelectedItem().getPayment_req_name();
+            Integer payReq = payReqList.getSelectionModel().getSelectedItem().getPayment_req_id();
 
             String sqlStatement = "INSERT INTO PAYMENT_INFORMATION" + "(FK_CLIENT_ID, PAYMENT_FIRST_NAME, PAYMENT_LAST_NAME, CC_NUMBER, CVC_NUMBER, EXP_MONTH_DATE, EXP_YEAR_DATE, PAYMENT_REQUIREMENT)" +
                     " VALUES ('" + client + "', '" + fName + "', '" + lName + "', '" + cc + "', '" + cvc + "', '" + month + "', '" + year + "', '" + payReq + "')";

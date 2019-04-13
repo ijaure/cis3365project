@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,7 @@ public class PaymentInfoTableController {
     public TableColumn<PaymentInformation, Number> cvcNumbCol;
     public TableColumn<PaymentInformation, Number> expMonthCol;
     public TableColumn<PaymentInformation, Number> expYearCol;
-    public TableColumn<PaymentInformation, String> payInfoReqCol;
+    public TableColumn<PaymentInformation, Number> payInfoReqCol;
 
     public void initialize(){
         //Connect to Database
@@ -62,7 +63,7 @@ public class PaymentInfoTableController {
                 pi.cvc_number.set(rs.getInt("CVC_NUMBER"));
                 pi.exp_month_date.set(rs.getInt("EXP_MONTH_DATE"));
                 pi.exp_year_date.set(rs.getInt("EXP_YEAR_DATE"));
-                pi.payment_requirement.set(rs.getString("PAYMENT_REQUIREMENT"));
+                pi.payment_requirement.set(rs.getInt("PAYMENT_REQUIREMENT"));
 
                 payInfoData.add(pi); //add to an observable list
             }
@@ -134,12 +135,12 @@ public class PaymentInfoTableController {
                         ).setExp_year_date(Integer.parseInt(String.valueOf(t.getNewValue())))
         );
 
-        payInfoReqCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        payInfoReqCol.setCellFactory(TextFieldTableCell.<PaymentInformation, Number>forTableColumn(new NumberStringConverter()));
         payInfoReqCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<PaymentInformation, String> t) ->
+                (TableColumn.CellEditEvent<PaymentInformation, Number> t) ->
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setPayment_requirement(t.getNewValue())
+                        ).setPayment_requirement(Integer.parseInt(String.valueOf(t.getNewValue())))
         );
 
     }
@@ -168,7 +169,7 @@ public class PaymentInfoTableController {
             Integer cvcCell = (Integer) cvcNumbCol.getCellObservableValue(row).getValue();
             Integer monthCell = (Integer) expMonthCol.getCellObservableValue(row).getValue();
             Integer yearCell = (Integer) expYearCol.getCellObservableValue(row).getValue();
-            String payReqCell = (String) payInfoReqCol.getCellObservableValue(row).getValue();
+            Integer payReqCell = (Integer) payInfoReqCol.getCellObservableValue(row).getValue();
 
             PreparedStatement statement = c.prepareStatement("UPDATE PAYMENT_INFORMATION SET FK_CLIENT_ID = ?, " +
                     "PAYMENT_FIRST_NAME = ?, PAYMENT_LAST_NAME = ?, CC_NUMBER = ?, CVC_NUMBER = ?, EXP_MONTH_DATE = ?, "
@@ -184,7 +185,7 @@ public class PaymentInfoTableController {
             statement.setInt(5, cvcCell);
             statement.setInt(6, monthCell);
             statement.setInt(7, yearCell);
-            statement.setString(8, payReqCell);
+            statement.setInt(8, payReqCell);
             statement.execute();
             c.close();
         }
