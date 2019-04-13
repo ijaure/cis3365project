@@ -77,10 +77,7 @@
                               <MenuItem mnemonicParsing="false" onAction="#openEventStatusTable" text="View Event Status Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openEventOccuranceTable" text="View Event Occurrence Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openEventEmployeeTable" text="View Event Employee Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openClientEventTable" text="View Client Event Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openEventNoteTable" text="View Event Note Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openEventPlannerTable" text="View Event Planner Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openEventVenue" text="View Event Venue Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
