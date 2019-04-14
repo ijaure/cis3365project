@@ -28,7 +28,7 @@ public class ReportTableController {
             Connection c;
             try {
                 c = DBClass.connect();
-                String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME\n" +
+                String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME, PRODUCT.PRODUCT_NAME " +
                         "FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.VENDOR_STATUS_ID=VENDOR_STATUS.VENDOR_STATUS_ID \n" +
                         "JOIN PRODUCT ON PRODUCT.VENDOR_ID=VENDOR.VENDOR_ID \n" +
                         "JOIN REGION ON REGION.REGION_ID=VENDOR.VENDOR_REGION_ID WHERE VENDOR_STATUS_NAME='Current'\n" +
@@ -74,7 +74,7 @@ public class ReportTableController {
             Connection c;
             try {
                 c = DBClass.connect();
-                String SQL = "SELECT DISTINCT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME\n" +
+                String SQL = "SELECT DISTINCT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME " +
                         "FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.VENDOR_STATUS_ID=VENDOR_STATUS.VENDOR_STATUS_ID\n" +
                         "JOIN PRODUCT ON NOT PRODUCT.VENDOR_ID=VENDOR.VENDOR_ID\n" +
                         "JOIN REGION ON REGION.REGION_ID=VENDOR.VENDOR_REGION_ID WHERE VENDOR_STATUS_NAME='Not Specified'\n" +
@@ -251,5 +251,192 @@ public class ReportTableController {
             }
 
         }
+
+    //additional unused queries
+        /*public void queryEmployeeStatusName(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT EMPLOYEE_STATUS.EMPLOYEE_STATUS_NAME, EMPLOYEE.EMPLOYEE_FIRST_NAME, EMPLOYEE.EMPLOYEE_LAST_NAME " +
+                        " FROM EMPLOYEE JOIN EMPLOYEE_STATUS " +
+                        "ON EMPLOYEE.FK_EMPLOYEE_STATUS_ID = EMPLOYEE_STATUS.EMPLOYEE_STATUS_ID";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
+        public void queryProductVendorOrder(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT VENDOR.VENDOR_NAME, PRODUCT.PRODUCT_NAME, ORDER_LINE.FK_ORDER_ID " +
+                        " FROM VENDOR JOIN PRODUCT ON PRODUCT.FK_VENDOR_ID = VENDOR.VENDOR_ID " +
+                        "JOIN ORDER_LINE ON ORDER_LINE.FK_PRODUCT_ID = PRODUCT.PRODUCT_ID";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
+        public void queryVendorState(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT VENDOR.VENDOR_NAME, REGION.REGION_NAME " +
+                        " FROM VENDOR JOIN REGION ON VENDOR.FK_VENDOR_REGION_ID = REGION.REGION_ID ";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+
+        }
+
+        public void queryInactiveVendor(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, PRODUCT.PRODUCT_NAME " +
+                        " FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.FK_VENDOR_STATUS_ID = VENDOR_STATUS.VENDOR_STATUS_ID " +
+                        "JOIN PRODUCT ON PRODUCT.FK_VENDOR_ID = VENDOR.VENDOR_ID WHERE VENDOR_STATUS_NAME = 'Inactive' ";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+
+        }
+
+        public void queryOrdersHold(){
+
+        }
+
+        //query to view events and planners, show by name
+        public void eventPlanner(){
+
+        }*/
 }
 

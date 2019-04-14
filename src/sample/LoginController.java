@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -12,7 +13,7 @@ import java.sql.DriverManager;
 
 public class LoginController {
     public TextField userInput;
-    public TextField passInput;
+    public PasswordField passInput;
     Connection c = null;
 
     public void login(){
