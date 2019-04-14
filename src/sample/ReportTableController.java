@@ -252,6 +252,262 @@ public class ReportTableController {
 
         }
 
+        public void empRental(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT EMPLOYEE.EMPLOYEE_ID, EMPLOYEE.EMPLOYEE_LAST_NAME, " +
+                        "EVENT.EVENT_NAME, " +
+                        "EVENT.EVENT_STATUS, " +
+                        "VENUE.VENUE_NAME " +
+                        "FROM " +
+                        "EMPLOYEE INNER JOIN EVENT_EMPLOYEE ON EMPLOYEE.EMPLOYEE_ID=EVENT_EMPLOYEE.EMPLOYEE_ID " +
+                        "INNER JOIN EVENT ON EVENT_EMPLOYEE.EVENT_ID=EVENT.EVENT_ID " +
+                        "INNER JOIN EVENT_VENUE ON EVENT.EVENT_ID=EVENT_VENUE.EVENT_ID " +
+                        "INNER JOIN VENUE ON EVENT_VENUE.VENUE_ID=VENUE.VENUE_ID " +
+                        "WHERE EMPLOYEE.EMPLOYEE_TYPE_ID='2';";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
+        public void clientActive(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT CLIENT.CLIENT_ID, CLIENT.CLIENT_LNAME, VENUE.VENUE_NAME, " +
+                        "VENUE.VENUE_STATUS_ID " +
+                        "FROM " +
+                        "CLIENT INNER JOIN CLIENT_EVENT ON CLIENT.CLIENT_ID=CLIENT_EVENT.CLIENT_ID " +
+                        "INNER JOIN EVENT ON CLIENT_EVENT.EVENT_ID=EVENT.EVENT_ID " +
+                        "INNER JOIN EVENT_VENUE ON EVENT.EVENT_ID=EVENT_VENUE.EVENT_ID " +
+                        "INNER JOIN VENUE ON EVENT_VENUE.VENUE_ID=VENUE.VENUE_ID " +
+                        "WHERE CLIENT.CLIENT_STATUS_ID='1';";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
+        public void emergencyEmpEvent(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT EMPLOYEE_EMERGENCY_CONTACT.EMERGENCY_CONTACT_FIRST_NAME, EMPLOYEE_EMERGENCY_CONTACT.EMERGENCY_CONTACT_PHONE, " +
+                        "EMPLOYEE.EMPLOYEE_ID, " +
+                        "EMPLOYEE.EMPLOYEE_LAST_NAME, " +
+                        "EVENT.EVENT_ID, " +
+                        "EVENT.EVENT_NAME " +
+                        "FROM " +
+                        "EMPLOYEE_EMERGENCY_CONTACT INNER JOIN EMPLOYEE ON EMPLOYEE_EMERGENCY_CONTACT.EMPLOYEE_ID=EMPLOYEE.EMPLOYEE_ID " +
+                        "INNER JOIN EVENT_EMPLOYEE ON EMPLOYEE.EMPLOYEE_ID=EVENT_EMPLOYEE.EMPLOYEE_ID " +
+                        "INNER JOIN EVENT ON EVENT_EMPLOYEE.EVENT_ID=EVENT.EVENT_ID " +
+                        "WHERE EVENT.EVENT_STATUS='2';";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
+        public void clientActiveEventNote(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT " +
+                        "CLIENT.CLIENT_ID, " +
+                        "CLIENT.CLIENT_LNAME, " +
+                        "EVENT.EVENT_NAME, " +
+                        "NOTE.NOTE_DESCRIPTION " +
+                        "FROM " +
+                        "CLIENT INNER JOIN CLIENT_EVENT ON CLIENT.CLIENT_ID=CLIENT_EVENT.CLIENT_ID " +
+                        "INNER JOIN EVENT ON CLIENT_EVENT.EVENT_ID=EVENT.EVENT_ID " +
+                        "INNER JOIN EVENT_NOTE ON EVENT.EVENT_ID=EVENT_NOTE.EVENT_ID " +
+                        "INNER JOIN NOTE ON EVENT_NOTE.NOTE_ID=NOTE.NOTE_ID " +
+                        "WHERE CLIENT.CLIENT_STATUS_ID='1' " +
+                        "AND EVENT.EVENT_STATUS='4';";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
+        public void clientInactiveEventNote(){
+            //clear the columns and rows from the previous query
+            dynamicTable.getColumns().clear();
+            dynamicTable.getItems().clear();
+
+            //Connect to Database
+            Connection c;
+            try {
+                c = DBClass.connect();
+                String SQL = "SELECT CLIENT.CLIENT_ID, " +
+                        "CLIENT.CLIENT_LNAME, " +
+                        "EVENT.EVENT_NAME, " +
+                        "NOTE.NOTE_DESCRIPTION " +
+                        "FROM " +
+                        "CLIENT INNER JOIN CLIENT_EVENT ON CLIENT.CLIENT_ID=CLIENT_EVENT.CLIENT_ID " +
+                        "INNER JOIN EVENT ON CLIENT_EVENT.EVENT_ID=EVENT.EVENT_ID " +
+                        "INNER JOIN EVENT_NOTE ON EVENT.EVENT_ID=EVENT_NOTE.EVENT_ID " +
+                        "INNER JOIN NOTE ON EVENT_NOTE.NOTE_ID=NOTE.NOTE_ID " +
+                        "WHERE CLIENT.CLIENT_STATUS_ID='2' " +
+                        "AND EVENT.EVENT_STATUS='4';";
+                ResultSet rs = c.createStatement().executeQuery(SQL);
+                int index = rs.getMetaData().getColumnCount();
+                //dynamically add table columns, so they are made based off database columns
+                //Not sure if this method will make it harder to add data later
+                for (int i = 0; i < index; i++) {
+                    final int j = i;
+                    TableColumn<ObservableList<String>, String> col = new TableColumn<>(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get(j)));
+                    dynamicTable.getColumns().addAll(col);
+                    //System.out.println("Column [" + i + "] ");
+                    //add to observable list
+                    while (rs.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int k = 1; k <= rs.getMetaData().getColumnCount(); k++) {
+                            //Iterate Column
+                            row.add(rs.getString(k));
+                        }
+                        //System.out.println("Row [1] added " + row);
+                        tableData.add(row);
+                    }
+                    //add to tableview
+                    dynamicTable.setItems(tableData);
+                }
+                c.close();
+            }
+            catch(Exception e){ //catch any exceptions
+                e.printStackTrace();
+                System.out.println("Error on Building Reports Table Data");
+            }
+        }
+
     //additional unused queries
         /*public void queryEmployeeStatusName(){
             //clear the columns and rows from the previous query

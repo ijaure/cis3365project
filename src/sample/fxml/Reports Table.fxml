@@ -51,6 +51,11 @@
                               <MenuItem mnemonicParsing="false" onAction="#orderJimBeam" text="Completed Orders for Jim Beam" />
                               <MenuItem mnemonicParsing="false" onAction="#orderDonJulio" text="In Progress Orders for Don Julio w/ Quantity &gt;10" />
                               <MenuItem mnemonicParsing="false" onAction="#venueContactNoEvent" text="Venue Contacts for Confirmed Venues w/o Event" />
+                              <MenuItem mnemonicParsing="false" onAction="#empRental" text="Rental Employees by Event" />
+                              <MenuItem mnemonicParsing="false" onAction="#clientActive" text="Active Clients by Venue" />
+                              <MenuItem mnemonicParsing="false" onAction="#emergencyEmpEvent" text="Employee by Event w/ Emergency Contact" />
+                              <MenuItem mnemonicParsing="false" onAction="#clientActiveEventNote" text="Active Clients by Event w/ Notes" />
+                              <MenuItem mnemonicParsing="false" onAction="#clientInactiveEventNote" text="Inactive Clients by Events w/ Notes" />
                            </items>
                            <HBox.margin>
                               <Insets left="210.0" top="4.0" />
