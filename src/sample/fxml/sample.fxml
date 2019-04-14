@@ -70,7 +70,7 @@
          </graphic></Button>
       <ImageView fitHeight="132.0" fitWidth="112.0" layoutX="255.0" layoutY="14.0">
          <image>
-            <Image url="@../../cblogo.png" />
+            <Image url="@../Images/cblogo.png" />
          </image>
       </ImageView>
    </children>
