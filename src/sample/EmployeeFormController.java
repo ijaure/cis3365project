@@ -56,7 +56,6 @@ public class EmployeeFormController {
                 //assign an ID and Status Name from the database
                 et.employee_type_id.set(rs.getInt("EMPLOYEE_TYPE_ID"));
                 et.position_name.set(rs.getString("POSITION_NAME"));
-                et.position_description.set(rs.getString("POSITION_DESCRIPTION"));
 
                 employeeTypeData.add(et); //add these to an observable list
             }

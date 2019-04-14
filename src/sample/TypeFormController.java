@@ -13,14 +13,12 @@ import java.sql.Statement;
 public class TypeFormController {
 
     public TextField typeNameInput;
-    public TextField typeDescInput; //used for employee type since it has a desc. field
 
     public void addEmployeeType() throws SQLException {
         Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
-        if(typeNameInput.getText().trim().isEmpty() ||
-        typeDescInput.getText().trim().isEmpty())
+        if(typeNameInput.getText().trim().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Missing Values");
@@ -31,11 +29,10 @@ public class TypeFormController {
         else {
             //collect all the values from the textfields
             String typeName = typeNameInput.getText();
-            String typeDesc = typeDescInput.getText();
 
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO EMPLOYEE_TYPE " + "(POSITION_NAME, POSITION_DESCRIPTION) "
-                    + "VALUES ('" + typeName + "', '" + typeDesc + "')";
+            String SQL = "INSERT INTO EMPLOYEE_TYPE " + "(POSITION_NAME) "
+                    + "VALUES ('" + typeName + "')";
 
             stmt.executeUpdate(SQL); //execute the sql statement
             c.close(); //close the connection

@@ -106,8 +106,6 @@
                       <TableColumn fx:id="eventIDCol" prefWidth="40.0" text="ID" />
                       <TableColumn fx:id="eventNameCol" prefWidth="70.0" text="Name" />
                         <TableColumn fx:id="eventOccurCol" prefWidth="95.0" text="Occurance No." />
-                        <TableColumn fx:id="eventVenueCol" prefWidth="70.0" text="Venue No." />
-                        <TableColumn fx:id="eventClientCol" prefWidth="70.0" text="Client No." />
                         <TableColumn fx:id="eventStatusCol" prefWidth="70.0" text="Status No." />
                         <TableColumn fx:id="eventNoteCol" prefWidth="65.0" text="Note No." />
                         <TableColumn fx:id="eventBillAddrCol" prefWidth="115.0" text="Billing Address" />

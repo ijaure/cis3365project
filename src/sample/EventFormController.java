@@ -210,16 +210,15 @@ public class EventFormController {
             Integer eventOccur = eventOccurList.getSelectionModel().getSelectedItem().getEvent_occurance_id();
             Integer eventNote = eventNoteList.getSelectionModel().getSelectedItem().getNote_id();
 
-            String sqlStatement = "INSERT INTO EVENT" + "(EVENT_NAME, FK_VENUE_ID, FK_CLIENT_ID, BILLING_ADDRESS, EVENT_CONTACT_FIRST, EVENT_CONTACT_LAST, EVENT_PHONE, EVENT_EMAIL, START_DATE, PROJ_END_DATE, ACT_END_DATE, EVENT_STATUS, EVENT_OCCURANCE_ID, EVENT_NOTE_ID)" +
-                    " VALUES ('" + eventName + "', '" + eventVenue + "', '" + eventClient + "', '" + billAddr + "', '" + fName + "', '" + lName + "', '" + phone + "', '" + email + "', '" + startDateSQL + "', '" + projDateSQL + "', '" + actEndDateSQL + "', '" + eventStatus + "', '" + eventOccur + "', '" + eventNote + "'); " +
+            String sqlStatement = "INSERT INTO EVENT" + "(EVENT_NAME, BILLING_ADDRESS, EVENT_CONTACT_FIRST, EVENT_CONTACT_LAST, EVENT_PHONE, EVENT_EMAIL, START_DATE, PROJ_END_DATE, ACT_END_DATE, EVENT_STATUS, EVENT_OCCURANCE_ID, EVENT_NOTE_ID)" +
+                    " VALUES ('" + eventName + "', '" + billAddr + "', '" + fName + "', '" + lName + "', '" + phone + "', '" + email + "', '" + startDateSQL + "', '" + projDateSQL + "', '" + actEndDateSQL + "', '" + eventStatus + "', '" + eventOccur + "', '" + eventNote + "'); " +
                     "DECLARE @newEvent_id int" + " SET @newEvent_id = @@IDENTITY;";
 
-            String SQLEN = "INSERT INTO EVENT_NOTE(FK_EVENT_ID, FK_NOTE_ID) VALUES(@newEvent_id, " + eventNote + ");";
+            String SQLEN = "INSERT INTO EVENT_NOTE(EVENT_ID, NOTE_ID) VALUES(@newEvent_id, " + eventNote + ");";
 
-            String SQLCE = "INSERT INTO CLIENT_EVENT(FK_CLIENT_ID, FK_EVENT_ID) VALUES('" + eventClient + "', @newEvent_id); " +
-                    "DECLARE @newClientEvent_id int" + " SET @newClientEvent_id = @@IDENTITY;";
+            String SQLCE = "INSERT INTO CLIENT_EVENT(CLIENT_ID, EVENT_ID) VALUES('" + eventClient + "', @newEvent_id); ";
 
-            String SQLEV = "INSERT INTO EVENT_VENUE(FK_CLIENT_EVENT_ID, FK_VENUE_ID, FK_CLIENT_ID) VALUES(@newClientEvent_id, " + eventVenue + ", " + eventClient + ");";
+            String SQLEV = "INSERT INTO EVENT_VENUE(EVENT_ID, VENUE_ID) VALUES(@newEvent_id, " + eventVenue + ");";
 
             //If statement for validations before submission
             stmt.addBatch(sqlStatement);

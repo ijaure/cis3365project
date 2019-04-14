@@ -58,7 +58,7 @@ public class OrderLineFormController {
                 //assign an ID Name from the database
                 p.product_id.set(rs.getInt("PRODUCT_ID"));
                 p.product_name.set(rs.getString("PRODUCT_NAME"));
-                p.fk_vendor_id.set(rs.getInt("FK_VENDOR_ID"));
+                p.fk_vendor_id.set(rs.getInt("VENDOR_ID"));
 
                 prodData.add(p); //add these to an observable list
             }
@@ -127,8 +127,8 @@ public class OrderLineFormController {
                     + "VALUES ('" + order + "', '" + product + "', '" + lineStatus + "', '"
                     + quantity + "', '" + total + "')";
 
-            String SQL2 =  "INSERT INTO PRODUCT_VENDOR (FK_PRODUCT_ID, FK_VENDOR_ID, FK_ORDER_ID) "
-                    + "VALUES('" + product + "', '" + vendor + "', '" + order + "')";
+            String SQL2 =  "INSERT INTO PRODUCT_VENDOR (VENDOR_ID, PRODUCT_ID) "
+                    + "VALUES('" + vendor + "', '" + product + "')";
 
             stmt.addBatch(SQL); //execute the sql statement
             stmt.addBatch(SQL2);

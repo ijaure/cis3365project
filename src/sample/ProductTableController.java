@@ -126,6 +126,14 @@ public class ProductTableController {
                         ).setProduct_size(Double.parseDouble(String.valueOf(t.getNewValue())))
         );
 
+        productPriceCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productPriceCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<Product, Number> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setProduct_price(Double.parseDouble(String.valueOf(t.getNewValue())))
+        );
+
         productPriceDateCol.setCellFactory(TextFieldTableCell.<Product, Date>forTableColumn(new DateStringConverter()));
         productPriceDateCol.setOnEditCommit(
                 (TableColumn.CellEditEvent<Product, Date> t) ->

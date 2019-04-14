@@ -22,8 +22,6 @@ public class EventTableController {
     public TableColumn<Event, Number> eventIDCol;
     public TableColumn<Event, String> eventNameCol;
     public TableColumn<Event, Number> eventOccurCol;
-    public TableColumn<Event, Number> eventVenueCol;
-    public TableColumn<Event, Number> eventClientCol;
     public TableColumn<Event, Number> eventStatusCol;
     public TableColumn<Event, Number> eventNoteCol;
     public TableColumn<Event, String> eventBillAddrCol;
@@ -41,8 +39,6 @@ public class EventTableController {
         //assign columns to the property methods in the Vendor class
         eventIDCol.setCellValueFactory(data -> data.getValue().event_idProperty());
         eventNameCol.setCellValueFactory(data -> data.getValue().event_nameProperty());
-        eventVenueCol.setCellValueFactory(data -> data.getValue().fk_venue_idProperty());
-        eventClientCol.setCellValueFactory(data -> data.getValue().fk_client_idProperty());
         eventBillAddrCol.setCellValueFactory(data -> data.getValue().billing_addressProperty());
         contactFNameCol.setCellValueFactory(data -> data.getValue().event_contact_first_nameProperty());
         contactLNameCol.setCellValueFactory(data -> data.getValue().event_contact_last_nameProperty());
@@ -69,9 +65,6 @@ public class EventTableController {
                 //set the values for this new Vendor based on what's in the database
                 e.event_id.set(rs.getInt("EVENT_ID")); //columnLabel should match column name in database
                 e.event_name.set(rs.getString("EVENT_NAME"));
-                e.fk_venue_id.set((rs.getInt("FK_VENUE_ID")));//Removed this from sql script. need to delete here
-                e.fk_client_id.set(rs.getInt("FK_CLIENT_ID"));//Removed this from sql script. need to delete here
-
                 e.billing_address.set((rs.getString("BILLING_ADDRESS")));
                 e.event_contact_first_name.set(rs.getString("EVENT_CONTACT_FIRST"));
                 e.event_contact_last_name.set(rs.getString("EVENT_CONTACT_LAST"));
@@ -104,22 +97,6 @@ public class EventTableController {
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
                         ).setEvent_name(t.getNewValue())
-        );
-
-        eventVenueCol.setCellFactory(TextFieldTableCell.<Event, Number>forTableColumn(new NumberStringConverter()));
-        eventVenueCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<Event, Number> t) ->
-                        ( t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setFk_venue_id(Integer.parseInt(String.valueOf(t.getNewValue())))
-        );
-
-        eventClientCol.setCellFactory(TextFieldTableCell.<Event, Number>forTableColumn(new NumberStringConverter()));
-        eventClientCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<Event, Number> t) ->
-                        ( t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setFk_client_id(Integer.parseInt(String.valueOf(t.getNewValue())))
         );
 
         eventBillAddrCol.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -231,10 +208,6 @@ public class EventTableController {
 
             //collect each cell's value in a variable
             String eNameCell = (String) eventNameCol.getCellObservableValue(row).getValue();
-
-            Integer venueCell = (Integer) eventVenueCol.getCellObservableValue(row).getValue();
-            Integer clientCell = (Integer) eventClientCol.getCellObservableValue(row).getValue();
-
             String addrCell = (String) eventBillAddrCol.getCellObservableValue(row).getValue();
             String fNameCell = (String) contactFNameCol.getCellObservableValue(row).getValue();
             String lNameCell = (String) contactLNameCol.getCellObservableValue(row).getValue();
@@ -256,8 +229,8 @@ public class EventTableController {
 
             // SQL statement to update the vendor, put question marks after each = sign,
             // you'll replace these with the variables in the next step
-            PreparedStatement statement = c.prepareStatement("UPDATE EVENT SET EVENT_NAME = ?, FK_VENUE_ID = ?, " +
-                    "FK_CLIENT_ID = ?, BILLING_ADDRESS = ?, EVENT_CONTACT_FIRST = ?, " +
+            PreparedStatement statement = c.prepareStatement("UPDATE EVENT SET EVENT_NAME = ?, " +
+                    "BILLING_ADDRESS = ?, EVENT_CONTACT_FIRST = ?, " +
                     "EVENT_CONTACT_LAST = ?, EVENT_PHONE = ?, EVENT_EMAIL = ?, START_DATE = ?, " +
                     "PROJ_END_DATE = ?, ACT_END_DATE = ?, EVENT_STATUS = ?, EVENT_OCCURANCE_ID = ?, " +
                     "EVENT_NOTE_ID = ? " + "WHERE EVENT_ID =" + currentID);
@@ -265,19 +238,17 @@ public class EventTableController {
             // set the value of each question mark in the sql statement to the variables above
             // make sure these are in the correct order
             statement.setString(1, eNameCell);
-            statement.setInt(2, venueCell);
-            statement.setInt(3, clientCell);
-            statement.setString(4, addrCell);
-            statement.setString(5, fNameCell);
-            statement.setString(6, lNameCell);
-            statement.setString(7, phoneCell);
-            statement.setString(8, emailCell);
-            statement.setDate(9, startSQL);
-            statement.setDate(10, projSQL);
-            statement.setDate(11, actSQL);
-            statement.setInt(12, statusCell);
-            statement.setInt(13, occurCell);
-            statement.setInt(14, noteCell);
+            statement.setString(2, addrCell);
+            statement.setString(3, fNameCell);
+            statement.setString(4, lNameCell);
+            statement.setString(5, phoneCell);
+            statement.setString(6, emailCell);
+            statement.setDate(7, startSQL);
+            statement.setDate(8, projSQL);
+            statement.setDate(9, actSQL);
+            statement.setInt(10, statusCell);
+            statement.setInt(11, occurCell);
+            statement.setInt(12, noteCell);
             statement.execute();
 
             c.close();

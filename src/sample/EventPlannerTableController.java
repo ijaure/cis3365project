@@ -112,6 +112,10 @@ public class EventPlannerTableController {
 
     }
 
+    public void deleteEventPlanner(){
+
+    }
+
     public void openEventTable(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));

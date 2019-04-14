@@ -80,7 +80,8 @@ public class PlannerFormController {
                 plannerLastNameInput.getText().trim().isEmpty() ||
                 plannerEmailInput.getText().trim().isEmpty() ||
                 plannerPhoneInput.getText().trim().isEmpty() ||
-                venueIDList.getSelectionModel().isEmpty()) {
+                venueIDList.getSelectionModel().isEmpty() ||
+                plannerEventList.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Missing Values");
             alert.setHeaderText("There Are Missing Values");
@@ -104,7 +105,7 @@ public class PlannerFormController {
             String SQL= "INSERT INTO PLANNER "+ "(PLANNER_FIRST_NAME, PLANNER_LAST_NAME,PLANNER_PHONE,PLANNER_EMAIL,IS_CLIENT,VENUE_ID)" +"VALUES('"+PlannerFirst +"', '"+PlannerLast +"', '"+ PlannerPhone +"', '"+PlannerEmail +"', '"+isclient+"','"+venueID+"'); " +
                     "DECLARE @planners_id int" + " SET @planners_id = @@IDENTITY;";
 
-            String SQL2 = " INSERT INTO EVENT_PLANNER(FK_PLANNER_ID, FK_EVENT_ID) " +
+            String SQL2 = " INSERT INTO EVENT_PLANNER(PLANNER_ID, EVENT_ID) " +
                     "VALUES(@planners_id, " + eventID + ");";
 
             stmt.addBatch(SQL); //execute the sql statement
