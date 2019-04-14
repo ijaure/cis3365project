@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="461.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="461.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ProductVendorTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -38,9 +38,9 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editProductVendor" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="200.0" top="6.0" />
+                              <Insets left="240.0" top="6.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
@@ -49,33 +49,17 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteProductVendor" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
                         </Button>
-                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="View Product Table" />
-                              <MenuItem mnemonicParsing="false" text="View Vendor Table" />
-                              <MenuItem mnemonicParsing="false" text="View Order Table" />
-                           </items>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
-                        </MenuButton>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />
@@ -85,12 +69,12 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="318.0" prefWidth="700.0">
+                  <TableView fx:id="pvTable" prefHeight="318.0" prefWidth="700.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="90.0" text="Product ID" />
-                        <TableColumn prefWidth="90.0" text="Vendor ID" />
-                        <TableColumn prefWidth="90.0" text="Order ID" />
+                      <TableColumn fx:id="pvIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="pIDCol" prefWidth="90.0" text="Product ID" />
+                        <TableColumn fx:id="vIDCol" prefWidth="90.0" text="Vendor ID" />
+                        <TableColumn fx:id="oIDCol" prefWidth="90.0" text="Order ID" />
                     </columns>
                   </TableView>
                </content>
@@ -99,7 +83,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveProductVendorChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

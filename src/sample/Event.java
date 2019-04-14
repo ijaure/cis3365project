@@ -7,8 +7,6 @@ import java.util.Date;
 public class Event {
     IntegerProperty event_id = new SimpleIntegerProperty();
     StringProperty event_name = new SimpleStringProperty();
-    IntegerProperty fk_venue_id = new SimpleIntegerProperty();
-    IntegerProperty fk_client_id = new SimpleIntegerProperty();
     StringProperty billing_address = new SimpleStringProperty();
     StringProperty event_contact_first_name = new SimpleStringProperty();
     StringProperty event_contact_last_name = new SimpleStringProperty();
@@ -24,8 +22,6 @@ public class Event {
     public Event(IntegerProperty event_id, StringProperty event_name, IntegerProperty fk_venue_id, IntegerProperty fk_client_id, StringProperty billing_address, StringProperty event_contact_first_name, StringProperty event_contact_last_name, StringProperty event_phone, StringProperty event_email, ObjectProperty<Date> start_date, ObjectProperty<Date> proj_end_date, ObjectProperty<Date> act_end_date, IntegerProperty fk_event_status, IntegerProperty fk_event_occurance, IntegerProperty fk_event_note_id) {
         this.event_id = event_id;
         this.event_name = event_name;
-        this.fk_venue_id = fk_venue_id;
-        this.fk_client_id = fk_client_id;
         this.billing_address = billing_address;
         this.event_contact_first_name = event_contact_first_name;
         this.event_contact_last_name = event_contact_last_name;
@@ -64,30 +60,6 @@ public class Event {
 
     public void setEvent_name(String event_name) {
         this.event_name.set(event_name);
-    }
-
-    public int getFk_venue_id() {
-        return fk_venue_id.get();
-    }
-
-    public IntegerProperty fk_venue_idProperty() {
-        return fk_venue_id;
-    }
-
-    public void setFk_venue_id(int fk_venue_id) {
-        this.fk_venue_id.set(fk_venue_id);
-    }
-
-    public int getFk_client_id() {
-        return fk_client_id.get();
-    }
-
-    public IntegerProperty fk_client_idProperty() {
-        return fk_client_id;
-    }
-
-    public void setFk_client_id(int fk_client_id) {
-        this.fk_client_id.set(fk_client_id);
     }
 
     public String getBilling_address() {

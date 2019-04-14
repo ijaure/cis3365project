@@ -52,7 +52,7 @@ public class VenueTableController {
                 Venue v = new Venue();
                 v.venue_id.set(rs.getInt("VENUE_ID"));
                 v.venue_name.set(rs.getString("VENUE_NAME"));
-                v.fk_venue_status_id.set(rs.getInt("FK_VENUE_STATUS_ID"));
+                v.fk_venue_status_id.set(rs.getInt("VENUE_STATUS_ID"));
                 v.venue_address.set(rs.getString("VENUE_ADDRESS"));
                 v.venue_phone_number.set(rs.getString("VENUE_PHONE_NUMBER"));
                 v.venue_email_address.set(rs.getString("VENUE_EMAIL_ADDRESS"));
@@ -105,6 +105,19 @@ public class VenueTableController {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Venue Status Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openEventVenue(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Venue Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Venue Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -206,7 +219,7 @@ public class VenueTableController {
             Integer venuecommissionpercentageCell = (Integer) commission_percentageCol.getCellObservableValue(row).getValue();
             Boolean contractExpirationCell = (Boolean) contractexpirationCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE VENUE SET VENUE_NAME=?,FK_VENUE_STATUS_ID=?,VENUE_ADDRESS=?,VENUE_PHONE_NUMBER=?,VENUE_EMAIL_ADDRESS=?,VENUE_WORK_HOURS=?,VENUE_DELIVERY_HOURS=?,CONTRACT_EXPIRATION=?,COMISSION_PERCENTAGE=? "+ "WHERE VENUE_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE VENUE SET VENUE_NAME=?,VENUE_STATUS_ID=?,VENUE_ADDRESS=?,VENUE_PHONE_NUMBER=?,VENUE_EMAIL_ADDRESS=?,VENUE_WORK_HOURS=?,VENUE_DELIVERY_HOURS=?,CONTRACT_EXPIRATION=?,COMISSION_PERCENTAGE=? "+ "WHERE VENUE_ID =" + currentID);
             statement.setString(1, venueNameCell);
             statement.setInt(2,venueStatusIDCell);
             statement.setString(3,venueaddressCell);

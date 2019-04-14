@@ -18,11 +18,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="437.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportsTableController">
+<AnchorPane prefHeight="427.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
-            <Label text="REPORTS TABLE" textFill="#f8f3f8">
+            <Label text="REPORTS" textFill="#f8f3f8">
                <font>
                   <Font name="Microsoft YaHei UI Light" size="29.0" />
                </font>
@@ -32,29 +32,28 @@
             </Label>
          </children>
       </HBox>
-    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="607.0">
+    <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="607.0">
          <children>
             <HBox layoutY="318.0" prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox prefHeight="55.0" prefWidth="482.0" spacing="3.0">
                      <children>
-                        <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="224.0" style="-fx-background-color: #916D91;" text="Please Select a Report" textFill="WHITE">
+                        <MenuButton mnemonicParsing="false" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #916D91;" text="Select a Report" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <font>
-                              <Font name="Microsoft JhengHei UI" size="17.0" />
+                              <Font name="Microsoft JhengHei UI Light" size="21.0" />
                            </font>
                            <items>
-                              <MenuItem mnemonicParsing="false" onAction="#queryVendorStatusName" text="Show Vendors by Status Name" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryVendorState" text="Show Vendors by State" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryProductVendorOrder" text="Show Vendors, Products, &amp; Their Orders" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryInactiveVendor" text="Show Inactive Vendors &amp; Their Products" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryEmployeeStatusName" text="Show Employees by Status Name" />
-                              <MenuItem mnemonicParsing="false" onAction="#queryOrdersHold" text="Show Orders On-Hold" />
+                              <MenuItem mnemonicParsing="false" onAction="#vendorsTexasProduct" text="Current Vendors in Texas w/ Products" />
+                              <MenuItem mnemonicParsing="false" onAction="#vendorsCaliNoProduct" text="Unspecified Vendors in Cali. w/o Products" />
+                              <MenuItem mnemonicParsing="false" onAction="#orderJimBeam" text="Completed Orders for Jim Beam" />
+                              <MenuItem mnemonicParsing="false" onAction="#orderDonJulio" text="In Progress Orders for Don Julio w/ Quantity &gt;10" />
+                              <MenuItem mnemonicParsing="false" onAction="#venueContactNoEvent" text="Venue Contacts for Confirmed Venues w/o Event" />
                            </items>
                            <HBox.margin>
-                              <Insets left="200.0" top="6.0" />
+                              <Insets left="210.0" top="4.0" />
                            </HBox.margin>
                         </MenuButton>
                      </children>
@@ -66,7 +65,7 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="318.0" prefViewportWidth="982.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView fx:id="dynamicTable" prefHeight="318.0" prefWidth="1000.0" />
+                  <TableView fx:id="dynamicTable" prefHeight="318.0" prefWidth="3000.0" />
                </content>
             </ScrollPane>
          </children>

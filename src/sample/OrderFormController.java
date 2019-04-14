@@ -114,7 +114,7 @@ public class OrderFormController {
 
             String delTime = orderDelTimeInput.getText();
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO [ORDER] " + "(FK_CLIENT_ID, FK_ORDER_STATUS_ID, ORDER_DATE, ORDER_COMPLETE_DATE, ORDER_NOTES, ORDER_DELIVERY_DATE, ORDER_DELIVERY_TIME) "
+            String SQL = "INSERT INTO [ORDER] " + "(CLIENT_ID, ORDER_STATUS_ID, ORDER_DATE, ORDER_COMPLETE_DATE, ORDER_NOTES, ORDER_DELIVERY_DATE, ORDER_DELIVERY_TIME) "
                     + "VALUES ('" + orderClient + "', '" + orderStatus + "', '" + dateSQL + "', '"
                     + compDateSQL + "', '" + notes + "', '" + delDateSQL + "', '" + delTime + "')";
 

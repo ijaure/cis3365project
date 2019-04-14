@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="464.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="464.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EventEmployeeTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -39,7 +39,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #916D91;" text="Add Employee to Event" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openEventEmployeeForm" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #916D91;" text="Add Employee to Event" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -50,18 +50,7 @@
                               <Insets left="120.0" top="6.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #916D91;" text="Event Table" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#editEventEmployee" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
@@ -72,7 +61,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteEventEmployee" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
@@ -83,6 +72,21 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openEventTable" text="View Event Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEmployeeTable" text="View Employee Table" />
+                           </items>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </MenuButton>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />
@@ -92,11 +96,11 @@
             </HBox>
             <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="320.0" prefViewportHeight="317.0" prefViewportWidth="607.0" prefWidth="607.0" vbarPolicy="NEVER">
                <content>
-                  <TableView prefHeight="317.0" prefWidth="641.0">
+                  <TableView fx:id="eeTable" prefHeight="317.0" prefWidth="641.0">
                     <columns>
-                      <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="90.0" text="Event ID" />
-                        <TableColumn prefWidth="90.0" text="Employee ID" />
+                      <TableColumn fx:id="eeIDCol" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="eventIDCol" prefWidth="90.0" text="Event ID" />
+                        <TableColumn fx:id="empIDCol" prefWidth="90.0" text="Employee ID" />
                     </columns>
                   </TableView>
                </content>
@@ -105,7 +109,7 @@
       </AnchorPane>
       <HBox layoutX="406.0" layoutY="453.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#saveEventEmployeeChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

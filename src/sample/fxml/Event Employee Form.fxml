@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EventEmployeeFormController">
    <children>
       <HBox prefHeight="55.0" prefWidth="419.0" scaleShape="false" style="-fx-background-color: #916D91;">
          <children>
@@ -70,16 +70,16 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <ChoiceBox prefWidth="149.0">
+                              <ComboBox fx:id="eventList" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
-                              <ChoiceBox prefWidth="149.0">
+                              </ComboBox>
+                              <ComboBox fx:id="empList" prefWidth="149.0" promptText="Please Select">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
-                              </ChoiceBox>
+                              </ComboBox>
                            </children>
                         </HBox>
                      </children>
@@ -89,7 +89,7 @@
                         <Insets top="30.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
+                        <Button mnemonicParsing="false" onAction="#addEventEmployee" prefHeight="46.0" prefWidth="169.0" style="-fx-background-color: #916D91;" text="Submit" textFill="#f8f3f8">
                            <font>
                               <Font name="Microsoft JhengHei UI Light" size="23.0" />
                            </font>

@@ -81,7 +81,7 @@ public class VenueFormController {
             if(contractExpirationInput.isSelected()){
                 contractExpiration=true;
             }
-            String SQL= "INSERT INTO VENUE "+ "(VENUE_NAME, FK_VENUE_STATUS_ID,VENUE_ADDRESS,VENUE_PHONE_NUMBER,VENUE_EMAIL_ADDRESS,VENUE_WORK_HOURS,VENUE_DELIVERY_HOURS,CONTRACT_EXPIRATION,COMISSION_PERCENTAGE)" +" VALUES('"+venueName +"', '"+venueStatusID +"', '"+ venueAddress +"', '"+venuePhone +"', '"+venueEmail+"','"+venueWorkHours+"','"+venueDeliveryHours+"','"+contractExpiration+"','"+commissionPercentage+"')";
+            String SQL= "INSERT INTO VENUE "+ "(VENUE_NAME, VENUE_STATUS_ID,VENUE_ADDRESS,VENUE_PHONE_NUMBER,VENUE_EMAIL_ADDRESS,VENUE_WORK_HOURS,VENUE_DELIVERY_HOURS,CONTRACT_EXPIRATION,COMISSION_PERCENTAGE)" +" VALUES('"+venueName +"', '"+venueStatusID +"', '"+ venueAddress +"', '"+venuePhone +"', '"+venueEmail+"','"+venueWorkHours+"','"+venueDeliveryHours+"','"+contractExpiration+"','"+commissionPercentage+"')";
             stmt.executeUpdate(SQL); //execute the sql statement
             c.close(); //close the connection
 

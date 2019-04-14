@@ -117,7 +117,7 @@ public class ClientFormController {
             Integer Region = clientRegionList.getSelectionModel().getSelectedItem().getRegion_id();
             Integer Client_Status = clientStatusList.getSelectionModel().getSelectedItem().getClient_status_id();
 
-            String sqlStatement = "INSERT INTO CLIENT" + "(CLIENT_FNAME,CLIENT_LNAME,CLIENT_MAIN_PHONE,CLIENT_SECONDARY_PHONE,CLIENT_EMAIL, CLIENT_CC_EMAIL,BILLING_STREET,BILLING_CITY,FK_REGION_ID,CLIENT_ZIPCODE,CLIENT_COMPANY_NAME,CLIENT_WEBSITE,FK_CLIENT_STATUS_ID)" +
+            String sqlStatement = "INSERT INTO CLIENT" + "(CLIENT_FNAME,CLIENT_LNAME,CLIENT_MAIN_PHONE,CLIENT_SECONDARY_PHONE,CLIENT_EMAIL, CLIENT_CC_EMAIL,BILLING_STREET,BILLING_CITY,REGION_ID,CLIENT_ZIPCODE,CLIENT_COMPANY_NAME,CLIENT_WEBSITE,CLIENT_STATUS_ID)" +
                     " VALUES ('" + Client_First + "', '" + Client_Last + "', '" + Client_Main_Phone + "', '" + Client_S_Phone + "', '" + Client_Email + "', '" + Client_CC_Email + "', '" + Client_Street + "', '" + Client_City + "', '" + Region + "', '" + Client_Zip + "', '" + Client_Company_name + "', '" + Client_Website + "', '" + Client_Status + "')";
 
             //If statement for validations before submission

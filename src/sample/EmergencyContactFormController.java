@@ -78,7 +78,7 @@ public class EmergencyContactFormController {
             String email = empContactEmail.getText();
 
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO EMPLOYEE_EMERGENCY_CONTACT " + "(FK_EMPLOYEE_ID, EMERGENCY_CONTACT_FIRST_NAME, EMERGENCY_CONTACT_LAST_NAME, EMERGENCY_CONTACT_PHONE, EMERGENCY_CONTACT_EMAIL) "
+            String SQL = "INSERT INTO EMPLOYEE_EMERGENCY_CONTACT " + "(EMPLOYEE_ID, EMERGENCY_CONTACT_FIRST_NAME, EMERGENCY_CONTACT_LAST_NAME, EMERGENCY_CONTACT_PHONE, EMERGENCY_CONTACT_EMAIL) "
                     + "VALUES ('" + empFKID + "', '" + FName + "', '" + LName + "', '"
                     + phone + "', '" + email + "')";
 

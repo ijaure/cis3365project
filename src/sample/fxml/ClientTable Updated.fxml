@@ -95,7 +95,6 @@
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#openClientStatusTable" text="View Client Status Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openClientEventTable" text="View Client Event Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />

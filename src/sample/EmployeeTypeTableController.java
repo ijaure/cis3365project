@@ -21,15 +21,12 @@ public class EmployeeTypeTableController {
     public TableView<EmployeeType> empTypeTable;
     public TableColumn<EmployeeType, Number> empTypeIDCol;
     public TableColumn<EmployeeType, String> empTypeNameCol;
-    public TableColumn<EmployeeType, String> empTypeDescCol;
 
     public void initialize(){
         Connection c;
 
         empTypeIDCol.setCellValueFactory(data -> data.getValue().employee_type_idProperty());
         empTypeNameCol.setCellValueFactory(data -> data.getValue().position_nameProperty());
-        empTypeDescCol.setCellValueFactory(data -> data.getValue().position_descriptionProperty());
-
 
         empTypeTable.setEditable(true);
 
@@ -44,7 +41,6 @@ public class EmployeeTypeTableController {
                 //set the values for this new Vendor based on what's in the database
                 et.employee_type_id.set(rs.getInt("EMPLOYEE_TYPE_ID")); //columnLabel should match column name in database
                 et.position_name.set(rs.getString("POSITION_NAME"));
-                et.position_description.set(rs.getString("POSITION_DESCRIPTION"));
 
                 empTypeData.add(et); //add the new Vendor to an observable list
             }
@@ -66,14 +62,6 @@ public class EmployeeTypeTableController {
                         ).setPosition_name(t.getNewValue())
         );
 
-        empTypeDescCol.setCellFactory(TextFieldTableCell.forTableColumn());
-        empTypeDescCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<EmployeeType, String> t) ->
-                        ( t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setPosition_description(t.getNewValue())
-        );
-
     }
 
     public void saveEmpTypeChanges() throws SQLException {
@@ -93,16 +81,13 @@ public class EmployeeTypeTableController {
             Integer currentID = (Integer) empTypeIDCol.getCellObservableValue(row).getValue(); //collect the selected id
 
             String empTypeNameCell = (String) empTypeNameCol.getCellObservableValue(row).getValue();
-            String empTypeDescCell = (String) empTypeDescCol.getCellObservableValue(row).getValue();
 
-
-            PreparedStatement statement = c.prepareStatement("UPDATE EMPLOYEE_TYPE SET POSITION_NAME = ?, POSITION_DESCRIPTION = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE EMPLOYEE_TYPE SET POSITION_NAME = ? "
                     + "WHERE EMPLOYEE_TYPE_ID ="+currentID);
 
             // set the value of each question mark in the sql statement to the variables above
             // make sure these are in the correct order
             statement.setString(1, empTypeNameCell);
-            statement.setString(2, empTypeDescCell);
             statement.execute();
             c.close();
         }

@@ -86,7 +86,7 @@ public class VendorTableController {
                 v.vendor_join_date.set(rs.getDate("VENDOR_JOIN_DATE"));
 
                 //TODO make status the actual status name, not the foreign id, but don't do if this takes too much time
-                v.vendor_status_id.set((rs.getInt("FK_VENDOR_STATUS_ID")));
+                v.vendor_status_id.set((rs.getInt("VENDOR_STATUS_ID")));
                 v.vendor_contact_first_name.set(rs.getString("VENDOR_CONTACT_FIRST_NAME"));
                 v.vendor_contact_last_name.set(rs.getString("VENDOR_CONTACT_LAST_NAME"));
                 v.vendor_company_phone.set(rs.getString("VENDOR_COMPANY_PHONE"));
@@ -95,7 +95,7 @@ public class VendorTableController {
                 v.vendor_address.set(rs.getString("VENDOR_ADDRESS"));
 
                 //TODO make region the region name, not the id, but don't do if this takes too much time
-                v.vendor_region_id.set((rs.getInt("FK_VENDOR_REGION_ID")));
+                v.vendor_region_id.set((rs.getInt("VENDOR_REGION_ID")));
                 v.payment_terms.set(rs.getString("PAYMENT_TERMS"));
                 v.vendor_credit_limit.set((rs.getDouble("VENDOR_CREDIT_LIMIT")));
 
@@ -268,9 +268,9 @@ public class VendorTableController {
             // SQL statement to update the vendor, put question marks after each = sign,
             // you'll replace these with the variables in the next step
             PreparedStatement statement = c.prepareStatement("UPDATE VENDOR SET VENDOR_NAME = ?, VENDOR_ACC_NUM = ?, VENDOR_JOIN_DATE = ?, " +
-                    "FK_VENDOR_STATUS_ID = ?, VENDOR_CONTACT_FIRST_NAME = ?, VENDOR_CONTACT_LAST_NAME = ?, " +
+                    "VENDOR_STATUS_ID = ?, VENDOR_CONTACT_FIRST_NAME = ?, VENDOR_CONTACT_LAST_NAME = ?, " +
                     "VENDOR_COMPANY_PHONE = ?, VENDOR_MOBILE_PHONE = ?, VENDOR_EMAIL = ?, VENDOR_ADDRESS = ?, " +
-                    "FK_VENDOR_REGION_ID = ?, PAYMENT_TERMS = ?, VENDOR_CREDIT_LIMIT = ? " + "WHERE VENDOR_ID =" + currentID);
+                    "VENDOR_REGION_ID = ?, PAYMENT_TERMS = ?, VENDOR_CREDIT_LIMIT = ? " + "WHERE VENDOR_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above
             // make sure these are in the correct order
@@ -317,19 +317,6 @@ public class VendorTableController {
             vendorData.remove(vendorTable.getSelectionModel().getSelectedIndex()); //update the observable list
             vendorTable.setItems(vendorData); //update the tableview so the deletion shows immediately
             c.close();
-        }
-    }
-
-    public void openProductVendor(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Product Vendor Table.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Product Vendor Table");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

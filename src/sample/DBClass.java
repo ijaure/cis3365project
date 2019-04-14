@@ -12,11 +12,11 @@ public class DBClass {
 
     public static Connection connect(){
         Connection c = null;
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS";
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=3365db";
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            c = DriverManager.getConnection(url, "rache", "1234");
+            c = DriverManager.getConnection(url, "sa", "1234");
         }
         catch(Exception e)
         {

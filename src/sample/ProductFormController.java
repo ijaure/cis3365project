@@ -132,7 +132,7 @@ public class ProductFormController {
             java.sql.Date product_price_datesql = new java.sql.Date(product_price_date.getTime());
 
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO PRODUCT " + "(FK_PRODUCT_TYPE_ID, FK_PRODUCT_STATUS_ID, FK_VENDOR_ID, PRODUCT_NAME, PRODUCT_SIZE, PRODUCT_PRICE, PRODUCT_PRICE_DATE) "
+            String SQL = "INSERT INTO PRODUCT " + "(PRODUCT_TYPE_ID, PRODUCT_STATUS_ID, VENDOR_ID, PRODUCT_NAME, PRODUCT_SIZE, PRODUCT_PRICE, PRODUCT_PRICE_DATE) "
                     + "VALUES ('" + product_type + "', '" + product_status + "', '" + product_vendor + "', '"
                     + product_name + "', '" + product_size + "', '" + product_price + "', '" + product_price_datesql + "')";
 

@@ -95,7 +95,6 @@
                     <columns>
                       <TableColumn fx:id="empTypeIDCol" prefWidth="40.0" text="ID" />
                         <TableColumn fx:id="empTypeNameCol" prefWidth="125.0" text="Position Name" />
-                      <TableColumn fx:id="empTypeDescCol" prefWidth="130.0" text="Position Desc." />
                     </columns>
                   </TableView>
                </content>

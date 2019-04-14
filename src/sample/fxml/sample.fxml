@@ -1,77 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="656.0" style="-fx-background-color: #E9E6E9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
    <children>
-      <Button layoutX="168.0" layoutY="192.0" mnemonicParsing="false" onAction="#openEmployees" prefHeight="31.0" prefWidth="102.0" text="Employees" textFill="WHITE">
+      <Button layoutX="167.0" layoutY="199.0" mnemonicParsing="false" onAction="#openEmployees" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Employees" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="23.0">
                <image>
                   <Image url="@../../../../../Downloads/kisspng-businessman-customer-logo-customer-service-compute-boss-svg-png-icon-free-download-455498-online-5ba3be865bd144.8094734615374577983761.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="35.0" layoutY="318.0" mnemonicParsing="false" onAction="#openClients" prefHeight="34.0" prefWidth="102.0" text="Clients" textFill="WHITE">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="34.0" layoutY="326.0" mnemonicParsing="false" onAction="#openClients" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Clients" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="22.0">
                <image>
                   <Image url="@../../../../../Downloads/844929_people_512x512.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="522.0" layoutY="191.0" mnemonicParsing="false" onAction="#openVendors" prefHeight="36.0" prefWidth="102.0" text="Vendors" textFill="WHITE" />
-      <Button layoutX="375.0" layoutY="191.0" mnemonicParsing="false" onAction="#openEvents" prefHeight="36.0" prefWidth="102.0" text="Events" textFill="WHITE" />
-      <Button layoutX="35.0" layoutY="191.0" mnemonicParsing="false" onAction="#openProducts" prefHeight="34.0" prefWidth="102.0" text="Products" textFill="WHITE">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="521.0" layoutY="199.0" mnemonicParsing="false" onAction="#openVendors" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Vendors" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="366.0" layoutY="199.0" mnemonicParsing="false" onAction="#openEvents" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Events" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="34.0" layoutY="199.0" mnemonicParsing="false" onAction="#openProducts" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Products" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="28.0">
                <image>
                   <Image url="@../../../../../Downloads/black-box-310220_640.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="35.0" layoutY="257.0" mnemonicParsing="false" onAction="#openOrders" prefHeight="36.0" prefWidth="102.0" text="Orders" textFill="WHITE">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="34.0" layoutY="265.0" mnemonicParsing="false" onAction="#openOrders" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Orders" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="28.0">
                <image>
                   <Image url="@../../../../../Downloads/turnaround-icon.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="168.0" layoutY="318.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="102.0" text="Venues" textFill="WHITE">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="167.0" layoutY="326.0" mnemonicParsing="false" onAction="#openVenues" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Venues" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0">
                <image>
                   <Image url="@../../../../../Downloads/101455-200.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="168.0" layoutY="257.0" mnemonicParsing="false" onAction="#openNotes" prefHeight="36.0" prefWidth="102.0" text="Notes" textFill="WHITE" />
-      <Button layoutX="367.0" layoutY="318.0" mnemonicParsing="false" onAction="#openPlanners" prefHeight="36.0" prefWidth="102.0" text="Planners" textFill="WHITE" />
-      <Button layoutX="367.0" layoutY="257.0" mnemonicParsing="false" onAction="#openPaymentInfoTable" prefHeight="36.0" prefWidth="102.0" text="Payment Info" textFill="WHITE" />
-      <Button layoutX="522.0" layoutY="318.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" text="Region" textFill="WHITE">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="167.0" layoutY="265.0" mnemonicParsing="false" onAction="#openNotes" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Notes" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="366.0" layoutY="326.0" mnemonicParsing="false" onAction="#openPlanners" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Planners" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="366.0" layoutY="265.0" mnemonicParsing="false" onAction="#openPaymentInfoTable" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Payment Info" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="521.0" layoutY="326.0" mnemonicParsing="false" onAction="#openRegions" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Region" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="25.0">
                <image>
                   <Image url="@../../../../../Downloads/maps-logo-png.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="522.0" layoutY="257.0" mnemonicParsing="false" onAction="#openReportsTable" prefHeight="36.0" prefWidth="102.0" text="Reports" textFill="WHITE">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <Button layoutX="521.0" layoutY="265.0" mnemonicParsing="false" onAction="#openSQLTable" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="SQL Query" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0">
                <image>
                   <Image url="@../../../../../Downloads/report_document_reports_paper-512.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <ImageView fitHeight="132.0" fitWidth="112.0" layoutX="255.0" layoutY="14.0">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
+      <ImageView fitHeight="150.0" fitWidth="112.0" layoutX="260.0" layoutY="14.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="284.0">
          <image>
             <Image url="@../Images/cblogo.png" />
          </image>
       </ImageView>
+      <Button layoutX="265.0" layoutY="382.0" mnemonicParsing="false" onAction="#openReports" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #916D91;" text="Reports" textFill="WHITE" AnchorPane.rightAnchor="289.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="11.0" />
+         </font></Button>
    </children>
 </AnchorPane>

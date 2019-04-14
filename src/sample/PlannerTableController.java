@@ -52,7 +52,7 @@ public class PlannerTableController {
                 p.planner_phone.set(rs.getString("PLANNER_PHONE"));
                 p.planner_email.set(rs.getString("PLANNER_EMAIL"));
                 p.is_client.set(rs.getBoolean("IS_CLIENT"));
-                p.fk_venue_id.set(rs.getInt("FK_VENUE_ID"));
+                p.fk_venue_id.set(rs.getInt("VENUE_ID"));
 
                 plannerData.add(p);
             }
@@ -76,12 +76,12 @@ public class PlannerTableController {
             }
         }
 
-        public void openEventTable(){
+        public void openVenueTable(){
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Venue Table.fxml"));
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
-                stage.setTitle("Event Table");
+                stage.setTitle("Venue Table");
                 stage.setScene(new Scene(root));
                 stage.show();
             } catch (Exception e) {
@@ -158,7 +158,7 @@ public class PlannerTableController {
 
                 Boolean isClientCell = (Boolean) isClientCol.getCellObservableValue(row).getValue();
 
-                PreparedStatement statement = c.prepareStatement("UPDATE PLANNER SET PLANNER_FIRST_NAME=?,PLANNER_LAST_NAME=?,PLANNER_PHONE=?,PLANNER_EMAIL=?,IS_CLIENT=?,FK_VENUE_ID=? " + "WHERE PLANNER_ID =" + currentID);
+                PreparedStatement statement = c.prepareStatement("UPDATE PLANNER SET PLANNER_FIRST_NAME=?,PLANNER_LAST_NAME=?,PLANNER_PHONE=?,PLANNER_EMAIL=?,IS_CLIENT=?,VENUE_ID=? " + "WHERE PLANNER_ID =" + currentID);
                 statement.setString(1, plannerFNameCell);
                 statement.setString(2, plannerLNameCell);
                 statement.setString(3, plannerphoneCell);
@@ -197,6 +197,19 @@ public class PlannerTableController {
             c.close();
         }
 
+    }
+
+    public void openEventPlannerTable(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Planner Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Planner Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     }

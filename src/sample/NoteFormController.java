@@ -60,7 +60,7 @@ public class NoteFormController {
             Integer Note_Type= noteTypeList.getSelectionModel().getSelectedItem().getNote_type_id();
 
 
-            String sqlStatement="INSERT INTO NOTE"+"(NOTE_DESCRIPTION,FK_NOTE_TYPE_ID)"+"VALUES('" + Note_Description +"','"+Note_Type +"')";
+            String sqlStatement="INSERT INTO NOTE"+"(NOTE_DESCRIPTION,NOTE_TYPE_ID)"+"VALUES('" + Note_Description +"','"+Note_Type +"')";
             //If statement for validations before submission
 
             stmt.executeUpdate(sqlStatement);

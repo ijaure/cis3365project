@@ -52,7 +52,7 @@ public class EmergencyContactTableController {
 
                 //set the values for this new Vendor based on what's in the database
                 eec.emergency_contact_id.set(rs.getInt("EMERGENCY_CONTACT_ID")); //columnLabel should match column name in database
-                eec.fk_employee_id.set(rs.getInt("FK_EMPLOYEE_ID"));
+                eec.fk_employee_id.set(rs.getInt("EMPLOYEE_ID"));
                 eec.emergency_contact_first_name.set((rs.getString("EMERGENCY_CONTACT_FIRST_NAME")));
                 eec.emergency_contact_last_name.set(rs.getString("EMERGENCY_CONTACT_LAST_NAME"));
                 eec.emergency_contact_phone.set((rs.getString("EMERGENCY_CONTACT_PHONE")));
@@ -135,7 +135,7 @@ public class EmergencyContactTableController {
             String contactEmailCell = (String) empContactEmailCol.getCellObservableValue(row).getValue();
 
 
-            PreparedStatement statement = c.prepareStatement("UPDATE EMPLOYEE_EMERGENCY_CONTACT SET FK_EMPLOYEE_ID = ?, " +
+            PreparedStatement statement = c.prepareStatement("UPDATE EMPLOYEE_EMERGENCY_CONTACT SET EMPLOYEE_ID = ?, " +
                     "EMERGENCY_CONTACT_FIRST_NAME = ?, EMERGENCY_CONTACT_LAST_NAME = ?, EMERGENCY_CONTACT_PHONE = ?, EMERGENCY_CONTACT_EMAIL = ? "
                     + "WHERE EMERGENCY_CONTACT_ID ="+currentID);
 

@@ -93,8 +93,8 @@ public class EmployeeTableController {
                 e.employee_email.set(rs.getString("EMPLOYEE_EMAIL"));
                 e.date_of_birth.set(rs.getDate("DATE_OF_BIRTH"));
                 e.gender.set(rs.getString("GENDER"));
-                e.fk_employee_type_id.set(rs.getInt("FK_EMPLOYEE_TYPE_ID"));
-                e.fk_employee_status_id.set(rs.getInt("FK_EMPLOYEE_STATUS_ID"));
+                e.fk_employee_type_id.set(rs.getInt("EMPLOYEE_TYPE_ID"));
+                e.fk_employee_status_id.set(rs.getInt("EMPLOYEE_STATUS_ID"));
                 e.social_security.set(rs.getString("SOCIAL_SECURITY"));
 
                 e.start_date.set((rs.getDate("START_DATE")));
@@ -105,7 +105,7 @@ public class EmployeeTableController {
                 e.citizenship.set((rs.getString("CITIZENSHIP")));
                 e.marital_status.set((rs.getBoolean("MARITAL_STATUS")));
                 e.job_application_on_file.set((rs.getBoolean("JOB_APPLICATION_ON_FILE")));
-                e.fk_employee_tax_id.set((rs.getInt("FK_EMPLOYEE_TAX_ID")));
+                e.fk_employee_tax_id.set((rs.getInt("EMPLOYEE_TAX_ID")));
 
                 employeeData.add(e); //add the new Vendor to an observable list
             }
@@ -325,10 +325,10 @@ public class EmployeeTableController {
             // you'll replace these with the variables in the next step
             PreparedStatement statement = c.prepareStatement("UPDATE EMPLOYEE SET EMPLOYEE_FIRST_NAME = ?, EMPLOYEE_LAST_NAME = ?, " +
                     "EMPLOYEE_ADDRESS = ?, EMPLOYEE_PHONE_NUMBER = ?, EMPLOYEE_EMAIL = ?, " +
-                    "DATE_OF_BIRTH = ?, GENDER = ?, FK_EMPLOYEE_TYPE_ID = ?, FK_EMPLOYEE_STATUS_ID = ?, " +
+                    "DATE_OF_BIRTH = ?, GENDER = ?, EMPLOYEE_TYPE_ID = ?, EMPLOYEE_STATUS_ID = ?, " +
                     "SOCIAL_SECURITY = ?, START_DATE = ?, STARTING_SALARY = ?, CURRENT_SALARY = ?, " +
                     "TABC_CERTIFIED = ?, TABC_CERT_EXPIRATION = ?, CITIZENSHIP = ?, " +
-                    "MARITAL_STATUS = ?, JOB_APPLICATION_ON_FILE = ?, FK_EMPLOYEE_TAX_ID = ? " + "WHERE EMPLOYEE_ID =" + currentID);
+                    "MARITAL_STATUS = ?, JOB_APPLICATION_ON_FILE = ?, EMPLOYEE_TAX_ID = ? " + "WHERE EMPLOYEE_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above
             // make sure these are in the correct order
@@ -392,6 +392,19 @@ public class EmployeeTableController {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Employee Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openEventEmployee(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Employee Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Event Employee Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

@@ -75,12 +75,12 @@ public class HomePageController {
         }
     }
 
-    public void openReportsTable(){
+    public void openSQLTable(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Reports Table.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/SQLQuery Table.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Reports Table");
+            stage.setTitle("SQL Query Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -104,10 +104,10 @@ public class HomePageController {
     //temporarily launching note form until table is complete
     public void openNotes(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Note Form.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Note Table.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("New Note");
+            stage.setTitle("Note Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -147,6 +147,32 @@ public class HomePageController {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Venue Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openRegions(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Region Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Region Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openReports(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Reports Table.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Reports");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
