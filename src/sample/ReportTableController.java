@@ -215,10 +215,10 @@ public class ReportTableController {
             Connection c;
             try {
                 c = DBClass.connect();
-                String SQL = "SELECT DISTINCT VENUE_CONTACT.CONTACT_PERSON_FIRST_NAME, VENUE_CONTACT.CONTACT_PERSON_LAST_NAME, VENUE_STATUS.VENUE_STATUS_NAME, VENUE.VENUE_NAME \n" +
-                        "FROM VENUE_CONTACT JOIN VENUE ON VENUE_CONTACT.VENUE_ID=VENUE.VENUE_ID \n" +
-                        "JOIN VENUE_STATUS ON VENUE_STATUS.VENUE_STATUS_ID=VENUE.FK_VENUE_STATUS_ID \n" +
-                        "JOIN EVENT ON NOT EVENT_VENUE.VENUE_ID=VENUE.VENUE_ID ";
+                String SQL = "SELECT DISTINCT VENUE_CONTACT.CONTACT_PERSON_FIRST_NAME, VENUE_CONTACT.CONTACT_PERSON_LAST_NAME, VENUE_STATUS.VENUE_STATUS_NAME, VENUE.VENUE_NAME\n" +
+                        "FROM VENUE_CONTACT JOIN VENUE ON VENUE_CONTACT.VENUE_ID=VENUE.VENUE_ID\n" +
+                        "JOIN VENUE_STATUS ON VENUE_STATUS.VENUE_STATUS_ID=VENUE.VENUE_STATUS_ID\n" +
+                        "JOIN EVENT_VENUE ON NOT EVENT_VENUE.VENUE_ID=VENUE.VENUE_ID ";
                 ResultSet rs = c.createStatement().executeQuery(SQL);
                 int index = rs.getMetaData().getColumnCount();
                 //dynamically add table columns, so they are made based off database columns
