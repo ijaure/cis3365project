@@ -45,9 +45,9 @@ public class EventVenueTableController {
 
                 //set the values based on what's in the database
                 ev.event_venue_id.set(rs.getInt("EVENT_VENUE_ID")); //columnLabel should match column name in database
-                ev.fk_client_event_id.set(rs.getInt("FK_CLIENT_EVENT_ID"));
-                ev.fk_venue_id.set((rs.getInt("FK_VENUE_ID")));
-                ev.fk_client_id.set((rs.getInt("FK_CLIENT_ID")));
+                ev.fk_client_event_id.set(rs.getInt("EVENT_ID"));//changed to event id instead of client event
+                ev.fk_venue_id.set((rs.getInt("VENUE_ID")));
+                ev.fk_client_id.set((rs.getInt("FK_CLIENT_ID")));//removed from sql script. need to delete.
 
                 evData.add(ev); //add to an observable list
             }
@@ -110,8 +110,8 @@ public class EventVenueTableController {
             Integer venueCell = (Integer) venueIDCol.getCellObservableValue(row).getValue();
             Integer clientCell = (Integer) clientIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_VENUE SET FK_CLIENT_EVENT_ID = ?, " +
-                    "FK_VENUE_ID = ?, FK_CLIENT_ID = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_VENUE SET EVENT_ID = ?, " +
+                    "VENUE_ID = ?, FK_CLIENT_ID = ? "
                     + "WHERE EVENT_VENUE_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above

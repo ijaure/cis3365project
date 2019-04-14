@@ -53,9 +53,9 @@ public class ProductTableController {
 
                 //set the values based on what's in the database
                 p.product_id.set(rs.getInt("PRODUCT_ID")); //columnLabel should match column name in database
-                p.fk_product_type_id.set(rs.getInt("FK_PRODUCT_TYPE_ID"));
-                p.fk_product_status_id.set((rs.getInt("FK_PRODUCT_STATUS_ID")));
-                p.fk_vendor_id.set(rs.getInt("FK_VENDOR_ID"));
+                p.fk_product_type_id.set(rs.getInt("PRODUCT_TYPE_ID"));
+                p.fk_product_status_id.set((rs.getInt("PRODUCT_STATUS_ID")));
+                p.fk_vendor_id.set(rs.getInt("VENDOR_ID"));
                 p.product_name.set((rs.getString("PRODUCT_NAME")));
                 p.product_size.set(rs.getDouble("PRODUCT_SIZE"));
                 p.product_price.set(rs.getDouble("PRODUCT_PRICE"));
@@ -162,8 +162,8 @@ public class ProductTableController {
             java.util.Date productPriceDateCell = productPriceDateCol.getCellObservableValue(row).getValue();
             java.sql.Date productPriceDateSQLCell = new java.sql.Date(productPriceDateCell.getTime());
 
-            PreparedStatement statement = c.prepareStatement("UPDATE PRODUCT SET FK_PRODUCT_TYPE_ID = ?, " +
-                    "FK_PRODUCT_STATUS_ID = ?, FK_VENDOR_ID = ?, PRODUCT_NAME = ?, PRODUCT_SIZE = ?, PRODUCT_PRICE = ?, "
+            PreparedStatement statement = c.prepareStatement("UPDATE PRODUCT SET PRODUCT_TYPE_ID = ?, " +
+                    "PRODUCT_STATUS_ID = ?, VENDOR_ID = ?, PRODUCT_NAME = ?, PRODUCT_SIZE = ?, PRODUCT_PRICE = ?, "
                     + "PRODUCT_PRICE_DATE = ? "
                     + "WHERE PRODUCT_ID =" + currentID);
 

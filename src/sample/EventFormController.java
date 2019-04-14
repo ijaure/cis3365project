@@ -210,7 +210,7 @@ public class EventFormController {
             Integer eventOccur = eventOccurList.getSelectionModel().getSelectedItem().getEvent_occurance_id();
             Integer eventNote = eventNoteList.getSelectionModel().getSelectedItem().getNote_id();
 
-            String sqlStatement = "INSERT INTO EVENT" + "(EVENT_NAME, FK_VENUE_ID, FK_CLIENT_ID, BILLING_ADDRESS, EVENT_CONTACT_FIRST, EVENT_CONTACT_LAST, EVENT_PHONE, EVENT_EMAIL, START_DATE, PROJ_END_DATE, ACT_END_DATE, FK_EVENT_STATUS, FK_EVENT_OCCURANCE_ID, FK_EVENT_NOTE_ID)" +
+            String sqlStatement = "INSERT INTO EVENT" + "(EVENT_NAME, FK_VENUE_ID, FK_CLIENT_ID, BILLING_ADDRESS, EVENT_CONTACT_FIRST, EVENT_CONTACT_LAST, EVENT_PHONE, EVENT_EMAIL, START_DATE, PROJ_END_DATE, ACT_END_DATE, EVENT_STATUS, EVENT_OCCURANCE_ID, EVENT_NOTE_ID)" +
                     " VALUES ('" + eventName + "', '" + eventVenue + "', '" + eventClient + "', '" + billAddr + "', '" + fName + "', '" + lName + "', '" + phone + "', '" + email + "', '" + startDateSQL + "', '" + projDateSQL + "', '" + actEndDateSQL + "', '" + eventStatus + "', '" + eventOccur + "', '" + eventNote + "'); " +
                     "DECLARE @newEvent_id int" + " SET @newEvent_id = @@IDENTITY;";
 

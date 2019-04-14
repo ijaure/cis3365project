@@ -43,8 +43,8 @@ public class EventNoteTableController {
 
                 //set the values based on what's in the database
                 en.event_note_id.set(rs.getInt("EVENT_NOTE_ID")); //columnLabel should match column name in database
-                en.fk_event_id.set(rs.getInt("FK_EVENT_ID"));
-                en.fk_note_id.set((rs.getInt("FK_NOTE_ID")));
+                en.fk_event_id.set(rs.getInt("EVENT_ID"));
+                en.fk_note_id.set((rs.getInt("NOTE_ID")));
 
                 enData.add(en); //add to an observable list
             }
@@ -97,8 +97,8 @@ public class EventNoteTableController {
             Integer eventCell = (Integer) eventIDCol.getCellObservableValue(row).getValue();
             Integer noteCell = (Integer) noteIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_NOTE SET FK_EVENT_ID = ?, " +
-                    "FK_NOTE_ID = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_NOTE SET EVENT_ID = ?, " +
+                    "NOTE_ID = ? "
                     + "WHERE EVENT_NOTE_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above

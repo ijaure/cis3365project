@@ -101,7 +101,7 @@ public class PlannerFormController {
                 isclient=true;
             }
 
-            String SQL= "INSERT INTO PLANNER "+ "(PLANNER_FIRST_NAME, PLANNER_LAST_NAME,PLANNER_PHONE,PLANNER_EMAIL,IS_CLIENT,FK_VENUE_ID)" +"VALUES('"+PlannerFirst +"', '"+PlannerLast +"', '"+ PlannerPhone +"', '"+PlannerEmail +"', '"+isclient+"','"+venueID+"'); " +
+            String SQL= "INSERT INTO PLANNER "+ "(PLANNER_FIRST_NAME, PLANNER_LAST_NAME,PLANNER_PHONE,PLANNER_EMAIL,IS_CLIENT,VENUE_ID)" +"VALUES('"+PlannerFirst +"', '"+PlannerLast +"', '"+ PlannerPhone +"', '"+PlannerEmail +"', '"+isclient+"','"+venueID+"'); " +
                     "DECLARE @planners_id int" + " SET @planners_id = @@IDENTITY;";
 
             String SQL2 = " INSERT INTO EVENT_PLANNER(FK_PLANNER_ID, FK_EVENT_ID) " +

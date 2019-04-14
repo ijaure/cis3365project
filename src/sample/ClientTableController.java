@@ -75,11 +75,11 @@ public class ClientTableController {
                 client.client_cc_email.set(rs.getString("CLIENT_CC_EMAIL"));
                 client.billing_street.set(rs.getString("BILLING_STREET"));
                 client.billing_city.set(rs.getString("BILLING_CITY"));
-                client.fk_region_id.set(rs.getInt("FK_REGION_ID"));
+                client.fk_region_id.set(rs.getInt("REGION_ID"));
                 client.client_zipcode.set(rs.getInt("CLIENT_ZIPCODE"));
                 client.client_company_name.set((rs.getString("CLIENT_COMPANY_NAME")));
                 client.client_website.set(rs.getString("CLIENT_WEBSITE"));
-                client.fk_client_status_id.set((rs.getInt("FK_CLIENT_STATUS_ID")));
+                client.fk_client_status_id.set((rs.getInt("CLIENT_STATUS_ID")));
 
                 clientData.add(client); //add the new Client to an observable list
             }
@@ -235,7 +235,7 @@ public class ClientTableController {
 
             String clientwebsiteCell = (String) clientWebsiteCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE CLIENT SET CLIENT_FNAME = ?,CLIENT_LNAME=?,CLIENT_MAIN_PHONE=?,CLIENT_SECONDARY_PHONE=?,CLIENT_EMAIL=?,CLIENT_CC_EMAIL=?,BILLING_STREET=?,BILLING_CITY=?,FK_REGION_ID=?,CLIENT_ZIPCODE=?,CLIENT_COMPANY_NAME=?,CLIENT_WEBSITE=?,FK_CLIENT_STATUS_ID=? " + "WHERE CLIENT_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE CLIENT SET CLIENT_FNAME = ?,CLIENT_LNAME=?,CLIENT_MAIN_PHONE=?,CLIENT_SECONDARY_PHONE=?,CLIENT_EMAIL=?,CLIENT_CC_EMAIL=?,BILLING_STREET=?,BILLING_CITY=?,REGION_ID=?,CLIENT_ZIPCODE=?,CLIENT_COMPANY_NAME=?,CLIENT_WEBSITE=?,CLIENT_STATUS_ID=? " + "WHERE CLIENT_ID =" + currentID);
 
             statement.setString(1, clientFNameCell);
             statement.setString(2, clientLNameCell);

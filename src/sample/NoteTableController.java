@@ -39,7 +39,7 @@ public class NoteTableController {
                 Note note = new Note();
                 note.note_id.set(rs.getInt("NOTE_ID"));
                 note.note_description.set(rs.getString("NOTE_DESCRIPTION"));
-                note.fk_note_type_id.set(rs.getInt("FK_NOTE_TYPE_ID"));
+                note.fk_note_type_id.set(rs.getInt("NOTE_TYPE_ID"));
 
                 noteData.add(note);
 
@@ -99,7 +99,7 @@ public class NoteTableController {
             String noteDescriptionCell= (String) noteDescrCol.getCellObservableValue(row).getValue();
             Integer noteTypeCell= (Integer) noteTypeIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE NOTE SET NOTE_DESCRIPTION = ?, FK_NOTE_TYPE_ID=?" + " WHERE NOTE_ID =" + currentID);
+            PreparedStatement statement = c.prepareStatement("UPDATE NOTE SET NOTE_DESCRIPTION = ?, NOTE_TYPE_ID=?" + " WHERE NOTE_ID =" + currentID);
 
             statement.setString(1, noteDescriptionCell);
             statement.setInt(2, noteTypeCell);

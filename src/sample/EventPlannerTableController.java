@@ -43,8 +43,8 @@ public class EventPlannerTableController {
 
                 //set the values based on what's in the database
                 ep.event_planner_id.set(rs.getInt("EVENT_PLANNER_ID")); //columnLabel should match column name in database
-                ep.fk_planner_id.set(rs.getInt("FK_PLANNER_ID"));
-                ep.fk_event_id.set((rs.getInt("FK_EVENT_ID")));
+                ep.fk_planner_id.set(rs.getInt("PLANNER_ID"));
+                ep.fk_event_id.set((rs.getInt("EVENT_ID")));
 
                 epData.add(ep); //add to an observable list
             }
@@ -98,8 +98,8 @@ public class EventPlannerTableController {
             Integer plannerCell = (Integer) plannerIDCol.getCellObservableValue(row).getValue();
             Integer eventCell = (Integer) eventIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_PLANNER SET FK_PLANNER_ID = ?, " +
-                    "FK_EVENT_ID = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_PLANNER SET PLANNER_ID = ?, " +
+                    "EVENT_ID = ? "
                     + "WHERE EVENT_PLANNER_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above

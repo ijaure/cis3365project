@@ -56,7 +56,7 @@ public class PaymentInfoTableController {
 
                 //set the values based on what's in the database
                 pi.payment_info_id.set(rs.getInt("PAYMENT_INFO_ID")); //columnLabel should match column name in database
-                pi.fk_client_id.set(rs.getInt("FK_CLIENT_ID"));
+                pi.fk_client_id.set(rs.getInt("CLIENT_ID"));
                 pi.payment_first_name.set((rs.getString("PAYMENT_FIRST_NAME")));
                 pi.payment_last_name.set(rs.getString("PAYMENT_LAST_NAME"));
                 pi.cc_number.set((rs.getInt("CC_NUMBER")));
@@ -171,7 +171,7 @@ public class PaymentInfoTableController {
             Integer yearCell = (Integer) expYearCol.getCellObservableValue(row).getValue();
             Integer payReqCell = (Integer) payInfoReqCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE PAYMENT_INFORMATION SET FK_CLIENT_ID = ?, " +
+            PreparedStatement statement = c.prepareStatement("UPDATE PAYMENT_INFORMATION SET CLIENT_ID = ?, " +
                     "PAYMENT_FIRST_NAME = ?, PAYMENT_LAST_NAME = ?, CC_NUMBER = ?, CVC_NUMBER = ?, EXP_MONTH_DATE = ?, "
                     + "EXP_YEAR_DATE = ?, PAYMENT_REQUIREMENT = ? "
                     + "WHERE PAYMENT_INFO_ID =" + currentID);

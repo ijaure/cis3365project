@@ -47,7 +47,7 @@ public class VenueContactTableController {
 
                 //set the values based on what's in the database
                 vc.contact_person_id.set(rs.getInt("CONTACT_PERSON_ID")); //columnLabel should match column name in database
-                vc.fk_venue_id.set(rs.getInt("FK_VENUE_ID"));
+                vc.fk_venue_id.set(rs.getInt("VENUE_ID"));
                 vc.contact_person_first_name.set((rs.getString("CONTACT_PERSON_FIRST_NAME")));
                 vc.contact_person_last_name.set((rs.getString("CONTACT_PERSON_LAST_NAME")));
                 vc.contact_person_phone.set((rs.getString("CONTACT_PERSON_PHONE")));
@@ -129,7 +129,7 @@ public class VenueContactTableController {
             String phoneCell = (String) phoneCol.getCellObservableValue(row).getValue();
             String emailCell = (String) emailCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE VENUE_CONTACT SET FK_VENUE_ID = ?, CONTACT_PERSON_FIRST_NAME = ?, CONTACT_PERSON_LAST_NAME = ?, CONTACT_PERSON_PHONE = ?, CONTACT_PERSON_EMAIL = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE VENUE_CONTACT SET VENUE_ID = ?, CONTACT_PERSON_FIRST_NAME = ?, CONTACT_PERSON_LAST_NAME = ?, CONTACT_PERSON_PHONE = ?, CONTACT_PERSON_EMAIL = ? "
                     + "WHERE CONTACT_PERSON_ID ="+currentID);
 
             // set the value of each question mark in the sql statement to the variables above

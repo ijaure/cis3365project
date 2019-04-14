@@ -124,7 +124,7 @@ public class VendorFormController {
             Double vendor_credit = Double.parseDouble(vendorCreditInput.getText());
 
             //insert all of these values to the db as a new vendor, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO VENDOR " + "(VENDOR_NAME, VENDOR_ACC_NUM, VENDOR_JOIN_DATE, FK_VENDOR_STATUS_ID, VENDOR_CONTACT_FIRST_NAME, VENDOR_CONTACT_LAST_NAME, VENDOR_COMPANY_PHONE, VENDOR_MOBILE_PHONE, VENDOR_EMAIL, VENDOR_ADDRESS, FK_VENDOR_REGION_ID, PAYMENT_TERMS, VENDOR_CREDIT_LIMIT) "
+            String SQL = "INSERT INTO VENDOR " + "(VENDOR_NAME, VENDOR_ACC_NUM, VENDOR_JOIN_DATE, VENDOR_STATUS_ID, VENDOR_CONTACT_FIRST_NAME, VENDOR_CONTACT_LAST_NAME, VENDOR_COMPANY_PHONE, VENDOR_MOBILE_PHONE, VENDOR_EMAIL, VENDOR_ADDRESS, VENDOR_REGION_ID, PAYMENT_TERMS, VENDOR_CREDIT_LIMIT) "
                     + "VALUES ('" + vendor_name + "', '" + vendor_acc_num + "', '" + vendor_join_datesql + "', '"
                     + vendor_status + "', '" + vendor_contact_first + "', '" + vendor_contact_last + "', '" + vendor_company_phone + "', '" +
                     vendor_mobile_phone + "', '" + vendor_email + "', '" + vendor_address + "', '" + vendor_region + "', '" + vendor_payterms + "', '" + vendor_credit + "')";

@@ -75,7 +75,7 @@ public class VenueContactFormController {
 
 
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO VENUE_CONTACT " + "(FK_VENUE_ID, CONTACT_PERSON_FIRST_NAME, CONTACT_PERSON_LAST_NAME, CONTACT_PERSON_PHONE, CONTACT_PERSON_EMAIL) "
+            String SQL = "INSERT INTO VENUE_CONTACT " + "(VENUE_ID, CONTACT_PERSON_FIRST_NAME, CONTACT_PERSON_LAST_NAME, CONTACT_PERSON_PHONE, CONTACT_PERSON_EMAIL) "
                     + "VALUES ('" + venue + "', '" + fName + "', '" + lName + "', '" + phone + "', '" + email + "')";
 
             stmt.executeUpdate(SQL);

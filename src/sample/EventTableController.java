@@ -69,8 +69,8 @@ public class EventTableController {
                 //set the values for this new Vendor based on what's in the database
                 e.event_id.set(rs.getInt("EVENT_ID")); //columnLabel should match column name in database
                 e.event_name.set(rs.getString("EVENT_NAME"));
-                e.fk_venue_id.set((rs.getInt("FK_VENUE_ID")));
-                e.fk_client_id.set(rs.getInt("FK_CLIENT_ID"));
+                e.fk_venue_id.set((rs.getInt("FK_VENUE_ID")));//Removed this from sql script. need to delete here
+                e.fk_client_id.set(rs.getInt("FK_CLIENT_ID"));//Removed this from sql script. need to delete here
 
                 e.billing_address.set((rs.getString("BILLING_ADDRESS")));
                 e.event_contact_first_name.set(rs.getString("EVENT_CONTACT_FIRST"));
@@ -81,9 +81,9 @@ public class EventTableController {
                 e.proj_end_date.set(rs.getDate("PROJ_END_DATE"));
 
                 e.act_end_date.set((rs.getDate("ACT_END_DATE")));
-                e.fk_event_status.set(rs.getInt("FK_EVENT_STATUS"));
-                e.fk_event_occurance.set((rs.getInt("FK_EVENT_OCCURANCE_ID")));
-                e.fk_event_note_id.set((rs.getInt("FK_EVENT_NOTE_ID")));
+                e.fk_event_status.set(rs.getInt("EVENT_STATUS"));
+                e.fk_event_occurance.set((rs.getInt("EVENT_OCCURANCE_ID")));
+                e.fk_event_note_id.set((rs.getInt("EVENT_NOTE_ID")));
 
                 eventData.add(e); //add the new Vendor to an observable list
             }
@@ -259,8 +259,8 @@ public class EventTableController {
             PreparedStatement statement = c.prepareStatement("UPDATE EVENT SET EVENT_NAME = ?, FK_VENUE_ID = ?, " +
                     "FK_CLIENT_ID = ?, BILLING_ADDRESS = ?, EVENT_CONTACT_FIRST = ?, " +
                     "EVENT_CONTACT_LAST = ?, EVENT_PHONE = ?, EVENT_EMAIL = ?, START_DATE = ?, " +
-                    "PROJ_END_DATE = ?, ACT_END_DATE = ?, FK_EVENT_STATUS = ?, FK_EVENT_OCCURANCE_ID = ?, " +
-                    "FK_EVENT_NOTE_ID = ? " + "WHERE EVENT_ID =" + currentID);
+                    "PROJ_END_DATE = ?, ACT_END_DATE = ?, EVENT_STATUS = ?, EVENT_OCCURANCE_ID = ?, " +
+                    "EVENT_NOTE_ID = ? " + "WHERE EVENT_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above
             // make sure these are in the correct order

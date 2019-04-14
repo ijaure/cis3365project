@@ -42,8 +42,8 @@ public class EventEmployeeTableController {
 
                 //set the values based on what's in the database
                 ee.event_employee_id.set(rs.getInt("EVENT_EMPLOYEE_ID")); //columnLabel should match column name in database
-                ee.fk_event_id.set(rs.getInt("FK_EVENT_ID"));
-                ee.fk_employee_id.set((rs.getInt("FK_EMPLOYEE_ID")));
+                ee.fk_event_id.set(rs.getInt("EVENT_ID"));
+                ee.fk_employee_id.set((rs.getInt("EMPLOYEE_ID")));
 
                 eeData.add(ee); //add to an observable list
             }
@@ -97,8 +97,8 @@ public class EventEmployeeTableController {
             Integer eventCell = (Integer) eventIDCol.getCellObservableValue(row).getValue();
             Integer empCell = (Integer) empIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_EMPLOYEE SET FK_EVENT_ID = ?, " +
-                    "FK_EMPLOYEE_ID = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE EVENT_EMPLOYEE SET EVENT_ID = ?, " +
+                    "EMPLOYEE_ID = ? "
                     + "WHERE EVENT_EMPLOYEE_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above

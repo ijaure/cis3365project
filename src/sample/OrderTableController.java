@@ -54,8 +54,8 @@ public class OrderTableController {
 
                 //set the values based on what's in the database
                 o.order_id.set(rs.getInt("ORDER_ID")); //columnLabel should match column name in database
-                o.client_id.set(rs.getInt("FK_CLIENT_ID"));
-                o.order_status_id.set((rs.getInt("FK_ORDER_STATUS_ID")));
+                o.client_id.set(rs.getInt("CLIENT_ID"));
+                o.order_status_id.set((rs.getInt("ORDER_STATUS_ID")));
                 o.order_date.set(rs.getDate("ORDER_DATE"));
                 o.order_complete_date.set((rs.getDate("ORDER_COMPLETE_DATE")));
                 o.order_notes.set(rs.getString("ORDER_NOTES"));
@@ -166,8 +166,8 @@ public class OrderTableController {
 
             String delTimeCell = (String) orderDelTimeCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE [ORDER] SET FK_CLIENT_ID = ?, " +
-                    "FK_ORDER_STATUS_ID = ?, ORDER_DATE = ?, ORDER_COMPLETE_DATE = ?, ORDER_NOTES = ?, ORDER_DELIVERY_DATE = ?, "
+            PreparedStatement statement = c.prepareStatement("UPDATE [ORDER] SET CLIENT_ID = ?, " +
+                    "ORDER_STATUS_ID = ?, ORDER_DATE = ?, ORDER_COMPLETE_DATE = ?, ORDER_NOTES = ?, ORDER_DELIVERY_DATE = ?, "
                     + "ORDER_DELIVERY_TIME = ? "
                     + "WHERE ORDER_ID =" + currentID);
 

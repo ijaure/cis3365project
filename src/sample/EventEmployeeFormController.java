@@ -89,7 +89,7 @@ public class EventEmployeeFormController {
             Integer emp = empList.getSelectionModel().getSelectedItem().getEmployee_id();
 
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO EVENT_EMPLOYEE " + "(FK_EVENT_ID, FK_EMPLOYEE_ID) "
+            String SQL = "INSERT INTO EVENT_EMPLOYEE " + "(EVENT_ID, EMPLOYEE_ID) "
                     + "VALUES ('" + event + "', '" + emp + "')";
 
             stmt.executeUpdate(SQL);

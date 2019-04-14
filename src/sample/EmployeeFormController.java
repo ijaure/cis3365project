@@ -185,7 +185,7 @@ public class EmployeeFormController {
             String empCitizen = empCitizenInput.getText();
             Integer empTaxID = empTaxList.getSelectionModel().getSelectedItem().getEmployee_tax_id();
 
-            String SQL = "INSERT INTO EMPLOYEE " + "(EMPLOYEE_FIRST_NAME, EMPLOYEE_LAST_NAME, EMPLOYEE_ADDRESS, EMPLOYEE_PHONE_NUMBER, EMPLOYEE_EMAIL, DATE_OF_BIRTH, GENDER, FK_EMPLOYEE_TYPE_ID, FK_EMPLOYEE_STATUS_ID, SOCIAL_SECURITY, START_DATE, STARTING_SALARY, CURRENT_SALARY, TABC_CERTIFIED, TABC_CERT_EXPIRATION, CITIZENSHIP, MARITAL_STATUS, JOB_APPLICATION_ON_FILE, FK_EMPLOYEE_TAX_ID) "
+            String SQL = "INSERT INTO EMPLOYEE " + "(EMPLOYEE_FIRST_NAME, EMPLOYEE_LAST_NAME, EMPLOYEE_ADDRESS, EMPLOYEE_PHONE_NUMBER, EMPLOYEE_EMAIL, DATE_OF_BIRTH, GENDER, EMPLOYEE_TYPE_ID, EMPLOYEE_STATUS_ID, SOCIAL_SECURITY, START_DATE, STARTING_SALARY, CURRENT_SALARY, TABC_CERTIFIED, TABC_CERT_EXPIRATION, CITIZENSHIP, MARITAL_STATUS, JOB_APPLICATION_ON_FILE, EMPLOYEE_TAX_ID) "
                     + "VALUES ('" + empFirst + "', '" + empLast + "', '" + empAddress + "', '"
                     + empPhone + "', '" + empEmail + "', '" + empDOBSQL + "', '" + empGender + "', '" +
                     empTypeID + "', '" + empStatusID + "', '" + empSS + "', '" + empStartDateSQL + "', '" + empStartSalary + "', '" + empCurrentSalary +

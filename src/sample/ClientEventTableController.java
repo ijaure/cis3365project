@@ -44,8 +44,8 @@ public class ClientEventTableController {
 
                 //set the values based on what's in the database
                 ce.client_event_id.set(rs.getInt("CLIENT_EVENT_ID")); //columnLabel should match column name in database
-                ce.fk_client_id.set(rs.getInt("FK_CLIENT_ID"));
-                ce.fk_event_id.set((rs.getInt("FK_EVENT_ID")));
+                ce.fk_client_id.set(rs.getInt("CLIENT_ID"));
+                ce.fk_event_id.set((rs.getInt("EVENT_ID")));
 
                 ceData.add(ce); //add to an observable list
             }
@@ -99,8 +99,8 @@ public class ClientEventTableController {
             Integer clientCell = (Integer) clientIDCol.getCellObservableValue(row).getValue();
             Integer eventCell = (Integer) eventIDCol.getCellObservableValue(row).getValue();
 
-            PreparedStatement statement = c.prepareStatement("UPDATE CLIENT_EVENT SET FK_CLIENT_ID = ?, " +
-                    "FK_EVENT_ID = ? "
+            PreparedStatement statement = c.prepareStatement("UPDATE CLIENT_EVENT SET CLIENT_ID = ?, " +
+                    "EVENT_ID = ? "
                     + "WHERE CLIENT_EVENT_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above
