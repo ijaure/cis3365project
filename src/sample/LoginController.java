@@ -23,6 +23,7 @@ public class LoginController {
         Connection c = null;
 
         try {
+            //URL FOR ACTUAL SERVER: jdbc:sqlserver://172.26.54.41\MSSQLSERVER;database=master
             String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=3365db";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             c = DriverManager.getConnection(url, user, pass);

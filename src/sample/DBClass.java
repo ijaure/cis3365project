@@ -13,6 +13,7 @@ public class DBClass {
     public static Connection connect(){
         Connection c = null;
         String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=3365db";
+        //URL FOR ACTUAL SERVER: jdbc:sqlserver://172.26.54.41\MSSQLSERVER;database=master
         try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
