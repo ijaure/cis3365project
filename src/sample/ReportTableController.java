@@ -217,8 +217,8 @@ public class ReportTableController {
                 c = DBClass.connect();
                 String SQL = "SELECT DISTINCT VENUE_CONTACT.CONTACT_PERSON_FIRST_NAME, VENUE_CONTACT.CONTACT_PERSON_LAST_NAME, VENUE_STATUS.VENUE_STATUS_NAME, VENUE.VENUE_NAME\n" +
                         "FROM VENUE_CONTACT JOIN VENUE ON VENUE_CONTACT.VENUE_ID=VENUE.VENUE_ID\n" +
-                        "JOIN VENUE_STATUS ON VENUE_STATUS.VENUE_STATUS_ID=VENUE.VENUE_STATUS_ID\n" +
-                        "JOIN EVENT_VENUE ON NOT EVENT_VENUE.VENUE_ID=VENUE.VENUE_ID ";
+                        "JOIN EVENT_VENUE ON VENUE_CONTACT.VENUE_ID NOT IN (SELECT VENUE_ID FROM EVENT_VENUE)\n" +
+                        "JOIN VENUE_STATUS ON VENUE_STATUS.VENUE_STATUS_ID=VENUE.VENUE_STATUS_ID WHERE VENUE_STATUS_NAME = 'Confirmed'";
                 ResultSet rs = c.createStatement().executeQuery(SQL);
                 int index = rs.getMetaData().getColumnCount();
                 //dynamically add table columns, so they are made based off database columns
@@ -251,6 +251,17 @@ public class ReportTableController {
             }
 
         }
+
+        //additional team queries
+        /*
+        MenuItems for first 5:
+         <MenuItem mnemonicParsing="false" onAction="#empRental" text="Rental Employees by Event" />
+         <MenuItem mnemonicParsing="false" onAction="#clientActive" text="Active Clients by Venue" />
+         <MenuItem mnemonicParsing="false" onAction="#emergencyEmpEvent" text="Employee by Event w/ Emergency Contact" />
+         <MenuItem mnemonicParsing="false" onAction="#clientActiveEventNote" text="Active Clients by Event w/ Notes" />
+         <MenuItem mnemonicParsing="false" onAction="#clientInactiveEventNote" text="Inactive Clients by Events w/ Notes" />
+
+
 
         public void empRental(){
             //clear the columns and rows from the previous query
@@ -508,8 +519,8 @@ public class ReportTableController {
             }
         }
 
-    //additional unused queries
-        /*public void queryEmployeeStatusName(){
+//other unused queries
+    public void queryEmployeeStatusName(){
             //clear the columns and rows from the previous query
             dynamicTable.getColumns().clear();
             dynamicTable.getItems().clear();
