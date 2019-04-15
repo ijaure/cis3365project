@@ -28,11 +28,11 @@ public class ReportTableController {
             Connection c;
             try {
                 c = DBClass.connect();
-                String SQL = "SELECT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME, PRODUCT.PRODUCT_NAME " +
+                String SQL = "SELECT DISTINCT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME, PRODUCT.PRODUCT_NAME " +
                         "FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.VENDOR_STATUS_ID=VENDOR_STATUS.VENDOR_STATUS_ID \n" +
                         "JOIN PRODUCT ON PRODUCT.VENDOR_ID=VENDOR.VENDOR_ID \n" +
-                        "JOIN REGION ON REGION.REGION_ID=VENDOR.VENDOR_REGION_ID WHERE VENDOR_STATUS_NAME='Current'\n" +
-                        "AND REGION_NAME='Texas,'";
+                        "JOIN REGION ON REGION.REGION_ID=VENDOR.VENDOR_REGION_ID WHERE VENDOR_STATUS_NAME='In-Active'\n" +
+                        "AND REGION_NAME='Texas'";
                 ResultSet rs = c.createStatement().executeQuery(SQL);
                 int index = rs.getMetaData().getColumnCount();
                 //dynamically add table columns, so they are made based off database columns
@@ -77,8 +77,8 @@ public class ReportTableController {
                 String SQL = "SELECT DISTINCT VENDOR.VENDOR_NAME, VENDOR_STATUS.VENDOR_STATUS_NAME, REGION.REGION_NAME " +
                         "FROM VENDOR JOIN VENDOR_STATUS ON VENDOR.VENDOR_STATUS_ID=VENDOR_STATUS.VENDOR_STATUS_ID\n" +
                         "JOIN PRODUCT ON NOT PRODUCT.VENDOR_ID=VENDOR.VENDOR_ID\n" +
-                        "JOIN REGION ON REGION.REGION_ID=VENDOR.VENDOR_REGION_ID WHERE VENDOR_STATUS_NAME='Not Specified'\n" +
-                        "AND REGION_NAME='California,'";
+                        "JOIN REGION ON REGION.REGION_ID=VENDOR.VENDOR_REGION_ID WHERE VENDOR_STATUS_NAME='In-Active'\n" +
+                        "AND REGION_NAME='California'";
                 ResultSet rs = c.createStatement().executeQuery(SQL);
                 int index = rs.getMetaData().getColumnCount();
                 //dynamically add table columns, so they are made based off database columns

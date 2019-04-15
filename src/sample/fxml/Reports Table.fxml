@@ -46,8 +46,8 @@
                               <Font name="Microsoft JhengHei UI Light" size="21.0" />
                            </font>
                            <items>
-                              <MenuItem mnemonicParsing="false" onAction="#vendorsTexasProduct" text="Current Vendors in Texas w/ Products" />
-                              <MenuItem mnemonicParsing="false" onAction="#vendorsCaliNoProduct" text="Unspecified Vendors in Cali. w/o Products" />
+                              <MenuItem mnemonicParsing="false" onAction="#vendorsTexasProduct" text="Inactive Vendors in Texas w/ Products" />
+                              <MenuItem mnemonicParsing="false" onAction="#vendorsCaliNoProduct" text="Inactive Vendors in Cali. w/o Products" />
                               <MenuItem mnemonicParsing="false" onAction="#orderJimBeam" text="Completed Orders for Jim Beam" />
                               <MenuItem mnemonicParsing="false" onAction="#orderDonJulio" text="In Progress Orders for Don Julio w/ Quantity &gt;10" />
                               <MenuItem mnemonicParsing="false" onAction="#venueContactNoEvent" text="Venue Contacts for Confirmed Venues w/o Event" />
