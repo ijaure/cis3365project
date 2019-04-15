@@ -10,11 +10,11 @@ public class Product {
     IntegerProperty fk_product_status_id = new SimpleIntegerProperty();
     IntegerProperty fk_vendor_id = new SimpleIntegerProperty();
     StringProperty product_name = new SimpleStringProperty();
-    DoubleProperty product_size = new SimpleDoubleProperty();
+    StringProperty product_size = new SimpleStringProperty();
     DoubleProperty product_price = new SimpleDoubleProperty();
     ObjectProperty<Date> product_price_date = new SimpleObjectProperty<>(this, "product_price_date");
 
-    public Product(IntegerProperty product_id, IntegerProperty fk_product_type_id, IntegerProperty fk_product_status_id, IntegerProperty fk_vendor_id, StringProperty product_name, DoubleProperty product_size, DoubleProperty product_price, ObjectProperty<Date> product_price_date) {
+    public Product(IntegerProperty product_id, IntegerProperty fk_product_type_id, IntegerProperty fk_product_status_id, IntegerProperty fk_vendor_id, StringProperty product_name, StringProperty product_size, DoubleProperty product_price, ObjectProperty<Date> product_price_date) {
         this.product_id = product_id;
         this.fk_product_type_id = fk_product_type_id;
         this.fk_product_status_id = fk_product_status_id;
@@ -88,15 +88,15 @@ public class Product {
         this.product_name.set(product_name);
     }
 
-    public double getProduct_size() {
+    public String getProduct_size() {
         return product_size.get();
     }
 
-    public DoubleProperty product_sizeProperty() {
+    public StringProperty product_sizeProperty() {
         return product_size;
     }
 
-    public void setProduct_size(double product_size) {
+    public void setProduct_size(String product_size) {
         this.product_size.set(product_size);
     }
 

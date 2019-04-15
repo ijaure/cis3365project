@@ -126,7 +126,7 @@ public class ProductFormController {
             Integer product_status = productStatusList.getSelectionModel().getSelectedItem().getProduct_status_id();
             Integer product_vendor = productVendorList.getSelectionModel().getSelectedItem().getVendor_id();
             String product_name = productNameInput.getText();
-            Double product_size = Double.parseDouble(productSizeInput.getText());
+            String product_size = productSizeInput.getText();
             Double product_price = Double.parseDouble(productPriceInput.getText());
             java.util.Date product_price_date = formatter.parse(productPriceDateInput.getText());
             java.sql.Date product_price_datesql = new java.sql.Date(product_price_date.getTime());

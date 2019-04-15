@@ -25,7 +25,7 @@ public class ProductTableController {
     public TableColumn<Product, Number> productStatusCol;
     public TableColumn<Product, Number> productVendorCol;
     public TableColumn<Product, String> productNameCol;
-    public TableColumn<Product, Number> productSizeCol;
+    public TableColumn<Product, String> productSizeCol;
     public TableColumn<Product, Number> productPriceCol;
     public TableColumn<Product, Date> productPriceDateCol;
 
@@ -57,7 +57,7 @@ public class ProductTableController {
                 p.fk_product_status_id.set((rs.getInt("PRODUCT_STATUS_ID")));
                 p.fk_vendor_id.set(rs.getInt("VENDOR_ID"));
                 p.product_name.set((rs.getString("PRODUCT_NAME")));
-                p.product_size.set(rs.getDouble("PRODUCT_SIZE"));
+                p.product_size.set(rs.getString("PRODUCT_SIZE"));
                 p.product_price.set(rs.getDouble("PRODUCT_PRICE"));
                 p.product_price_date.set(rs.getDate("PRODUCT_PRICE_DATE"));
 
@@ -118,12 +118,12 @@ public class ProductTableController {
                         ).setProduct_name(t.getNewValue())
         );
 
-        productSizeCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
+        productSizeCol.setCellFactory(TextFieldTableCell.forTableColumn());
         productSizeCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<Product, Number> t) ->
+                (TableColumn.CellEditEvent<Product, String> t) ->
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setProduct_size(Double.parseDouble(String.valueOf(t.getNewValue())))
+                        ).setProduct_size(t.getNewValue())
         );
 
         productPriceCol.setCellFactory(TextFieldTableCell.<Product, Number>forTableColumn(new NumberStringConverter()));
@@ -165,7 +165,7 @@ public class ProductTableController {
             Integer productStatusCell = (Integer) productStatusCol.getCellObservableValue(row).getValue();
             Integer productVendorCell = (Integer) productVendorCol.getCellObservableValue(row).getValue();
             String productNameCell = (String) productNameCol.getCellObservableValue(row).getValue();
-            Double productSizeCell = (Double) productSizeCol.getCellObservableValue(row).getValue();
+            String productSizeCell = (String) productSizeCol.getCellObservableValue(row).getValue();
             Double productPriceCell = (Double) productPriceCol.getCellObservableValue(row).getValue();
             java.util.Date productPriceDateCell = productPriceDateCol.getCellObservableValue(row).getValue();
             java.sql.Date productPriceDateSQLCell = new java.sql.Date(productPriceDateCell.getTime());
@@ -181,7 +181,7 @@ public class ProductTableController {
             statement.setInt(2, productStatusCell);
             statement.setInt(3, productVendorCell);
             statement.setString(4, productNameCell);
-            statement.setDouble(5, productSizeCell);
+            statement.setString(5, productSizeCell);
             statement.setDouble(6, productPriceCell);
             statement.setDate(7, productPriceDateSQLCell);
             statement.execute();
