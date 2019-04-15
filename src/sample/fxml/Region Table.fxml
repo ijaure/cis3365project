@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="430.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegionTableController">
+<AnchorPane prefHeight="458.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegionTableController">
    <children>
       <HBox prefHeight="60.0" prefWidth="607.0" style="-fx-background-color: #916D91;">
          <children>
@@ -34,7 +34,7 @@
       </HBox>
     <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="607.0">
          <children>
-            <HBox layoutY="318.0" prefHeight="53.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
+            <HBox layoutY="318.0" prefHeight="91.0" prefWidth="607.0" style="-fx-background-color: #E9E6E9;">
                <children>
                   <HBox spacing="3.0">
                      <children>
@@ -46,7 +46,7 @@
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="150.0" top="6.0" />
+                              <Insets left="185.0" top="6.0" />
                            </HBox.margin>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#editRegion" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
@@ -61,17 +61,6 @@
                            </cursor>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#deleteRegion" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#saveRegionChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -101,5 +90,23 @@
             </ScrollPane>
          </children>
       </AnchorPane>
+      <HBox layoutX="416.0" layoutY="463.0">
+         <padding>
+            <Insets left="-120.0" top="-25.0" />
+         </padding>
+         <children>
+            <Button mnemonicParsing="false" onAction="#saveRegionChanges" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #916D91;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Microsoft JhengHei UI" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-40.0" top="-10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
