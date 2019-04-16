@@ -12,10 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.CharacterIterator;
 
 public class ClientEventTableController {
@@ -113,12 +110,38 @@ public class ClientEventTableController {
 
     }
 
-    public void openClientTable(){
+    public void deleteClientEvent() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+
+        Statement stmt = c.createStatement();
+
+        if (ceTable.getSelectionModel().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        } else {
+            int row = ceTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+            Integer currentID = (Integer) ceIDCol.getCellObservableValue(row).getValue(); //get the id of the selected
+
+            //delete the vendor whose id matches the currently selected vendor's id
+            String SQL = "DELETE FROM CLIENT_EVENT WHERE CLIENT_EVENT_ID =" + currentID;
+
+            stmt.executeUpdate(SQL);
+            ceData.remove(ceTable.getSelectionModel().getSelectedIndex()); //update the observable list
+            ceTable.setItems(ceData); //update the tableview so the deletion shows immediately
+            c.close();
+        }
+    }
+
+    public void openClientEventForm(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/ClientTable Updated.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Client Event Form.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Client Table");
+            stage.setTitle("New Client Event");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

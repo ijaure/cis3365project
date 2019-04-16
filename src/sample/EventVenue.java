@@ -5,15 +5,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class EventVenue {
     IntegerProperty event_venue_id = new SimpleIntegerProperty();
-    IntegerProperty fk_client_event_id = new SimpleIntegerProperty();
     IntegerProperty fk_venue_id = new SimpleIntegerProperty();
-    IntegerProperty fk_client_id = new SimpleIntegerProperty();
+    IntegerProperty fk_event_id = new SimpleIntegerProperty();
 
-    public EventVenue(IntegerProperty event_venue_id, IntegerProperty fk_client_event_id, IntegerProperty fk_venue_id, IntegerProperty fk_client_id) {
+    public EventVenue(IntegerProperty event_venue_id, IntegerProperty fk_venue_id, IntegerProperty fk_event_id) {
         this.event_venue_id = event_venue_id;
-        this.fk_client_event_id = fk_client_event_id;
         this.fk_venue_id = fk_venue_id;
-        this.fk_client_id = fk_client_id;
+        this.fk_event_id = fk_event_id;
     }
 
     public EventVenue() {
@@ -31,18 +29,6 @@ public class EventVenue {
         this.event_venue_id.set(event_venue_id);
     }
 
-    public int getFk_client_event_id() {
-        return fk_client_event_id.get();
-    }
-
-    public IntegerProperty fk_client_event_idProperty() {
-        return fk_client_event_id;
-    }
-
-    public void setFk_client_event_id(int fk_client_event_id) {
-        this.fk_client_event_id.set(fk_client_event_id);
-    }
-
     public int getFk_venue_id() {
         return fk_venue_id.get();
     }
@@ -55,15 +41,15 @@ public class EventVenue {
         this.fk_venue_id.set(fk_venue_id);
     }
 
-    public int getFk_client_id() {
-        return fk_client_id.get();
+    public int getFk_event_id() {
+        return fk_event_id.get();
     }
 
-    public IntegerProperty fk_client_idProperty() {
-        return fk_client_id;
+    public IntegerProperty fk_event_idProperty() {
+        return fk_event_id;
     }
 
-    public void setFk_client_id(int fk_client_id) {
-        this.fk_client_id.set(fk_client_id);
+    public void setFk_event_id(int fk_event_id) {
+        this.fk_event_id.set(fk_event_id);
     }
 }

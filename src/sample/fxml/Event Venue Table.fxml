@@ -39,9 +39,20 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
+                        <Button mnemonicParsing="false" onAction="#openEventVenueForm" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #916D91;" text="New Event Venue" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="135.0" top="6.0" />
+                           </HBox.margin>
+                        </Button>
                         <Button mnemonicParsing="false" onAction="#editEventVenue" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="235.0" top="6.0" />
+                              <Insets left="10.0" top="6.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Microsoft JhengHei UI" size="12.0" />
@@ -49,6 +60,17 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#deleteEventVenue" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
                         </Button>
                         <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
                            <cursor>
@@ -77,9 +99,8 @@
                   <TableView fx:id="evTable" prefHeight="317.0" prefWidth="641.0">
                     <columns>
                       <TableColumn fx:id="evIDCol" prefWidth="40.0" text="ID" />
-                        <TableColumn fx:id="ceIDCol" prefWidth="120.0" text="Client Event ID" />
                         <TableColumn fx:id="venueIDCol" prefWidth="90.0" text="Venue ID" />
-                        <TableColumn fx:id="clientIDCol" prefWidth="90.0" text="Client" />
+                        <TableColumn fx:id="eventIDCol" prefWidth="90.0" text="Event ID" />
                     </columns>
                   </TableView>
                </content>

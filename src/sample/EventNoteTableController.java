@@ -12,10 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class EventNoteTableController {
     public ObservableList<EventNote> enData = FXCollections.observableArrayList();
@@ -111,12 +108,38 @@ public class EventNoteTableController {
 
     }
 
-    public void openEventTable(){
+    public void deleteEventNote() throws SQLException {
+        //get the connection
+        Connection c = DBClass.connect();
+
+        Statement stmt = c.createStatement();
+
+        if (enTable.getSelectionModel().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        } else {
+            int row = enTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+            Integer currentID = (Integer) enIDCol.getCellObservableValue(row).getValue(); //get the id of the selected
+
+            //delete the vendor whose id matches the currently selected vendor's id
+            String SQL = "DELETE FROM EVENT_NOTE WHERE EVENT_NOTE_ID =" + currentID;
+
+            stmt.executeUpdate(SQL);
+            enData.remove(enTable.getSelectionModel().getSelectedIndex()); //update the observable list
+            enTable.setItems(enData); //update the tableview so the deletion shows immediately
+            c.close();
+        }
+    }
+
+    public void openEventNoteForm(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Note Form.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Event Table");
+            stage.setTitle("New Event Note");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

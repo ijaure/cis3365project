@@ -12,10 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class EventPlannerTableController {
     public ObservableList<EventPlanner> epData = FXCollections.observableArrayList();
@@ -112,8 +109,30 @@ public class EventPlannerTableController {
 
     }
 
-    public void deleteEventPlanner(){
+    public void deleteEventPlanner() throws SQLException {
+//get the connection
+        Connection c = DBClass.connect();
 
+        Statement stmt = c.createStatement();
+
+        if (epTable.getSelectionModel().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Row Selection");
+            alert.setContentText("Please select a row in the table");
+            alert.showAndWait();
+        } else {
+            int row = epTable.getSelectionModel().getSelectedIndex(); //get the index of the current selection
+            Integer currentID = (Integer) epIDCol.getCellObservableValue(row).getValue(); //get the id of the selected
+
+            //delete the vendor whose id matches the currently selected vendor's id
+            String SQL = "DELETE FROM EVENT_PLANNER WHERE EVENT_PLANNER_ID =" + currentID;
+
+            stmt.executeUpdate(SQL);
+            epData.remove(epTable.getSelectionModel().getSelectedIndex()); //update the observable list
+            epTable.setItems(epData); //update the tableview so the deletion shows immediately
+            c.close();
+        }
     }
 
     public void openEventTable(){

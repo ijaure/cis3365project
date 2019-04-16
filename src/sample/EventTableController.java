@@ -377,7 +377,7 @@ public class EventTableController {
         }
     }
 
-    public void openEventVenue(){
+    public void openEventVenueTable(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Venue Table.fxml"));
             Parent root = fxmlLoader.load();
