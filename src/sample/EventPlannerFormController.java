@@ -10,32 +10,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EventVenueFormController {
+public class EventPlannerFormController {
 
     public ObservableList<Event> eventData = FXCollections.observableArrayList();
-    public ObservableList<Venue> venueData = FXCollections.observableArrayList();
+    public ObservableList<Planner> plannerData = FXCollections.observableArrayList();
 
     public ComboBox<Event> eventList;
-    public ComboBox<Venue> venueList;
+    public ComboBox<Planner> plannerList;
 
     public void initialize(){
         Connection c;
 
         try{
             c = DBClass.connect();
-            String SQL = "SELECT * from VENUE";
+            String SQL = "SELECT * from PLANNER";
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
             while(rs.next()){
-                Venue v= new Venue();
+                Planner p = new Planner();
 
                 //assign an ID Name from the database
-                v.venue_id.set(rs.getInt("VENUE_ID"));
-                v.venue_name.set(rs.getString("VENUE_NAME"));
+                p.planner_id.set(rs.getInt("PLANNER_ID"));
+                p.planner_first_name.set(rs.getString("PLANNER_FIRST_NAME"));
+                p.planner_last_name.set(rs.getString("PLANNER_LAST_NAME"));
 
-                venueData.add(v); //add these to an observable list
+                plannerData.add(p); //add these to an observable list
             }
-            venueList.setItems(venueData); //set the ComboBox values to the observable list
+            plannerList.setItems(plannerData); //set the ComboBox values to the observable list
             c.close();
         }
         catch(Exception e){ //catch any exceptions
@@ -62,19 +63,19 @@ public class EventVenueFormController {
         }
         catch(Exception e){ //catch any exceptions
             e.printStackTrace();
-            System.out.println("Error on Building Event Employee Combobox Data");
+            System.out.println("Error on Building Combobox Data");
         }
     }
 
 
-    public void addEventVenue() throws SQLException {
+    public void addEventPlanner() throws SQLException {
         //get the connection
         Connection c = DBClass.connect();
         Statement stmt = c.createStatement();
 
         //output an error if any of the fields are empty
         if(eventList.getSelectionModel().isEmpty() ||
-                venueList.getSelectionModel().isEmpty())
+                plannerList.getSelectionModel().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Missing Values");
@@ -85,11 +86,11 @@ public class EventVenueFormController {
         else {
             //collect all the values from the textfields
             Integer event = eventList.getSelectionModel().getSelectedItem().getEvent_id();
-            Integer venue = venueList.getSelectionModel().getSelectedItem().getVenue_id();
+            Integer planner = plannerList.getSelectionModel().getSelectedItem().getPlanner_id();
 
             //insert all of these values to the db, make sure they are in the same order as in the db
-            String SQL = "INSERT INTO EVENT_VENUE " + "(EVENT_ID, VENUE_ID) "
-                    + "VALUES ('" + event + "', '" + venue + "')";
+            String SQL = "INSERT INTO EVENT_PLANNER " + "(PLANNER_ID, EVENT_ID) "
+                    + "VALUES ('" + planner + "', '" + event + "')";
 
             stmt.executeUpdate(SQL);
             c.close();

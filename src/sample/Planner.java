@@ -107,4 +107,9 @@ public class Planner {
     public void setFk_venue_id(int fk_venue_id) {
         this.fk_venue_id.set(fk_venue_id);
     }
+
+    @Override
+    public String toString(){
+        return planner_id.get() + ", " + planner_first_name.get() + ", " + planner_last_name.get();
+    }
 }

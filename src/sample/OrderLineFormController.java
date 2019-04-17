@@ -127,11 +127,7 @@ public class OrderLineFormController {
                     + "VALUES ('" + order + "', '" + product + "', '" + lineStatus + "', '"
                     + quantity + "', '" + total + "')";
 
-            String SQL2 =  "INSERT INTO PRODUCT_VENDOR (VENDOR_ID, PRODUCT_ID) "
-                    + "VALUES('" + vendor + "', '" + product + "')";
-
             stmt.addBatch(SQL); //execute the sql statement
-            stmt.addBatch(SQL2);
             stmt.executeBatch();
             c.close();
         }

@@ -39,7 +39,7 @@
                <children>
                   <HBox spacing="3.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#openClientEventForm" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #916D91;" text="New Client Event" textAlignment="CENTER" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openClientEventForm" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #916D91;" text="New Client Event" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -47,19 +47,8 @@
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="135.0" top="6.0" />
+                              <Insets left="139.0" top="6.0" />
                            </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#openEventTable" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #916D91;" text="Event Table" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#deleteClientEvent" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
@@ -83,6 +72,21 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openClientTable" text="View Client Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEventTable" text="View Event Table" />
+                           </items>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </MenuButton>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />

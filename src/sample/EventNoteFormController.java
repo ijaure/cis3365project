@@ -85,11 +85,11 @@ public class EventNoteFormController {
         else {
             //collect all the values from the textfields
             Integer event = eventList.getSelectionModel().getSelectedItem().getEvent_id();
-            Integer emp = noteList.getSelectionModel().getSelectedItem().getNote_id();
+            Integer note = noteList.getSelectionModel().getSelectedItem().getNote_id();
 
             //insert all of these values to the db, make sure they are in the same order as in the db
             String SQL = "INSERT INTO EVENT_NOTE " + "(EVENT_ID, NOTE_ID) "
-                    + "VALUES ('" + event + "', '" + emp + "')";
+                    + "VALUES ('" + event + "', '" + note + "')";
 
             stmt.executeUpdate(SQL);
             c.close();

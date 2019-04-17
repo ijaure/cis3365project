@@ -77,7 +77,6 @@
                               <MenuItem mnemonicParsing="false" onAction="#openEmpStatusTable" text="View Emp. Status Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openEmpContactTable" text="View Emp. Emergency Contact Table" />
                               <MenuItem mnemonicParsing="false" onAction="#openTaxInfoTable" text="View Emp. Tax Info Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openEventEmployee" text="View Event Employee Table" />
                           </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />

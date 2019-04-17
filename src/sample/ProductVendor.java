@@ -7,13 +7,11 @@ public class ProductVendor {
     IntegerProperty product_vendor_id = new SimpleIntegerProperty();
     IntegerProperty fk_product_id = new SimpleIntegerProperty();
     IntegerProperty fk_vendor_id = new SimpleIntegerProperty();
-    IntegerProperty fk_order_id = new SimpleIntegerProperty();
 
-    public ProductVendor(IntegerProperty product_vendor_id, IntegerProperty fk_product_id, IntegerProperty fk_vendor_id, IntegerProperty fk_order_id) {
+    public ProductVendor(IntegerProperty product_vendor_id, IntegerProperty fk_product_id, IntegerProperty fk_vendor_id) {
         this.product_vendor_id = product_vendor_id;
         this.fk_product_id = fk_product_id;
         this.fk_vendor_id = fk_vendor_id;
-        this.fk_order_id = fk_order_id;
     }
 
     public ProductVendor() {
@@ -53,17 +51,5 @@ public class ProductVendor {
 
     public void setFk_vendor_id(int fk_vendor_id) {
         this.fk_vendor_id.set(fk_vendor_id);
-    }
-
-    public int getFk_order_id() {
-        return fk_order_id.get();
-    }
-
-    public IntegerProperty fk_order_idProperty() {
-        return fk_order_id;
-    }
-
-    public void setFk_order_id(int fk_order_id) {
-        this.fk_order_id.set(fk_order_id);
     }
 }

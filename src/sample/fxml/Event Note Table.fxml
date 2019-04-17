@@ -44,22 +44,11 @@
                               <Font name="Microsoft JhengHei UI" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="145.0" top="6.0" />
+                              <Insets left="140.0" top="6.0" />
                            </HBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#openNoteTable" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #916D91;" text="Note Table" textAlignment="CENTER" textFill="WHITE">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font name="Microsoft JhengHei UI" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" top="6.0" />
-                           </HBox.margin>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#deleteEventNote" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Delete" textAlignment="CENTER" textFill="WHITE">
                            <cursor>
@@ -83,6 +72,21 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #916D91;" text="Menu" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Microsoft JhengHei UI" size="12.0" />
+                           </font>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openNoteTable" text="View Note Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEventTable" text="View Event Table" />
+                           </items>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </MenuButton>
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />

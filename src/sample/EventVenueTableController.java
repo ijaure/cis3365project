@@ -163,12 +163,12 @@ public class EventVenueTableController {
         }
     }
 
-    public void openClientEventTable(){
+    public void openEventTable(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Client Event Table.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Event Table Updated.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Client Event Table");
+            stage.setTitle("Event Table");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

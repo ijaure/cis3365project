@@ -1,14 +1,14 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
+        import javafx.collections.FXCollections;
+        import javafx.collections.ObservableList;
+        import javafx.scene.control.Alert;
+        import javafx.scene.control.ComboBox;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+        import java.sql.Connection;
+        import java.sql.ResultSet;
+        import java.sql.SQLException;
+        import java.sql.Statement;
 
 public class ClientEventFormController {
 
@@ -86,11 +86,11 @@ public class ClientEventFormController {
         else {
             //collect all the values from the textfields
             Integer event = eventList.getSelectionModel().getSelectedItem().getEvent_id();
-            Integer emp = clientList.getSelectionModel().getSelectedItem().getClient_id();
+            Integer client = clientList.getSelectionModel().getSelectedItem().getClient_id();
 
             //insert all of these values to the db, make sure they are in the same order as in the db
             String SQL = "INSERT INTO CLIENT_EVENT " + "(CLIENT_ID, EVENT_ID) "
-                    + "VALUES ('" + emp + "', '" + event + "')";
+                    + "VALUES ('" + client + "', '" + event + "')";
 
             stmt.executeUpdate(SQL);
             c.close();

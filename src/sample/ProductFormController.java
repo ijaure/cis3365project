@@ -134,9 +134,15 @@ public class ProductFormController {
             //insert all of these values to the db, make sure they are in the same order as in the db
             String SQL = "INSERT INTO PRODUCT " + "(PRODUCT_TYPE_ID, PRODUCT_STATUS_ID, VENDOR_ID, PRODUCT_NAME, PRODUCT_SIZE, PRODUCT_PRICE, PRODUCT_PRICE_DATE) "
                     + "VALUES ('" + product_type + "', '" + product_status + "', '" + product_vendor + "', '"
-                    + product_name + "', '" + product_size + "', '" + product_price + "', '" + product_price_datesql + "')";
+                    + product_name + "', '" + product_size + "', '" + product_price + "', '" + product_price_datesql + "'); " +
+                    "DECLARE @newProduct_id int" + " SET @newProduct_id = @@IDENTITY;";
 
-            stmt.executeUpdate(SQL); //execute the sql statement
+            String SQL2 =  "INSERT INTO PRODUCT_VENDOR (VENDOR_ID, PRODUCT_ID) "
+                    + "VALUES('" + product_vendor + "', @newProduct_id);";
+
+            stmt.addBatch(SQL); //execute the sql statement
+            stmt.addBatch(SQL2);
+            stmt.executeBatch();
             c.close(); //close the connection
         }
     }

@@ -81,7 +81,7 @@
                            </font>
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#openVenueTable" text="View Venue Table" />
-                              <MenuItem mnemonicParsing="false" onAction="#openClientEventTable" text="View Client Event Table" />
+                              <MenuItem mnemonicParsing="false" onAction="#openEventTable" text="View Event Table" />
                            </items>
                            <HBox.margin>
                               <Insets left="10.0" top="6.0" />

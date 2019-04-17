@@ -12,7 +12,7 @@ public class DBClass {
 
     public static Connection connect(){
         Connection c = null;
-        //String urlLocal = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=3365db";
+        //String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=3365db";
         String url = "jdbc:sqlserver://172.26.54.41\\MSSQLSERVER;database=CapitalBeverage";
         try
         {
