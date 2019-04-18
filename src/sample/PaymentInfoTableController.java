@@ -25,7 +25,7 @@ public class PaymentInfoTableController {
     public TableColumn<PaymentInformation, Number> payInfoClientCol;
     public TableColumn<PaymentInformation, String> fNameCol;
     public TableColumn<PaymentInformation, String> lNameCol;
-    public TableColumn<PaymentInformation, Number> ccNumbCol;
+    public TableColumn<PaymentInformation, String> ccNumbCol;
     public TableColumn<PaymentInformation, Number> cvcNumbCol;
     public TableColumn<PaymentInformation, Number> expMonthCol;
     public TableColumn<PaymentInformation, Number> expYearCol;
@@ -59,11 +59,11 @@ public class PaymentInfoTableController {
                 pi.fk_client_id.set(rs.getInt("CLIENT_ID"));
                 pi.payment_first_name.set((rs.getString("PAYMENT_FIRST_NAME")));
                 pi.payment_last_name.set(rs.getString("PAYMENT_LAST_NAME"));
-                pi.cc_number.set((rs.getInt("CC_NUMBER")));
+                pi.cc_number.set((rs.getString("CC_NUMBER")));
                 pi.cvc_number.set(rs.getInt("CVC_NUMBER"));
                 pi.exp_month_date.set(rs.getInt("EXP_MONTH_DATE"));
                 pi.exp_year_date.set(rs.getInt("EXP_YEAR_DATE"));
-                pi.payment_requirement.set(rs.getInt("PAYMENT_REQUIREMENT"));
+                pi.payment_requirement.set(rs.getInt("PAYMENT_REQUIREMENT_ID"));
 
                 payInfoData.add(pi); //add to an observable list
             }
@@ -103,12 +103,12 @@ public class PaymentInfoTableController {
                         ).setPayment_last_name(t.getNewValue())
         );
 
-        ccNumbCol.setCellFactory(TextFieldTableCell.<PaymentInformation, Number>forTableColumn(new NumberStringConverter()));
+        ccNumbCol.setCellFactory(TextFieldTableCell.forTableColumn());
         ccNumbCol.setOnEditCommit(
-                (TableColumn.CellEditEvent<PaymentInformation, Number> t) ->
+                (TableColumn.CellEditEvent<PaymentInformation, String> t) ->
                         ( t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setCc_number(Integer.parseInt(String.valueOf(t.getNewValue())))
+                        ).setCc_number(t.getNewValue())
         );
 
         cvcNumbCol.setCellFactory(TextFieldTableCell.<PaymentInformation, Number>forTableColumn(new NumberStringConverter()));
@@ -165,7 +165,7 @@ public class PaymentInfoTableController {
             Integer clientCell = (Integer) payInfoClientCol.getCellObservableValue(row).getValue();
             String fNameCell = (String) fNameCol.getCellObservableValue(row).getValue();
             String lNameCell = (String) lNameCol.getCellObservableValue(row).getValue();
-            Integer ccCell = (Integer) ccNumbCol.getCellObservableValue(row).getValue();
+            String ccCell = (String) ccNumbCol.getCellObservableValue(row).getValue();
             Integer cvcCell = (Integer) cvcNumbCol.getCellObservableValue(row).getValue();
             Integer monthCell = (Integer) expMonthCol.getCellObservableValue(row).getValue();
             Integer yearCell = (Integer) expYearCol.getCellObservableValue(row).getValue();
@@ -173,7 +173,7 @@ public class PaymentInfoTableController {
 
             PreparedStatement statement = c.prepareStatement("UPDATE PAYMENT_INFORMATION SET CLIENT_ID = ?, " +
                     "PAYMENT_FIRST_NAME = ?, PAYMENT_LAST_NAME = ?, CC_NUMBER = ?, CVC_NUMBER = ?, EXP_MONTH_DATE = ?, "
-                    + "EXP_YEAR_DATE = ?, PAYMENT_REQUIREMENT = ? "
+                    + "EXP_YEAR_DATE = ?, PAYMENT_REQUIREMENT_ID = ? "
                     + "WHERE PAYMENT_INFO_ID =" + currentID);
 
             // set the value of each question mark in the sql statement to the variables above
@@ -181,7 +181,7 @@ public class PaymentInfoTableController {
             statement.setInt(1, clientCell);
             statement.setString(2, fNameCell);
             statement.setString(3, lNameCell);
-            statement.setInt(4, ccCell);
+            statement.setString(4, ccCell);
             statement.setInt(5, cvcCell);
             statement.setInt(6, monthCell);
             statement.setInt(7, yearCell);

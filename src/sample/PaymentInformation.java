@@ -10,13 +10,13 @@ public class PaymentInformation {
     IntegerProperty fk_client_id = new SimpleIntegerProperty();
     StringProperty payment_first_name = new SimpleStringProperty();
     StringProperty payment_last_name = new SimpleStringProperty();
-    IntegerProperty cc_number = new SimpleIntegerProperty();
+    StringProperty cc_number = new SimpleStringProperty();
     IntegerProperty cvc_number = new SimpleIntegerProperty();
     IntegerProperty exp_month_date = new SimpleIntegerProperty();
     IntegerProperty exp_year_date = new SimpleIntegerProperty();
     IntegerProperty payment_requirement = new SimpleIntegerProperty();
 
-    public PaymentInformation(IntegerProperty payment_info_id, IntegerProperty fk_client_id, StringProperty payment_first_name, StringProperty payment_last_name, IntegerProperty cc_number, IntegerProperty cvc_number, IntegerProperty exp_month_date, IntegerProperty exp_year_date, IntegerProperty payment_requirement) {
+    public PaymentInformation(IntegerProperty payment_info_id, IntegerProperty fk_client_id, StringProperty payment_first_name, StringProperty payment_last_name, StringProperty cc_number, IntegerProperty cvc_number, IntegerProperty exp_month_date, IntegerProperty exp_year_date, IntegerProperty payment_requirement) {
         this.payment_info_id = payment_info_id;
         this.fk_client_id = fk_client_id;
         this.payment_first_name = payment_first_name;
@@ -79,15 +79,15 @@ public class PaymentInformation {
         this.payment_last_name.set(payment_last_name);
     }
 
-    public int getCc_number() {
+    public String getCc_number() {
         return cc_number.get();
     }
 
-    public IntegerProperty cc_numberProperty() {
+    public StringProperty cc_numberProperty() {
         return cc_number;
     }
 
-    public void setCc_number(int cc_number) {
+    public void setCc_number(String cc_number) {
         this.cc_number.set(cc_number);
     }
 

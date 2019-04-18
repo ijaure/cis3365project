@@ -98,13 +98,13 @@ public class PaymentInfoFormController {
             Integer client = payClientList.getSelectionModel().getSelectedItem().getClient_id();
             String fName = fNameInput.getText();
             String lName = lNameInput.getText();
-            Integer cc = Integer.parseInt(ccInput.getText());
+            String cc = ccInput.getText();
             Integer cvc = Integer.parseInt(cvcInput.getText());
             Integer month = Integer.parseInt(expMonthInput.getText());
             Integer year = Integer.parseInt(expYearInput.getText());
             Integer payReq = payReqList.getSelectionModel().getSelectedItem().getPayment_req_id();
 
-            String sqlStatement = "INSERT INTO PAYMENT_INFORMATION" + "(CLIENT_ID, PAYMENT_FIRST_NAME, PAYMENT_LAST_NAME, CC_NUMBER, CVC_NUMBER, EXP_MONTH_DATE, EXP_YEAR_DATE, PAYMENT_REQUIREMENT)" +
+            String sqlStatement = "INSERT INTO PAYMENT_INFORMATION" + "(CLIENT_ID, PAYMENT_FIRST_NAME, PAYMENT_LAST_NAME, CC_NUMBER, CVC_NUMBER, EXP_MONTH_DATE, EXP_YEAR_DATE, PAYMENT_REQUIREMENT_ID)" +
                     " VALUES ('" + client + "', '" + fName + "', '" + lName + "', '" + cc + "', '" + cvc + "', '" + month + "', '" + year + "', '" + payReq + "')";
 
             //If statement for validations before submission
